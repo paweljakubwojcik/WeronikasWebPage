@@ -38,14 +38,16 @@ scene.add(skybox);
 
 var controls = new OrbitControls(camera, renderer.domElement);
 
-//window.addEventListener('resize', resize, false);
+window.addEventListener('resize', resize, false);
 //controls.addEventListener('change',render, false);
 controls.minDistance = 500;
 controls.maxDistance = 1500;
 
 function resize(){
     camera.aspect = window.innerWidth / window.innerHeight;
+   
     renderer.setSize(window.innerWidth, window.innerHeight );
+    camera.updateProjectionMatrix();
     
 }
 

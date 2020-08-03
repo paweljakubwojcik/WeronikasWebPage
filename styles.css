@@ -54,30 +54,37 @@ canvas
     display: block;
     width:70px;
     height: 100%;
-    margin-right: 10px;
+    margin-right: 0 10px 0;
+    transition: all ease .5s;
 }
 .menu:hover
 {
     cursor: pointer;
+    background-color: #77777777;
 }
 .menu::before , .menu::after
 {
-    top:15px;
-    left:25px;
+    top:25px;
+    left:calc(50% - 10px);
     content: "";
     position:absolute;
     display:block;
     width:20px;
     border-top: 3px solid #ddd;
+    transition: all ease .5s;
     
 }
 .menu::before
 {
-    box-shadow: 0 8px #ddd ;
+    box-shadow: 0 -7px #ddd ;
 }
 .menu::after
 {
-    box-shadow: 0 16px #ddd ;
+    box-shadow: 0 7px #ddd ;
+}
+.menu:hover::before , .menu:hover::after
+{
+    transform: scaleY(1.1);
 }
 .menuBar
 {
