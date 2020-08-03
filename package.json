@@ -1,0 +1,14 @@
+{
+  "name": "three-js-tutorial",
+  "version": "1.0.0",
+  "description": "Tutorial with three.js",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Paweł Wójcik",
+  "license": "ISC",
+  "dependencies": {
+    "three": "^0.119.1"
+  }
+}
