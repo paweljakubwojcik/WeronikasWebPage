@@ -13,7 +13,8 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 
-//tworzenie boxów z lokacjami
+//tworzenie boxów z lokacjami 
+//TO DO - ZMIANA NA ZDJ OD SIS 
 function createLocation(location) {
     let materialArray = [];
     let texture_bk = new THREE.TextureLoader().load(location + '/negx.jpg');
@@ -39,8 +40,7 @@ function createLocation(location) {
 
 let skyboxes = [createLocation('Medborgarplatsen'), createLocation('Parliament'), createLocation('SaintLazarusChurch'), createLocation('SaintLazarusChurch2')]; //lista miejsc
 
-//scene.add(skyboxes[0]); //inicjalizacja pierwszej sceny
-
+//actualna sfera
 let skySphereGeo = new THREE.SphereGeometry(10000, 32, 32);
 let textureSphere = new THREE.TextureLoader().load('50983154_1766015216836260_8491205903888941056_n.jpg');
 let skySphere = new THREE.Mesh(skySphereGeo, new THREE.MeshBasicMaterial({ map: textureSphere, side: THREE.BackSide }));
@@ -49,9 +49,8 @@ scene.add(skySphere);
 var controls = new OrbitControls(camera, renderer.domElement); //poruszanie się za pomocą myszki
 
 window.addEventListener('resize', resize, false);
-//controls.addEventListener('change',render, false);
-// controls.minDistance = 500;
-// controls.maxDistance = 1500;
+controls.minDistance = 500;
+controls.maxDistance = 1500;
 
 function resize() {
     camera.aspect = window.innerWidth / window.innerHeight;
