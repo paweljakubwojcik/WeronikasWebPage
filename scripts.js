@@ -62,12 +62,9 @@ render();
 ///////////////
 let menu = document.querySelector(".menu");
 let menuBar = document.querySelector(".menuBar");
+
 menu.addEventListener('click' , showMenu , false);
 
-
-menuBar.addEventListener("animationend", function(){
-menuBar.classList.remove("hidden");
-} );
 
 function showMenu() 
 {
