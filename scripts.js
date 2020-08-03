@@ -6,6 +6,8 @@ var aspectRatio = window.innerWidth / window.innerHeight;
 var camera = new THREE.PerspectiveCamera(55, aspectRatio, 0.1, 30000);
 camera.position.set(-900, -200, -900);
 
+//camera.position.set(0, 0, 100);
+
 var renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
@@ -37,14 +39,19 @@ function createLocation(location) {
 
 let skyboxes = [createLocation('Medborgarplatsen'), createLocation('Parliament'), createLocation('SaintLazarusChurch'), createLocation('SaintLazarusChurch2')]; //lista miejsc
 
-scene.add(skyboxes[0]); //inicjalizacja pierwszej sceny
+//scene.add(skyboxes[0]); //inicjalizacja pierwszej sceny
+
+let skySphereGeo = new THREE.SphereGeometry(10000, 32, 32);
+let textureSphere = new THREE.TextureLoader().load('50983154_1766015216836260_8491205903888941056_n.jpg');
+let skySphere = new THREE.Mesh(skySphereGeo, new THREE.MeshBasicMaterial({ map: textureSphere, side: THREE.BackSide }));
+scene.add(skySphere);
 
 var controls = new OrbitControls(camera, renderer.domElement); //poruszanie się za pomocą myszki
 
 window.addEventListener('resize', resize, false);
 //controls.addEventListener('change',render, false);
-controls.minDistance = 500;
-controls.maxDistance = 1500;
+// controls.minDistance = 500;
+// controls.maxDistance = 1500;
 
 function resize() {
     camera.aspect = window.innerWidth / window.innerHeight;
@@ -65,26 +72,17 @@ render();
 let menu = document.querySelector(".menu");
 let menuBar = document.querySelector(".menuBar");
 
-menu.addEventListener('click', showMenu, false);
+menu.addEventListener('click', () => {
+    menuBar.classList.toggle('showed');
+});
 
-
-function showMenu() {
-    if (menuBar.classList.contains("showed")) {
-        menuBar.classList.remove("showed");
-        menuBar.classList.add("hidden");
-    }
-    else {
-        menuBar.classList.remove("hidden");
-        menuBar.classList.add("showed");
-    }
-}
 
 
 ///////////// zmienianie miejsca
 let options = document.querySelectorAll(".menuBar > ul > li");
 for (var i = 0; i < options.length; i++) {
     options[i].classList.add(i.toString());
-    
+
     options[i].addEventListener('click', function () {
         let index = this.classList[0];
         console.log(index);

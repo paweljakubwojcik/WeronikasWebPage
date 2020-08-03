@@ -72,7 +72,6 @@ canvas
     width:20px;
     border-top: 3px solid #ddd;
     transition: all ease .5s;
-    
 }
 .menu::before
 {
@@ -95,19 +94,13 @@ canvas
     height: 100%;
     width: 600px;
     flex:auto;
-
+    transition: all ease .5s;
     transform: translateX(40vw) scaleX(0);
 }
 
 .showed
 {
-    animation: showUp .5s;
-    animation-fill-mode: forwards;
-}
-.hidden
-{
-    animation: hide .5s;
-    animation-fill-mode: forwards;
+    transform: translateX(0) scaleX(1);
 }
 
 .menuBar > ul 
@@ -118,8 +111,6 @@ canvas
     display:flex;
     justify-content: flex-end;
     flex-direction: row;
-
-
 }
 li
 {   display: flex;
@@ -133,24 +124,3 @@ li:hover
     cursor: pointer;
     background-color: #77777777;
 }
-
-@keyframes showUp{
-0% {
-    transform: translateX(40vw) scaleX(0);
-    
-}
-100% {
-    
-    transform: translateX(0) scaleX(1);
-}
-}
-@keyframes hide{
-    0% {
-        transform: translateX(0) scaleX(1);
-        
-    }
-    100% {
-        transform: translateX(40vw) scaleX(0);
-        
-    }
-    }
