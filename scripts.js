@@ -12,7 +12,6 @@ var renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-
 //tworzenie boxów z lokacjami 
 /**
  * create an mesh object sphere from 360 picture
@@ -53,16 +52,6 @@ function render() {
 render();
 
 
-/////////////// wysuwane menu
-let menu = document.querySelector(".menuButton");
-let menuBar = document.querySelector(".menuBar");
-
-menu.addEventListener('click', () => {
-    menuBar.classList.toggle('showed');
-});
-
-
-
 ///////////// zmienianie miejsca
 let options = document.querySelectorAll(".menuBar > ul > li");
 
@@ -82,4 +71,38 @@ for (var i = 0; i < options.length; i++) {
 }
 
 
+/////////////// wysuwane menu podstrony projekty
+let menuButton = document.querySelector(".menuButton");
+let menuBar = document.querySelector(".menuBar");
 
+menuButton.addEventListener('click', () => {
+    menuBar.classList.toggle('showed');
+});
+
+//wysuwane menu główne
+let burger = document.querySelector(".burger");
+burger.addEventListener('click', function(){
+    this.classList.toggle('clicked');
+    document.querySelector('.menu').classList.toggle('showed');
+});
+
+//przyciski menu głównego
+let menuOptions = document.querySelectorAll('.menu > ul >li');
+for (const option of menuOptions) {
+    option.addEventListener('click', function(){
+        document.querySelector('.menu').classList.toggle('showed');
+        burger.classList.toggle('clicked');
+        document.title="Weronika Wójcik | "+this.innerHTML;
+        document.querySelector('.tittle').innerHTML=this.innerHTML;
+    })
+}
+menuOptions[0].addEventListener('click', ()=>{
+    menuButton.classList.remove('showed');
+    document.querySelector('canvas').classList.remove('showed');
+})
+
+menuOptions[1].addEventListener('click', ()=>{
+    menuButton.classList.add('showed');
+    document.querySelector('canvas').classList.add('showed')
+    
+})

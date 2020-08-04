@@ -34,12 +34,10 @@ body
     position: absolute;
     width: 100%;
     height: 70px;
-    background-color: $backgroundColor;
     display: flex;
     align-items: center;
-    justify-content: left;
     text-align: center;
-    
+    z-index: 100;
     font-family: "Playfair Display";
     font-size: 25px;
     letter-spacing: 0.03em;
@@ -52,6 +50,8 @@ body
     margin:0 25px 0;
     font-weight: 700; 
     min-width: fit-content;
+    font-family: "CustomFont";
+    letter-spacing: 0.003em;
 }
 .tittle
 {
@@ -60,12 +60,59 @@ body
     min-width: fit-content;
     margin-right: 20px;
     &::before{
-        content: "| Projekty - ";
+        content: "| ";
+    }
+}
+.burger
+{
+    width:70px;
+    height: 70px;
+    margin-left: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    &:hover
+    {
+        cursor: pointer;
+    }
+    span{
+        display:block;
+        width: 50%;
+        background-color: $defaultFontColor;
+        margin: 4px auto 4px;
+        transition: transform .5s;
+    }
+    :nth-child(1)
+    {
+        height: 2px;
+    }
+    :nth-child(2)
+    {
+        height: 3px;
+    }
+    :nth-child(3)
+    {
+        height: 2px;
+    }
+}
+.clicked
+{
+    :nth-child(1){
+        transform: rotateZ(135deg) translateY(-10px) translateX(5px);
+    }
+    :nth-child(2){
+        transform: translateX(30px) scaleX(0);
+    }
+    :nth-child(3){
+        transform: rotateZ(-135deg) translateY(10px) translateX(5px);
     }
 }
 .menu
 {
     position:absolute;
+    z-index: 2;
+    background-color: #44444422;
     width: 100%;
     height: 100%;
     font-family: "Playfair Display";
@@ -75,6 +122,8 @@ body
     justify-content: center;
     align-items: center;
     pointer-events: none;
+    transform: translate(-100vw,0);
+    transition: transform .8s;
     ul{  
         margin: 0;
         padding: 0;
@@ -88,26 +137,46 @@ body
             align-items: center;
             width: 25%;
             height: 10vh;
-            margin: 20px;;
-            border: 3px solid $defaultFontColor;
-            transition: background-color ease .5s, transform .6s;
+            margin: 20px;    
             pointer-events: all;
-            &:hover{
+            &::after , &::before{
+                content: "";
+                position: absolute;
+                width: 25%;
+                height: 10vh;
+                border: 2px solid $defaultFontColor;
+                transition: transform .6s, opacity .6s, filter .6s;
+            }
+            &::before{
+                opacity:0;
+                border: 2px solid #1e1e1ed2;
+            }
+            &:hover::after{
             cursor: pointer;
-            background-color: $hoverColor;
-            transform: rotateZ(5deg);
+            transform: translate(-10px,-10px);
+            filter: blur(1px);
             }
-            &:nth-child(2):hover
-            {
-                transform: rotateZ(-5deg);
-            }
+            &:hover::before{
+                cursor: pointer;
+                transform: translate(10px,10px);
+                opacity:1;
+                filter: blur(1px);
+                }
+            
         }
     }
+}
+.hidden
+{
+    transform: scale(100);
 }
 //tutaj zaczynają się rzeczy dla strony projetky
 canvas 
 { 
-    display: none; 
+    display: block;
+    opacity:0;
+    transition: opacity 1s;
+    position:static;
 }
 .bottombar
 {
@@ -118,13 +187,16 @@ canvas
     display: flex;
     align-items: center;
     pointer-events: none;
+    z-index: 1;
+    
 }
 .menuButton
 {
     position: fixed;
     bottom: 5vmin;
     right:5vmin;
-    pointer-events: all;
+    pointer-events: none;
+    opacity:0;
     background-color: $backgroundColor;
     display: block;
     width:70px;
@@ -169,7 +241,7 @@ canvas
     width: 100%;
     flex:auto;
     opacity: 0;
-    transform : translate3d(0,80%,0);
+    transform : translate(0,100vh);
     transition: opacity .5s, transform 1s;
     ul{  
         margin: 0;
@@ -194,7 +266,8 @@ canvas
 .showed
 {
     opacity: 1;
-    transform: translate3d(0,0,0);
+    transform: translate(0,0);
+    pointer-events: all;
 }
 
 //loading icon
