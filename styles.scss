@@ -23,52 +23,122 @@ body
      margin: 0; 
      color: $defaultFontColor;
      box-sizing: border-box;
+     background-image: url('background.jpg');
+     background-size: cover;
+     background-attachment: fixed;
+     background-position: center;
      
-}
-canvas 
-{ 
-    display: block; 
 }
 .upbar
 {
     position: absolute;
     width: 100%;
-    height: 50px;
+    height: 70px;
     background-color: $backgroundColor;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-}
-.logo
-{
+    justify-content: left;
     text-align: center;
-    margin:0 50px 0;
+    
     font-family: "Playfair Display";
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
+    font-size: 25px;
+    letter-spacing: 0.03em;
     &:hover{
         cursor:default;  
     }
 }
+.logo
+{
+    margin:0 25px 0;
+    font-weight: 700; 
+    min-width: fit-content;
+}
+.tittle
+{
+    font-weight: 400;
+    font-size: 15px;
+    min-width: fit-content;
+    margin-right: 20px;
+    &::before{
+        content: "| Projekty - ";
+    }
+}
 .menu
 {
-    position: relative;
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    font-family: "Playfair Display";
+    font-size: 15px;
+    letter-spacing: 0.3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    ul{  
+        margin: 0;
+        padding: 0;
+        flex:auto;
+        display:flex;
+        justify-content: center;
+        flex-direction: row;
+        li
+        {   display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 25%;
+            height: 10vh;
+            margin: 20px;;
+            border: 3px solid $defaultFontColor;
+            transition: background-color ease .5s, transform .6s;
+            pointer-events: all;
+            &:hover{
+            cursor: pointer;
+            background-color: $hoverColor;
+            transform: rotateZ(5deg);
+            }
+            &:nth-child(2):hover
+            {
+                transform: rotateZ(-5deg);
+            }
+        }
+    }
+}
+//tutaj zaczynają się rzeczy dla strony projetky
+canvas 
+{ 
+    display: none; 
+}
+.bottombar
+{
+    position: fixed;
+    bottom: 0;
+    height: 30%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+}
+.menuButton
+{
+    position: fixed;
+    bottom: 5vmin;
+    right:5vmin;
+    pointer-events: all;
+    background-color: $backgroundColor;
     display: block;
     width:70px;
-    height: 100%;
-    margin-right: 0 10px 0;
+    height: 70px;
+    border-radius: 35px;
     transition: background-color .5s;
     &:hover{
         cursor: pointer;
         background-color: $hoverColor;
     }
 }
-
-   
-.menu::before , .menu::after
+.menuButton::before , .menuButton::after
 {
-    top:25px;
+    top:32px;
     left:calc(50% - 10px);
     content: "";
     position:absolute;
@@ -77,15 +147,15 @@ canvas
     border-top: 3px solid $defaultFontColor;
     transition: transform .5s;
 }
-.menu::before
+.menuButton::before
 {
     box-shadow: 0 -7px $defaultFontColor;
 }
-.menu::after
+.menuButton::after
 {
     box-shadow: 0 7px $defaultFontColor;
 }
-.menu:hover::before , .menu:hover::after
+.menuButton:hover::before , .menuButton:hover::after
 {
     transform: scaleY(1.1);
 }
@@ -95,12 +165,12 @@ canvas
     font-size: 15px;
     letter-spacing: 0.3em;
     display: block;
-    height: 100%;
-    width: 600px;
+    height: 30%;
+    width: 100%;
     flex:auto;
-    transition: transform .9s,opacity .9s;;
-    transform: translateX(40vw) scaleX(0);
-    opacity:0;
+    opacity: 0;
+    transform : translate3d(0,80%,0);
+    transition: opacity .5s, transform 1s;
     ul{  
         margin: 0;
         padding: 0;
@@ -124,7 +194,7 @@ canvas
 .showed
 {
     opacity: 1;
-    transform: translateX(0) scaleX(1);
+    transform: translate3d(0,0,0);
 }
 
 //loading icon

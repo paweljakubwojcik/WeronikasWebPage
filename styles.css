@@ -19,16 +19,16 @@ body {
   color: aliceblue;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-}
-
-canvas {
-  display: block;
+  background-image: url("background.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 .upbar {
   position: absolute;
   width: 100%;
-  height: 50px;
+  height: 70px;
   background-color: #44444477;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -36,41 +36,149 @@ canvas {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.logo {
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
   text-align: center;
-  margin: 0 50px 0;
   font-family: "Playfair Display";
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-size: 25px;
+  letter-spacing: 0.03em;
 }
 
-.logo:hover {
+.upbar:hover {
   cursor: default;
 }
 
+.logo {
+  margin: 0 25px 0;
+  font-weight: 700;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+
+.tittle {
+  font-weight: 400;
+  font-size: 15px;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  margin-right: 20px;
+}
+
+.tittle::before {
+  content: "| Projekty - ";
+}
+
 .menu {
-  position: relative;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-family: "Playfair Display";
+  font-size: 15px;
+  letter-spacing: 0.3em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  pointer-events: none;
+}
+
+.menu ul {
+  margin: 0;
+  padding: 0;
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.menu ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 25%;
+  height: 10vh;
+  margin: 20px;
+  border: 3px solid aliceblue;
+  -webkit-transition: background-color ease .5s, -webkit-transform .6s;
+  transition: background-color ease .5s, -webkit-transform .6s;
+  transition: background-color ease .5s, transform .6s;
+  transition: background-color ease .5s, transform .6s, -webkit-transform .6s;
+  pointer-events: all;
+}
+
+.menu ul li:hover {
+  cursor: pointer;
+  background-color: #77777777;
+  -webkit-transform: rotateZ(5deg);
+          transform: rotateZ(5deg);
+}
+
+.menu ul li:nth-child(2):hover {
+  -webkit-transform: rotateZ(-5deg);
+          transform: rotateZ(-5deg);
+}
+
+canvas {
+  display: none;
+}
+
+.bottombar {
+  position: fixed;
+  bottom: 0;
+  height: 30%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  pointer-events: none;
+}
+
+.menuButton {
+  position: fixed;
+  bottom: 5vmin;
+  right: 5vmin;
+  pointer-events: all;
+  background-color: #44444477;
   display: block;
   width: 70px;
-  height: 100%;
-  margin-right: 0 10px 0;
+  height: 70px;
+  border-radius: 35px;
   -webkit-transition: background-color .5s;
   transition: background-color .5s;
 }
 
-.menu:hover {
+.menuButton:hover {
   cursor: pointer;
   background-color: #77777777;
 }
 
-.menu::before, .menu::after {
-  top: 25px;
+.menuButton::before, .menuButton::after {
+  top: 32px;
   left: calc(50% - 10px);
   content: "";
   position: absolute;
@@ -83,17 +191,17 @@ canvas {
   transition: transform .5s, -webkit-transform .5s;
 }
 
-.menu::before {
+.menuButton::before {
   -webkit-box-shadow: 0 -7px aliceblue;
           box-shadow: 0 -7px aliceblue;
 }
 
-.menu::after {
+.menuButton::after {
   -webkit-box-shadow: 0 7px aliceblue;
           box-shadow: 0 7px aliceblue;
 }
 
-.menu:hover::before, .menu:hover::after {
+.menuButton:hover::before, .menuButton:hover::after {
   -webkit-transform: scaleY(1.1);
           transform: scaleY(1.1);
 }
@@ -103,18 +211,18 @@ canvas {
   font-size: 15px;
   letter-spacing: 0.3em;
   display: block;
-  height: 100%;
-  width: 600px;
+  height: 30%;
+  width: 100%;
   -webkit-box-flex: 1;
       -ms-flex: auto;
           flex: auto;
-  -webkit-transition: opacity .9s,-webkit-transform .9s;
-  transition: opacity .9s,-webkit-transform .9s;
-  transition: transform .9s,opacity .9s;
-  transition: transform .9s,opacity .9s,-webkit-transform .9s;
-  -webkit-transform: translateX(40vw) scaleX(0);
-          transform: translateX(40vw) scaleX(0);
   opacity: 0;
+  -webkit-transform: translate3d(0, 80%, 0);
+          transform: translate3d(0, 80%, 0);
+  -webkit-transition: opacity .5s, -webkit-transform 1s;
+  transition: opacity .5s, -webkit-transform 1s;
+  transition: opacity .5s, transform 1s;
+  transition: opacity .5s, transform 1s, -webkit-transform 1s;
 }
 
 .menuBar ul {
@@ -155,8 +263,8 @@ canvas {
 
 .showed {
   opacity: 1;
-  -webkit-transform: translateX(0) scaleX(1);
-          transform: translateX(0) scaleX(1);
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
 }
 
 .wait {

@@ -3,8 +3,8 @@ import { OrbitControls } from './node_modules/three/examples/jsm/controls/OrbitC
 
 var scene = new THREE.Scene();
 var aspectRatio = window.innerWidth / window.innerHeight;
-var camera = new THREE.PerspectiveCamera(55, aspectRatio, 0.1, 30000);
-camera.position.set(-900, -200, -900);
+var camera = new THREE.PerspectiveCamera(80, aspectRatio, 0.1, 300000);
+camera.position.set(-900,-200,-900);
 
 //camera.position.set(0, 0, 100);
 
@@ -14,44 +14,30 @@ document.body.appendChild(renderer.domElement);
 
 
 //tworzenie boxów z lokacjami 
-//TO DO - ZMIANA NA ZDJ OD SIS 
-function createLocation(location) {
-    let materialArray = [];
-    let texture_bk = new THREE.TextureLoader().load(location + '/negx.jpg');
-    let texture_ft = new THREE.TextureLoader().load(location + '/posx.jpg');
-    let texture_up = new THREE.TextureLoader().load(location + '/posy.jpg');
-    let texture_dn = new THREE.TextureLoader().load(location + '/negy.jpg');
-    let texture_rt = new THREE.TextureLoader().load(location + '/posz.jpg');
-    let texture_lf = new THREE.TextureLoader().load(location + '/negz.jpg');
+/**
+ * create an mesh object sphere from 360 picture
+ * @param {String} location - a path  to picture 
+ */
+function createSkysphere(location) {
 
-    materialArray.push(new THREE.MeshBasicMaterial({ map: texture_ft }));
-    materialArray.push(new THREE.MeshBasicMaterial({ map: texture_bk }));
-    materialArray.push(new THREE.MeshBasicMaterial({ map: texture_up }));
-    materialArray.push(new THREE.MeshBasicMaterial({ map: texture_dn }));
-    materialArray.push(new THREE.MeshBasicMaterial({ map: texture_rt }));
-    materialArray.push(new THREE.MeshBasicMaterial({ map: texture_lf }));
-
-    for (let i = 0; i < 6; i++)
-        materialArray[i].side = THREE.BackSide;
-    let skyboxGeo = new THREE.BoxGeometry(10000, 10000, 10000);
-    let skybox = new THREE.Mesh(skyboxGeo, materialArray);
-    return skybox;
+    let skySphereGeo = new THREE.SphereGeometry(100000, 100,100 );
+    let textureSphere = new THREE.TextureLoader().load(location);
+    let skySphere = new THREE.Mesh(skySphereGeo, new THREE.MeshBasicMaterial({ map: textureSphere, side: THREE.BackSide }));
+    return skySphere;
 }
 
-let skyboxes = [createLocation('Medborgarplatsen'), createLocation('Parliament'), createLocation('SaintLazarusChurch'), createLocation('SaintLazarusChurch2')]; //lista miejsc
+let skySpheres =  [createSkysphere('projects/Projekt-2.jpg')];//lista miejsc
+
 
 
 //actualna sfera
-let skySphereGeo = new THREE.SphereGeometry(10000, 32, 32);
-let textureSphere = new THREE.TextureLoader().load('50983154_1766015216836260_8491205903888941056_n.jpg');
-let skySphere = new THREE.Mesh(skySphereGeo, new THREE.MeshBasicMaterial({ map: textureSphere, side: THREE.BackSide }));
-scene.add(skySphere);
+scene.add(skySpheres[0]);
 
 var controls = new OrbitControls(camera, renderer.domElement); //poruszanie się za pomocą myszki
+controls.minDistance = 500;
+controls.maxDistance = 100000;
 
 window.addEventListener('resize', resize, false);
-controls.minDistance = 500;
-controls.maxDistance = 1500;
 
 function resize() {
     camera.aspect = window.innerWidth / window.innerHeight;
@@ -68,7 +54,7 @@ render();
 
 
 /////////////// wysuwane menu
-let menu = document.querySelector(".menu");
+let menu = document.querySelector(".menuButton");
 let menuBar = document.querySelector(".menuBar");
 
 menu.addEventListener('click', () => {
@@ -79,15 +65,21 @@ menu.addEventListener('click', () => {
 
 ///////////// zmienianie miejsca
 let options = document.querySelectorAll(".menuBar > ul > li");
+
 for (var i = 0; i < options.length; i++) {
     options[i].classList.add(i.toString());
-
-    options[i].addEventListener('click', function () {
+    
+    options[i].addEventListener('click', function(){
+        let title = document.querySelector('.tittle');
         let index = this.classList[0];
-        for (const box of skyboxes)
-            scene.remove(box);
-        scene.add(skyboxes[index]);
+        for (const sphere of skySpheres)
+            scene.remove(sphere);
+    
+        scene.add(skySpheres[index]);
+
+        title.innerHTML = this.innerHTML;
     });
 }
+
 
 
