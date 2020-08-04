@@ -127,4 +127,16 @@ canvas
     transform: translateX(0) scaleX(1);
 }
 
+//loading icon
+.wait
+{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    opacity: 0;
+}
 

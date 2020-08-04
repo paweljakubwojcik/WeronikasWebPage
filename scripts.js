@@ -40,6 +40,7 @@ function createLocation(location) {
 
 let skyboxes = [createLocation('Medborgarplatsen'), createLocation('Parliament'), createLocation('SaintLazarusChurch'), createLocation('SaintLazarusChurch2')]; //lista miejsc
 
+
 //actualna sfera
 let skySphereGeo = new THREE.SphereGeometry(10000, 32, 32);
 let textureSphere = new THREE.TextureLoader().load('50983154_1766015216836260_8491205903888941056_n.jpg');
@@ -56,7 +57,6 @@ function resize() {
     camera.aspect = window.innerWidth / window.innerHeight;
     renderer.setSize(window.innerWidth, window.innerHeight);
     camera.updateProjectionMatrix();
-
 }
 
 function render() {
@@ -84,7 +84,6 @@ for (var i = 0; i < options.length; i++) {
 
     options[i].addEventListener('click', function () {
         let index = this.classList[0];
-        console.log(index);
         for (const box of skyboxes)
             scene.remove(box);
         scene.add(skyboxes[index]);
