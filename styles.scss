@@ -58,7 +58,7 @@ canvas
     width:70px;
     height: 100%;
     margin-right: 0 10px 0;
-    transition: all ease .5s;
+    transition: background-color .5s;
     &:hover{
         cursor: pointer;
         background-color: $hoverColor;
@@ -75,7 +75,7 @@ canvas
     display:block;
     width:20px;
     border-top: 3px solid $defaultFontColor;
-    transition: all ease .5s;
+    transition: transform .5s;
 }
 .menu::before
 {
@@ -98,7 +98,7 @@ canvas
     height: 100%;
     width: 600px;
     flex:auto;
-    transition: all ease .9s;
+    transition: transform .9s,opacity .9s;;
     transform: translateX(40vw) scaleX(0);
     opacity:0;
     ul{  
@@ -113,10 +113,10 @@ canvas
             justify-content: center;
             align-items: center;
             width: 25%;
-            transition: all ease .5s;
+            transition: background-color ease .5s;
             &:hover{
             cursor: pointer;
-        background-color: $hoverColor;
+            background-color: $hoverColor;
             }
         }
     }
