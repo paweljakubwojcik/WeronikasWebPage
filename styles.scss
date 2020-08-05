@@ -96,7 +96,7 @@ body
         height: 2px;
     }
 }
-.clicked
+.clickedBurger
 {
     :nth-child(1){
         transform: rotateZ(135deg) translateY(-10px) translateX(5px);
@@ -166,10 +166,7 @@ body
         }
     }
 }
-.hidden
-{
-    transform: scale(100);
-}
+
 //tutaj zaczynają się rzeczy dla strony projetky
 canvas 
 { 
@@ -263,6 +260,7 @@ canvas
         }
     }
 }
+//class for all elements that are showable
 .showed
 {
     opacity: 1;
