@@ -53,7 +53,7 @@ render();
 
 
 ///////////// zmienianie miejsca
-let options = document.querySelectorAll(".menuBar > ul > li");
+let options = document.querySelectorAll(".menuBottom > ul > li");
 
 for (var i = 0; i < options.length; i++) {
     options[i].classList.add(i.toString());
@@ -73,10 +73,11 @@ for (var i = 0; i < options.length; i++) {
 
 /////////////// wysuwane menu podstrony projekty
 let menuButton = document.querySelector(".menuButton");
-let menuBar = document.querySelector(".menuBar");
+let menuBottom = document.querySelector(".menuBottom");
 
 menuButton.addEventListener('click', () => {
-    menuBar.classList.toggle('showed');
+    menuBottom.classList.toggle('showed');
+    menuButton.classList.toggle('menuButtonClicked');
 });
 
 //wysuwane menu główne
