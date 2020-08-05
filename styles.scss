@@ -14,6 +14,13 @@
             unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+@mixin flexCenter(){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
 $backgroundColor:  #44444477;
 $hoverColor:  #77777777;
 $defaultFontColor: aliceblue;
@@ -34,9 +41,7 @@ body
     position: absolute;
     width: 100%;
     height: 70px;
-    display: flex;
-    align-items: center;
-    text-align: center;
+    @include flexCenter();
     z-index: 100;
     font-family: "Playfair Display";
     font-size: 25px;
@@ -118,9 +123,7 @@ body
     font-family: "Playfair Display";
     font-size: 15px;
     letter-spacing: 0.3em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flexCenter();
     pointer-events: none;
     transform: translate(-100vw,0);
     transition: transform .8s;
@@ -132,9 +135,7 @@ body
         justify-content: center;
         flex-direction: row;
         li
-        {   display: flex;
-            justify-content: center;
-            align-items: center;
+        {   @include flexCenter();
             width: 25%;
             height: 10vh;
             margin: 20px;    
@@ -178,7 +179,6 @@ canvas
 .menuButton
 {
     position: relative;
-    background-color: $backgroundColor;
     display: block;
     min-width: 70px;
     height:70px;
@@ -194,7 +194,7 @@ canvas
         height: 2px;
         width: 50%;
         top:35px;
-        transition: background-color 1s, transform 1s;
+        transition: transform 1s;
     }
     :nth-child(1)
     {
@@ -210,7 +210,6 @@ canvas
 .menuButtonClicked
 {
     transform: translateY(0);
-    background-color: #0000;
     :nth-child(1)
     {
         transform: rotateZ(45deg) translate(5px,-13px);
@@ -246,22 +245,43 @@ canvas
         justify-content: flex-end;
         flex-direction: row;
         li
-        {   display: flex;
-            justify-content: center;
-            align-items: center;
+        {   position: relative;
+            @include flexCenter();
             flex: auto;
             margin: 40px;
             border: 2px solid $defaultFontColor;
-            transition: background-color ease .5s;
+            transition: transform ease .1s;
+            box-shadow: 2px 2px 10px #333333ab;
             &:hover{
             cursor: pointer;
-            background-color: $hoverColor;
+            transform: scale(1.05);
             }
             img{
                 width: 100%;
                 height: 100%;
             }
         }
+    }
+}
+.blankiet
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity:0;
+    transition: all .5s;
+    p {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        bottom:0;
+        @include flexCenter();
+        width: 100%;
+        height: 25%;
+        background-color: $hoverColor;
+    }
+    &:hover{
+        opacity: 1;
     }
 }
 //class for all elements that are showable

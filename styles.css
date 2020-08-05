@@ -35,6 +35,9 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-align: center;
   z-index: 100;
   font-family: "Playfair Display";
@@ -140,12 +143,13 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
   pointer-events: none;
   -webkit-transform: translate(-100vw, 0);
           transform: translate(-100vw, 0);
@@ -177,12 +181,13 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
   width: 25%;
   height: 10vh;
   margin: 20px;
@@ -233,7 +238,6 @@ canvas {
 
 .menuButton {
   position: relative;
-  background-color: #44444477;
   display: block;
   min-width: 70px;
   height: 70px;
@@ -256,10 +260,10 @@ canvas {
   height: 2px;
   width: 50%;
   top: 35px;
-  -webkit-transition: background-color 1s, -webkit-transform 1s;
-  transition: background-color 1s, -webkit-transform 1s;
-  transition: background-color 1s, transform 1s;
-  transition: background-color 1s, transform 1s, -webkit-transform 1s;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
 }
 
 .menuButton :nth-child(1) {
@@ -277,7 +281,6 @@ canvas {
 .menuButtonClicked {
   -webkit-transform: translateY(0);
           transform: translateY(0);
-  background-color: #0000;
 }
 
 .menuButtonClicked :nth-child(1) {
@@ -330,32 +333,72 @@ canvas {
 }
 
 .menuBottom ul li {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
   -webkit-box-flex: 1;
       -ms-flex: auto;
           flex: auto;
   margin: 40px;
   border: 2px solid aliceblue;
-  -webkit-transition: background-color ease .5s;
-  transition: background-color ease .5s;
+  -webkit-transition: -webkit-transform ease .1s;
+  transition: -webkit-transform ease .1s;
+  transition: transform ease .1s;
+  transition: transform ease .1s, -webkit-transform ease .1s;
+  -webkit-box-shadow: 2px 2px 10px #333333ab;
+          box-shadow: 2px 2px 10px #333333ab;
 }
 
 .menuBottom ul li:hover {
   cursor: pointer;
-  background-color: #77777777;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .menuBottom ul li img {
   width: 100%;
   height: 100%;
+}
+
+.blankiet {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.blankiet p {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 25%;
+  background-color: #77777777;
+}
+
+.blankiet:hover {
+  opacity: 1;
 }
 
 .showed {

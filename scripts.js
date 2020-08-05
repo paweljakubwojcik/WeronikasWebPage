@@ -66,7 +66,7 @@ for (var i = 0; i < options.length; i++) {
     
         scene.add(skySpheres[index]);
 
-        title.innerHTML = this.innerHTML;
+       // title.innerHTML = this.innerHTML;
     });
 }
 
