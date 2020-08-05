@@ -257,7 +257,7 @@ canvas {
   position: absolute;
   display: block;
   background-color: aliceblue;
-  height: 2px;
+  height: 3px;
   width: 50%;
   top: 35px;
   -webkit-transition: -webkit-transform 1s;
@@ -284,13 +284,13 @@ canvas {
 }
 
 .menuButtonClicked :nth-child(1) {
-  -webkit-transform: rotateZ(45deg) translate(5px, -13px);
-          transform: rotateZ(45deg) translate(5px, -13px);
+  -webkit-transform: rotateZ(45deg) translate(4px, -13px);
+          transform: rotateZ(45deg) translate(4px, -13px);
 }
 
 .menuButtonClicked :nth-child(2) {
-  -webkit-transform: rotateZ(-45deg) translate(-5px, -13px);
-          transform: rotateZ(-45deg) translate(-5px, -13px);
+  -webkit-transform: rotateZ(-45deg) translate(-4px, -13px);
+          transform: rotateZ(-45deg) translate(-4px, -13px);
 }
 
 .menuBottom {

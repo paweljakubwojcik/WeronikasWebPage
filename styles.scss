@@ -191,10 +191,11 @@ canvas
         position: absolute;
         display: block;
         background-color: $defaultFontColor;
-        height: 2px;
+        height: 3px;
         width: 50%;
         top:35px;
         transition: transform 1s;
+        //transform: ;
     }
     :nth-child(1)
     {
@@ -212,12 +213,12 @@ canvas
     transform: translateY(0);
     :nth-child(1)
     {
-        transform: rotateZ(45deg) translate(5px,-13px);
+        transform: rotateZ(45deg) translate(4px,-13px);
     }
     :nth-child(2)
     {
         
-        transform: rotateZ(-45deg) translate(-5px,-13px);
+        transform: rotateZ(-45deg) translate(-4px,-13px);
     }
 }
 
