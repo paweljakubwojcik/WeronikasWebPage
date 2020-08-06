@@ -4,14 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <X-Content-Type-Options: nosniff>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weronika Wójcik | Home</title>
-    <!-- add icon link -->
-    <link rel="icon" href='favicon.ico' type="image/x-icon">
-    <link rel="stylesheet" href="styles/styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weronika Wójcik | Home</title>
+        <!-- add icon link -->
+        <link rel="icon" href='favicon.ico' type="image/x-icon">
+        <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
+
     <div class="upbar">
         <header class="logo">Weronika Wójcik</header>
         <div class='tittle'>Home</div>
@@ -23,49 +24,21 @@
     </div>
     <nav class="menu">
         <ul>
-            <li>Home</li>
-            <li>Projekty</li>
-            <li>Kontakt</li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projekty.html">Projekty</a></li>
+            <li><a href="index.html">Kontakt</a></li>
         </ul>
     </nav>
 
-    <nav class="menuBottom">
-        <ul>
-            <li>
-                <img src="projects\Projekt-2.jpg">
-                <div class='blankiet'>
-                    <span><p>Projekt 1</p></span>
-                </div>
-            </li>
-            <li>
-                <img src="projects\Projekt-2.jpg">
-                <div class='blankiet'>
-                    <span><p>Projekt 2</p></span>
-                </div>
-            </li>
-            <li>
-                <img src="projects\Projekt-2.jpg">
-                <div class='blankiet'>
-                    <span><p>Projekt 3</p></span>
-                </div>
-            </li>
-            <li>
-                <img src="projects\Projekt-2.jpg">
-                <div class='blankiet'>
-                    <span><p>Projekt 4</p></span>
-                </div>
-            </li>
-        </ul>
-        <div class="menuButton">
-            <span></span>
-            <span></span>
-        </div>
-    </nav>
-    
-<!-- skrypty -->
+    <main data-router-wrapper>
+        <section data-router-view="home">
+
+    </main>
+    <!-- skrypty -->
     <script type='module' src='js/scripts.js'></script>
-    <script  src='js/tilt.js'></script>
-    <script  src='js/menu.js'></script>
-<!-- koniec skryptów -->
+    <script src='js/tilt.js'></script>
+    <script src='js/menu.js'></script>
+    <!-- koniec skryptów -->
 </body>
+
 </html>

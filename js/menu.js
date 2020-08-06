@@ -1,11 +1,4 @@
-/////////////// wysuwane menu podstrony projekty
-let menuButton = document.querySelector(".menuButton");
-let menuBottom = document.querySelector(".menuBottom");
 
-menuButton.addEventListener('click', () => {
-    menuBottom.classList.toggle('showed');
-    menuButton.classList.toggle('menuButtonClicked');
-});
 
 //wysuwane menu główne
 let burger = document.querySelector(".burger");
@@ -20,17 +13,17 @@ for (const option of menuOptions) {
     option.addEventListener('click', function(){
         document.querySelector('.menu').classList.toggle('showed');
         burger.classList.toggle('clickedBurger');
-        document.title="Weronika Wójcik | "+this.innerHTML;
-        document.querySelector('.tittle').innerHTML=this.innerHTML;
+        //document.title="Weronika Wójcik | "+this.firstChild.innerHTML;
+        document.querySelector('.tittle').innerHTML=this.firstChild.innerHTML;
     })
 }
-menuOptions[0].addEventListener('click', ()=>{
-    menuButton.classList.remove('showed');
-    document.querySelector('canvas').classList.remove('showed');
-})
+// menuOptions[0].addEventListener('click', ()=>{
+//     menuButton.classList.remove('showed');
+//     document.querySelector('canvas').classList.remove('showed');
+// })
 
-menuOptions[1].addEventListener('click', ()=>{
+// menuOptions[1].addEventListener('click', ()=>{
     
-    document.querySelector('canvas').classList.add('showed')
+//     document.querySelector('canvas').classList.add('showed')
     
-})
+// })

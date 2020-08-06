@@ -10,7 +10,7 @@ camera.position.set(-900,-200,-900);
 
 var renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+document.querySelector('.projectsView').appendChild(renderer.domElement);
 
 //tworzenie boxów z lokacjami 
 /**
