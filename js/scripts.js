@@ -1,5 +1,5 @@
-import * as THREE from './node_modules/three/build/three.module.js';
-import { OrbitControls } from './node_modules/three/examples/jsm/controls/OrbitControls.js';
+import * as THREE from '/node_modules/three/build/three.module.js';
+import { OrbitControls } from '/node_modules/three/examples/jsm/controls/OrbitControls.js';
 
 var scene = new THREE.Scene();
 var aspectRatio = window.innerWidth / window.innerHeight;
@@ -25,7 +25,7 @@ function createSkysphere(location) {
     return skySphere;
 }
 
-let skySpheres =  [createSkysphere('projects/Projekt-2.jpg')];//lista miejsc
+let skySpheres =  [createSkysphere('projects/projekt-1.jpg')];//lista miejsc
 
 
 
