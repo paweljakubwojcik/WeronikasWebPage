@@ -274,7 +274,9 @@ canvas {
 }
 
 .menuButton {
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 1vw;
   display: block;
   min-width: 70px;
   height: 70px;
@@ -330,6 +332,53 @@ canvas {
           transform: rotateZ(-45deg) translate(-4px, -13px);
 }
 
+.arrow-left, .arrow-right {
+  position: absolute;
+  z-index: 3;
+  display: block;
+  min-width: 25px;
+  height: 100%;
+}
+
+.arrow-left::after, .arrow-right::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 45%;
+  border-top: 4px solid aliceblue;
+  border-left: 4px solid aliceblue;
+}
+
+.arrow-left:hover, .arrow-right:hover {
+  cursor: pointer;
+}
+
+.arrow-left {
+  left: 0;
+  background: -webkit-gradient(linear, left top, right top, from(#444444bb), to(#00000000));
+  background: linear-gradient(90deg, #444444bb, #00000000);
+}
+
+.arrow-left::after {
+  left: 50%;
+  -webkit-transform: rotateZ(-45deg);
+          transform: rotateZ(-45deg);
+}
+
+.arrow-right {
+  right: 0;
+  background: -webkit-gradient(linear, right top, left top, from(#444444bb), to(#00000000));
+  background: linear-gradient(-90deg, #444444bb, #00000000);
+}
+
+.arrow-right::after {
+  right: 50%;
+  -webkit-transform: rotateZ(135deg);
+          transform: rotateZ(135deg);
+}
+
 .menuBottom {
   position: fixed;
   display: -webkit-box;
@@ -337,8 +386,12 @@ canvas {
   display: flex;
   background-color: #44444477;
   bottom: 0;
-  height: 40%;
+  height: 50%;
+  width: 100%;
   z-index: 1;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-family: "Playfair Display";
   font-size: 15px;
   letter-spacing: 0.3em;
@@ -354,22 +407,23 @@ canvas {
 .menuBottom ul {
   margin: 0;
   padding: 0;
-  -webkit-box-flex: 1;
-      -ms-flex: auto;
-          flex: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  height: 100%;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
 }
 
 .menuBottom ul li {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -384,7 +438,8 @@ canvas {
   -webkit-box-flex: 1;
       -ms-flex: auto;
           flex: auto;
-  margin: 40px;
+  min-width: 380px;
+  margin: 70px 30px 50px;
   border: 2px solid aliceblue;
   -webkit-transition: -webkit-transform ease .1s;
   transition: -webkit-transform ease .1s;
@@ -430,7 +485,7 @@ canvas {
           justify-content: center;
   text-align: center;
   width: 100%;
-  height: 25%;
+  height: 100%;
   background-color: #77777777;
 }
 
