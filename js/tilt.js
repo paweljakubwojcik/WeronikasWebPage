@@ -1,23 +1,33 @@
-let tiltElements = document.querySelectorAll('.wizka');
 
-for (const tiltElement of tiltElements) {
+/**
+ * Adds cool tilt effect to all elements refrenced by querySelector
+ * @param {String} querySelector 
+ */
+function makeTilt(querySelector)
+{
+    let tiltElements = document.querySelectorAll(querySelector);
 
-    tiltElement.addEventListener('mousemove', function (e) {
-        let x = e.x - getPosition(this).left;
-        let y = e.y - getPosition(this).top;
+    for (const tiltElement of tiltElements) {
 
-        rotationX = -y/this.clientHeight*12;
-        rotationY = x/this.clientWidth*12;
+        tiltElement.addEventListener('mousemove', function (e) {
+            let x = e.x - getPosition(this).left;
+            let y = e.y - getPosition(this).top;
+    
+            let rotationX = -y/this.clientHeight*12;
+            let rotationY = x/this.clientWidth*12;
+    
+            this.style.transform = `scale(1.05) perspective(1000px) rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
+    
+        });
+    
+        tiltElement.addEventListener('mouseleave', function () {
+            this.style.transform = '';
+        });
+    
+    };
+}
 
-        this.style.transform = `scale(1.05) perspective(1000px) rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
 
-    });
-
-    tiltElement.addEventListener('mouseleave', function () {
-        this.style.transform = '';
-    });
-
-};
 /**
  * Zwraca absolutną pozycje środka elementu
  * @param {DOM element} element 
@@ -36,3 +46,5 @@ function getPosition(element) {
         left: left + w
     };
 }
+
+export default makeTilt;
