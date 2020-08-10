@@ -3,6 +3,10 @@ import Transition from './transition';
 import VR from './VR';
 import menuBottomExpander from './menuBottom';
 import makeTilt from './tilt';
+import menu from './menu';
+
+//lista podstron
+//na pozniej
 
 //transitions
 const H = new Highway.Core({
@@ -13,22 +17,27 @@ const H = new Highway.Core({
 
 let vr, menuBottom;
 
-window.addEventListener('load',()=>{
-    vr = new VR();
-    menuBottom = new menuBottomExpander();
-    makeTilt('wizka');
+window.addEventListener('load', () => {
+
+    let location = document.URL.split('/').reverse()[0];
+    loadComponents(location);
+
 })
 
 //inicjalizacja odpowiednich modułów
 H.on('NAVIGATE_IN', ({ to, trigger, location }) => {
+    loadComponents(location.pathname.split('/').reverse()[0]);
+});
 
-    //console.log(location.pathname);
-    switch (location.pathname) {
-        case '/wizualizacje.html':
+function loadComponents(location) {
+    
+    switch (location) {
+        case 'wizualizacje.html':
             vr = new VR();
             menuBottom = new menuBottomExpander();
             makeTilt('.wizka');
     }
+}
 
-});
-
+//initialize the menu button functionality
+menu();
