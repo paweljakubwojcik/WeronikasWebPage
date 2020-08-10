@@ -17,13 +17,3 @@ for (const option of menuOptions) {
        // document.querySelector('.tittle').innerHTML=this.firstChild.innerHTML;
     })
 }
-// menuOptions[0].addEventListener('click', ()=>{
-//     menuButton.classList.remove('showed');
-//     document.querySelector('canvas').classList.remove('showed');
-// })
-
-// menuOptions[1].addEventListener('click', ()=>{
-    
-//     document.querySelector('canvas').classList.add('showed')
-    
-// })
