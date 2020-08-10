@@ -1,4 +1,4 @@
-let tiltElements = document.querySelectorAll('.menuBottom > ul > li');
+let tiltElements = document.querySelectorAll('.wizka');
 
 for (const tiltElement of tiltElements) {
 
