@@ -25,7 +25,7 @@ function createSkysphere(location) {
     return skySphere;
 }
 
-let skySpheres =  [createSkysphere('projects/projekt-1.jpg')];//lista miejsc
+let skySpheres =  [createSkysphere('projects/projekt-2.jpg')];//lista miejsc
 
 
 
