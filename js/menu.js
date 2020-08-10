@@ -14,7 +14,7 @@ for (const option of menuOptions) {
         document.querySelector('.menu').classList.toggle('showed');
         burger.classList.toggle('clickedBurger');
         //document.title="Weronika Wójcik | "+this.firstChild.innerHTML;
-        document.querySelector('.tittle').innerHTML=this.firstChild.innerHTML;
+       // document.querySelector('.tittle').innerHTML=this.firstChild.innerHTML;
     })
 }
 // menuOptions[0].addEventListener('click', ()=>{
