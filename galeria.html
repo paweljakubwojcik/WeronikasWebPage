@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weronika Wójcik | Galeria</title>
+    <!-- add icon link -->
+    <link rel="icon" href='favicon.ico' type="image/x-icon">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+
+    <div class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <nav class="menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+            <li><a href="wizualizacje.html">Wizualizacje</a></li>
+            <li><a href="#">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <main data-router-wrapper>
+        <section data-router-view="wizualizacje">
+            
+            <div class="upbar">
+                <header class="logo">Weronika Wójcik</header>
+                <div class='tittle'>Galeria</div>
+
+            </div>
+            <div class="background galeriaBackground"></div>
+
+            <div class='Galeria'></div>
+            
+
+        </section>
+    </main>
+    <!-- skrypty -->
+    <script type='module' src='js/app.js'></script>
+    <!-- koniec skryptów -->
+</body>
+
+</html>

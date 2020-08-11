@@ -30,10 +30,7 @@ body
      margin: 0; 
      color: $defaultFontColor;
      box-sizing: border-box;
-     background-image: url('background.jpg');
-     background-size: cover;
-     background-attachment: fixed;
-     background-position: center;
+     
      text-shadow: 1px 1px 6px #44444477;
      
 }
@@ -47,6 +44,16 @@ a{
             color: #f3f3f3bd;
     }
 }
+.background
+{
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
 .upbar
 {
     position: absolute;
@@ -190,6 +197,9 @@ a{
         }
     }
 }
+
+//import home
+@import './home';
 
 //podstrona wizualizacje
 @import './wiz';
