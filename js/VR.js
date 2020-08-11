@@ -1,48 +1,38 @@
 //importing necessary modules
 import * as THREE from '/node_modules/three/build/three.module.js';
 import { OrbitControls } from '/node_modules/three/examples/jsm/controls/OrbitControls.js';
+//manuBottom
+import menuBottomExpander from './menuBottom';
 
 //import pictures
-import * as image from '/projects/Projekt-2.jpg';
-
-var scene, camera , renderer;
-
-scene = new THREE.Scene();
-    var aspectRatio = window.innerWidth / window.innerHeight;
-    camera = new THREE.PerspectiveCamera(80, aspectRatio, 0.1, 300000);
-    camera.position.set(-900, -200, -900);
+import * as image1 from '/projects/Projekt-2.jpg';
+import * as image2 from '/projects/Projekt-1.jpg';
 
 
-    renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    
-    let skySpheres = [createSkysphere(image.default)];//lista miejsc
+var menuBottom;
+var scene = new THREE.Scene();
+var aspectRatio = window.innerWidth / window.innerHeight;
+var camera = new THREE.PerspectiveCamera(80, aspectRatio, 0.1, 300000);
+camera.position.set(-900, -200, -900);
 
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
 
-
-    //actualna sfera
-    scene.add(skySpheres[0]);
-
-    var controls = new OrbitControls(camera, renderer.domElement); //poruszanie się za pomocą myszki
-    controls.minDistance = 500;
-    controls.maxDistance = 100000;
-
-    window.addEventListener('resize', resize, false);
-    render();
-
-
-class VR {
-
-    constructor() {
-
-        console.log('VR module has been initialized');
-    
-    
-    document.querySelector('.projectsView').appendChild(renderer.domElement);
-    
-    }
-
+let skySpheres = [];//lista miejsc
+let skySphereSrc = [image1.default, image2.default];
+for (const src of skySphereSrc) {
+    skySpheres.push(createSkysphere(src));
 }
+
+//actualna sfera
+scene.add(skySpheres[0]);
+
+var controls = new OrbitControls(camera, renderer.domElement); //poruszanie się za pomocą myszki
+controls.minDistance = 500;
+controls.maxDistance = 100000;
+
+window.addEventListener('resize', resize, false);
+render();
 
 
 
@@ -59,8 +49,6 @@ function createSkysphere(location) {
     return skySphere;
 }
 
-
-
 function resize() {
     camera.aspect = window.innerWidth / window.innerHeight;
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -73,24 +61,37 @@ function render() {
 }
 
 
+function initChange() {
+    ///////////// zmienianie miejsca
+    let options = document.querySelectorAll(".wizka");
+    console.log('inicjalizacja funckcjonalnosci wizek');
 
-///////////// zmienianie miejsca
-let options = document.querySelectorAll(".menuBottom > ul > li");
+    for (var i = 0; i < options.length; i++) {
 
-for (var i = 0; i < options.length; i++) {
-    options[i].classList.add(i.toString());
+        if (skySphereSrc[i]) {
+            options[i].children[0].src = skySphereSrc[i];
+            options[i].classList.add(i.toString());
+            options[i].children[1].firstElementChild.firstElementChild.innerText = `Projekt ${i+1}`;
+        }
+        options[i].addEventListener('click', function () {
 
-    options[i].addEventListener('click', function () {
+            let index = this.classList[1];
+            for (const sphere of skySpheres)
+                scene.remove(sphere);
 
-        let index = this.classList[0];
-        for (const sphere of skySpheres)
-            scene.remove(sphere);
+            scene.add(skySpheres[index]);
+            menuBottom.hide();
 
-        scene.add(skySpheres[index]);
-
-        // title.innerHTML = this.innerHTML;
-    });
+            // title.innerHTML = this.innerHTML;
+        });
+    }
 }
 
-export default VR;
+export default function VR() {
+    initChange();
+    menuBottom = new menuBottomExpander();
+    console.log('VR module has been initialized');
+    document.querySelector('.projectsView').appendChild(renderer.domElement);
+
+};
 

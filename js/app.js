@@ -1,7 +1,7 @@
 import Highway from '/node_modules/@dogstudio/highway/build/highway.module.js';
 import Transition from './transition';
 import VR from './VR';
-import menuBottomExpander from './menuBottom';
+
 import makeTilt from './tilt';
 import menu from './menu';
 
@@ -37,8 +37,7 @@ function loadComponents(location) {
     
     switch (location) {
         case 'wizualizacje.html':
-            vr = new VR();
-            menuBottom = new menuBottomExpander();
+            VR();
             makeTilt('.wizka');
     }
 }
