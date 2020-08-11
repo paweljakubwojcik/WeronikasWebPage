@@ -1,15 +1,17 @@
-
+import getPosition from './utils';
 /**
  * Adds cool tilt effect to all elements refrenced by querySelector
  * @param {String} querySelector 
  */
 function makeTilt(querySelector)
 {
+    
     let tiltElements = document.querySelectorAll(querySelector);
 
     for (const tiltElement of tiltElements) {
 
         tiltElement.addEventListener('mousemove', function (e) {
+            console.log('doin a tilt');
             let x = e.x - getPosition(this).left;
             let y = e.y - getPosition(this).top;
     
@@ -28,23 +30,6 @@ function makeTilt(querySelector)
 }
 
 
-/**
- * Zwraca absolutną pozycje środka elementu
- * @param {DOM element} element 
- */
-function getPosition(element) {
-    var top = 0, left = 0;
-    var h =  element.clientHeight/2, w=element.clientWidth/2;
-    do {
-        top += element.offsetTop || 0;
-        left += element.offsetLeft || 0;
-        element = element.offsetParent;
-    } while (element);
 
-    return {
-        top: top + h,
-        left: left + w
-    };
-}
 
 export default makeTilt;
