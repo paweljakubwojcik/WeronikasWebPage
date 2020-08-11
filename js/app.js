@@ -17,18 +17,22 @@ const H = new Highway.Core({
 
 let vr, menuBottom;
 
-window.addEventListener('load', () => {
 
+//inicjalizacja odpowiednich modułów podczas refresha oraz przy pierwszym wejściu na witryne
+window.addEventListener('load', () => {
     let location = document.URL.split('/').reverse()[0];
     loadComponents(location);
-
 })
 
-//inicjalizacja odpowiednich modułów
+//inicjalizacja odpowiednich modułów podczas przejscia na podstrony
 H.on('NAVIGATE_IN', ({ to, trigger, location }) => {
     loadComponents(location.pathname.split('/').reverse()[0]);
 });
 
+/**
+ * ładuje odpowiednie komponenty
+ * @param {String} location - nazwa pliku do którego odnoszą się funkcjonalnosci
+ */
 function loadComponents(location) {
     
     switch (location) {
