@@ -290,6 +290,7 @@ canvas {
   -webkit-transition: opacity 1s;
   transition: opacity 1s;
   position: static;
+  cursor: all-scroll;
 }
 
 .menuButtonContainer {
@@ -469,6 +470,81 @@ canvas {
 
 .galeriaBackground {
   background-image: url("background.jpg");
+}
+
+.Galeria {
+  position: fixed;
+  top: 0;
+  padding: 70px 20px 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  -ms-grid-rows: (minmax(250px, 1fr))[auto-fit];
+      grid-template-rows: repeat(auto-fit, minmax(250px, 1fr));
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  row-gap: 15px;
+  overflow-y: scroll;
+}
+
+.Galeria img {
+  width: 200px;
+  height: 200px;
+  margin: 30px;
+  border: 3px solid aliceblue;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.Galeria img:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000aa;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 11;
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+}
+
+.modal img {
+  height: 85%;
+  pointer-events: inherit;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -40%);
+          transform: translate(-50%, -40%);
+}
+
+.modal p {
+  pointer-events: inherit;
+  position: absolute;
+  left: 50%;
+  top: 90%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.open {
+  opacity: 1;
+  pointer-events: all;
 }
 
 .showed {

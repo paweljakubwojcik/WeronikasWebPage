@@ -5,6 +5,8 @@ import VR from './VR';
 import makeTilt from './tilt';
 import menu from './menu';
 
+import imageExpander from './galeria';
+
 //lista podstron
 //na pozniej
 
@@ -34,11 +36,16 @@ H.on('NAVIGATE_IN', ({ to, trigger, location }) => {
  * @param {String} location - nazwa pliku do którego odnoszą się funkcjonalnosci
  */
 function loadComponents(location) {
-    
+
     switch (location) {
         case 'wizualizacje.html':
             VR();
             makeTilt('.wizka');
+            break;
+
+        case 'galeria.html':
+           imageExpander();
+           break;
     }
 }
 
