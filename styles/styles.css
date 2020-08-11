@@ -188,10 +188,11 @@ a:hover {
   pointer-events: none;
   -webkit-transform: translate(-100vw, 0);
           transform: translate(-100vw, 0);
-  -webkit-transition: -webkit-transform .8s;
-  transition: -webkit-transform .8s;
-  transition: transform .8s;
-  transition: transform .8s, -webkit-transform .8s;
+  opacity: 0;
+  -webkit-transition: opacity .8s , -webkit-transform .8s;
+  transition: opacity .8s , -webkit-transform .8s;
+  transition: transform .8s , opacity .8s;
+  transition: transform .8s , opacity .8s , -webkit-transform .8s;
 }
 
 .menu ul {
