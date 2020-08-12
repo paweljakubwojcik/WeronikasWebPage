@@ -13,21 +13,22 @@
     height: 100%;
 
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    grid-template-rows: repeat(auto-fit,minmax(250px,1fr));
-    justify-content: stretch;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    //grid-template-rows: repeat(auto-fit,minmax(250px,1fr));
+    //justify-content: stretch;
     
-    column-gap: 10px;
-    row-gap: 15px;
 
     overflow-y: scroll;
     
-
+}
+.obrazek
+{
+    margin: 30px;
+    max-width: 300px;
+    justify-self: center;
     img{
        
-        width:200px;
-        height: 200px;
-        margin: 30px;
+        width:100%;
         border: 3px solid $defaultFontColor;
         transition: all .1s;
         &:hover{
@@ -42,7 +43,6 @@
     position: absolute;
     top:0;
     width: 100%;
-    height: 100%;
     background-color: #000000aa;
     display: flex;
     flex-direction: column;
