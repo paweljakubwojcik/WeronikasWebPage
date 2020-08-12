@@ -512,9 +512,11 @@ canvas {
 }
 
 .modal {
-  position: absolute;
+  position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
   background-color: #000000aa;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -537,7 +539,7 @@ canvas {
 }
 
 .modal img {
-  height: 85%;
+  height: 85vmin;
   pointer-events: inherit;
 }
 

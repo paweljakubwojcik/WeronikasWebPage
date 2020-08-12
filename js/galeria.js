@@ -4,12 +4,12 @@ import makeTilt from './tilt';
 let images, modal, fullSizeImage, text;
 
 export default function imageExpander() {
-    images = document.querySelectorAll('.Galeria img');
+    images = document.querySelectorAll('.obrazek img');
     modal = document.querySelector('.modal');
     fullSizeImage = document.querySelector('.modal img');
     text = document.querySelector('.modal p');
 
-    makeTilt('.Galeria img');
+    makeTilt('.obrazek img');
 
     for (const image of images) {
 
@@ -34,13 +34,15 @@ export default function imageExpander() {
 }
 
 function nextImage() {
+    console.log('nextImage');
 
     let theImage = Array.from(images).filter((element) => {
         return element.src == fullSizeImage.src;
     })
 
-    let nextImage = theImage[0].nextElementSibling;
+    let nextImage = theImage[0].parentElement.nextElementSibling;
     if (nextImage) {
+        nextImage = nextImage.firstElementChild;
         fullSizeImage.src = nextImage.src;
         text.innerHTML = nextImage.getAttribute('data-text');
     }
@@ -52,8 +54,9 @@ function previousImage() {
         return element.src == fullSizeImage.src;
     })
 
-    let previousImage = theImage[0].previousElementSibling;
+    let previousImage = theImage[0].parentElement.previousElementSibling;
     if (previousImage) {
+        previousImage = previousImage.firstElementChild;
         fullSizeImage.src = previousImage.src;
         text.innerHTML = previousImage.getAttribute('data-text');
     }
