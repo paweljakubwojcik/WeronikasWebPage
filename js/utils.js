@@ -11,8 +11,6 @@ function getPosition(element) {
     do {
         top += element.offsetTop || 0;
         left += element.offsetLeft || 0;
-        top -= element.parentElement.scrollTop || 0;
-        left -= element.parentElement.scrollLeft || 0;
         element = element.offsetParent;
     } while (element);
 
