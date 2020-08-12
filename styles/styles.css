@@ -291,7 +291,6 @@ canvas {
   -webkit-transition: opacity 1s;
   transition: opacity 1s;
   position: static;
-  cursor: all-scroll;
 }
 
 .menuButtonContainer {
