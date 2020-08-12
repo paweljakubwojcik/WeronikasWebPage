@@ -1,4 +1,5 @@
 import getPosition from './utils';
+import makeTilt from './tilt';
 
 let images, modal, fullSizeImage, text;
 
@@ -8,6 +9,7 @@ export default function imageExpander() {
     fullSizeImage = document.querySelector('.modal img');
     text = document.querySelector('.modal p');
 
+    makeTilt('.Galeria img');
 
     for (const image of images) {
 

@@ -11,7 +11,7 @@ function makeTilt(querySelector)
     for (const tiltElement of tiltElements) {
 
         tiltElement.addEventListener('mousemove', function (e) {
-            console.log('doin a tilt');
+           // console.log('doin a tilt');
             let x = e.x - getPosition(this).left;
             let y = e.y - getPosition(this).top;
     
