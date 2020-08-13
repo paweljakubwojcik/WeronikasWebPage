@@ -64,6 +64,26 @@
     }
     p{
         pointer-events: inherit;
+        position: relative;
+        
+        &::after,&::before{
+            content: "";
+            position: absolute;
+            top: -25%;
+            left: -100%;
+            display: block;
+            width: 300%;
+            height: 150%;
+            border: 2px solid $defaultFontColor;
+            filter: blur(1px);
+        }
+        &::after{
+            transform: translate(-5px,-5px);
+        }
+        &::before{
+            transform: translate(5px,5px);
+        }
+        
     }
 }
 
