@@ -1,10 +1,12 @@
 {
-  "name": "three-js-tutorial",
+  "name": "name",
   "version": "1.0.0",
-  "description": "Tutorial with three.js",
-  "main": "scripts.js",
+  "description": "stronka",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+   "serve": "parcel index.html",
+   "serve-on-remote": "parcel index.html --public-url ./",
+   "build": "parcel build index.html --public-url ./"
   },
   "author": "Paweł Wójcik",
   "license": "ISC",

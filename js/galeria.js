@@ -34,8 +34,6 @@ export default function imageExpander() {
 }
 
 function nextImage() {
-    console.log('nextImage');
-
     let theImage = Array.from(images).filter((element) => {
         return element.src == fullSizeImage.src;
     })
@@ -47,7 +45,6 @@ function nextImage() {
         text.innerHTML = nextImage.getAttribute('data-text');
     }
 }
-
 function previousImage() {
 
     let theImage = Array.from(images).filter((element) => {
