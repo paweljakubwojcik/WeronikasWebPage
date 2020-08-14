@@ -599,64 +599,26 @@ canvas {
           justify-content: center;
 }
 
-.formWrapper form {
-  pointer-events: all;
-  width: 60%;
-  background-color: #77777777;
-  padding: 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  color: aliceblue;
-  font-family: "Playfair Display";
-}
-
-.formWrapper input, .formWrapper textarea, .formWrapper button {
-  margin: 10px;
-  background-color: #00000000;
-  color: inherit;
-  font-family: inherit;
-  font-size: .8rem;
-}
-
-.formWrapper input {
-  padding: 5px;
-}
-
-.formWrapper textarea {
-  min-height: 100px;
-  width: 100%;
-  resize: none;
-}
-
-.formWrapper textarea, .formWrapper input {
-  -webkit-box-flex: 1;
-      -ms-flex: auto;
-          flex: auto;
-  border: 2px solid aliceblue;
-}
-
-.formWrapper button {
-  font-family: "CustomFont";
-  -ms-grid-column-align: right;
-      justify-self: right;
-  padding: 10px 50px 10px;
+.kontakt {
+  font-size: 4vmin;
+  text-align: center;
   position: relative;
-  border: none;
+  padding: 30px;
 }
 
-.formWrapper button::after, .formWrapper button::before {
+.kontakt a {
+  pointer-events: all;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.kontakt::after, .kontakt::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
   height: 100%;
+  width: 100%;
   border: 2px solid aliceblue;
   -webkit-transition: opacity .6s, -webkit-transform .6s, -webkit-filter .6s;
   transition: opacity .6s, -webkit-transform .6s, -webkit-filter .6s;
@@ -664,26 +626,16 @@ canvas {
   transition: transform .6s, opacity .6s, filter .6s, -webkit-transform .6s, -webkit-filter .6s;
 }
 
-.formWrapper button::before {
-  opacity: 0;
-  border: 2px solid aliceblue;
-}
-
-.formWrapper button:hover::after {
-  cursor: pointer;
-  -webkit-transform: translate(-5px, -5px);
-          transform: translate(-5px, -5px);
-  -webkit-filter: blur(1px);
-          filter: blur(1px);
-}
-
-.formWrapper button:hover::before {
-  cursor: pointer;
+.kontakt::before {
   -webkit-transform: translate(10px, 10px);
           transform: translate(10px, 10px);
-  opacity: 1;
   -webkit-filter: blur(1px);
           filter: blur(1px);
+}
+
+.kontakt::after {
+  -webkit-transform: translate(-10px, -10px);
+          transform: translate(-10px, -10px);
 }
 
 .showed {
