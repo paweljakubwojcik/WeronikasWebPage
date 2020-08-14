@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weronika Wójcik | Home</title>
+    <title>Weronika Wójcik | Kontakt</title>
     <!-- add icon link -->
     <link rel="icon" href='favicon.ico' type="image/x-icon">
     <link rel="stylesheet" href="styles/styles.css">
@@ -29,16 +29,27 @@
     </nav>
 
     <main data-router-wrapper>
-        <section data-router-view="home">
+        <section data-router-view="kontakt">
             <div class="upbar">
                 <header class="logo">Weronika Wójcik</header>
-                <div class='tittle'>Home</div>
+                <div class='tittle'>Kontakt</div>
             </div>
-            <div class="background homeBackground"></div>
+            <div class="background kontaktBackground"></div>
 
+            <div class="formWrapper">
+                <form>
+                    <input type="text" class='input' placeholder="imie">
+                    <input type="text" class='input' placeholder="nazwisko">
+                    <input type="text" class='input' placeholder="twój email">
+                    <textarea type="text" class='message' placeholder="wiadomośc"></textarea>
+                    <button type='submit'>Wyślij</button>
+                </form>
+            </div>
+
+        </section>
     </main>
     <!-- footer trza przeniesc do reszty plików -->
-    <div class='footer'>WebPage by Paweł Wójcik 2020 pawel.jakub.wojcik@gmail.com</div>
+    <footer class='footer'>WebPage by Paweł Wójcik 2020 pawel.jakub.wojcik@gmail.com</footer>
     <!-- skrypty -->
     <script type='module' src='js/app.js'></script>
     <!-- koniec skryptów -->
