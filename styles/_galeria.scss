@@ -1,6 +1,7 @@
 .galeriaBackground
 {
-    background-image: url('background.jpg');
+    background-image: url('background-3.jpg');
+    
 }
 
 .Galeria{
@@ -13,18 +14,19 @@
     height: 100%;
 
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
     //grid-template-rows: repeat(auto-fit,minmax(250px,1fr));
     //justify-content: stretch;
     
 
-    overflow-y: scroll;
+    overflow: scroll;
+    scrollbar-width: inherit;
     
 }
 .obrazek
 {
     margin: 30px;
-    max-width: 300px;
+    max-width: 200px;
     justify-self: center;
     img{
        

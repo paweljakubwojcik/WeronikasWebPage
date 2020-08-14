@@ -7,19 +7,7 @@ canvas
     position:static;
    // cursor: all-scroll;
 }
-.menuButtonContainer
-{
-    position: absolute;
-    min-width: 100%;
-   
-    justify-content: center;
-    top:0;
-    transform: translateY(-70px);
-    &:hover{
-        cursor: pointer;
-        
-    }
-}
+
 .menuButton
 {
     position: absolute;
@@ -27,24 +15,25 @@ canvas
     min-width: 100%;
     justify-content: center;
     top:0;
-    transform: translateY(-70px);
+    transform: translateY(-80px);
     transition: background-color .5s, transform 1s;
     &:hover{
         cursor: pointer;
         background-color: $hoverColor;
+
     }
     span{
         position: relative;
         display: block;
         width: 70px;
-        height:70px;
+        height:80px;
         span{
             position: absolute;
             display: block;
             background-color: $defaultFontColor;
             height: 3px;
             width: 35px;
-            top:35px;
+            top:45px;
             transition: transform 1s;
         }
         :nth-child(1)
