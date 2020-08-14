@@ -93,12 +93,13 @@
     }
     &::after{
         transform: translate(10px,10px);
-        filter: blur(1px);
+        filter: blur(2px);
         z-index: 11;
     }
     &::before{
         transform: translate(-10px,-10px);
         z-index:11;
+        filter: blur(1px);
     }
 }
 
