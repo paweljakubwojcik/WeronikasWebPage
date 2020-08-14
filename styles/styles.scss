@@ -39,7 +39,8 @@ body
      
 }
 a{
-    @include flexCenter();
+    pointer-events: all;
+    font-weight: 900;
     text-decoration: none;
     color: $defaultFontColor;
     transition: color .5s;

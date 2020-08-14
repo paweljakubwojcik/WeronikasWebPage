@@ -27,16 +27,8 @@ body {
 }
 
 a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
+  pointer-events: all;
+  font-weight: 900;
   text-decoration: none;
   color: aliceblue;
   -webkit-transition: color .5s;
@@ -316,6 +308,105 @@ a:hover {
 
 .homeBackground {
   background-image: url("background-2.jpg");
+}
+
+@-webkit-keyframes appear {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(50vh);
+            transform: translateY(50vh);
+  }
+  tp {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(50vh);
+            transform: translateY(50vh);
+  }
+  tp {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+.bio {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 70%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 20px;
+}
+
+.bio h2 {
+  -webkit-animation: appear 1s both;
+          animation: appear 1s both;
+}
+
+.bio p {
+  margin: 16px;
+}
+
+.bio p:nth-of-type(1) {
+  -webkit-animation: appear 2s .1s both;
+          animation: appear 2s .1s both;
+}
+
+.bio p:nth-of-type(2) {
+  -webkit-animation: appear 2s 1s both;
+          animation: appear 2s 1s both;
+}
+
+.bio a {
+  text-decoration: underline;
+}
+
+.bioWrap {
+  padding: 30px;
+  position: relative;
+}
+
+.bioWrap::after, .bioWrap::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border: 2px solid aliceblue;
+  -webkit-animation: appearPseudoElements .5s 3s both;
+          animation: appearPseudoElements .5s 3s both;
+}
+
+.bioWrap::before {
+  -webkit-transform: translate(10px, -10px);
+          transform: translate(10px, -10px);
+  -webkit-filter: blur(1px);
+          filter: blur(1px);
+}
+
+.bioWrap::after {
+  -webkit-transform: translate(-10px, 10px);
+          transform: translate(-10px, 10px);
 }
 
 canvas {
@@ -641,14 +732,72 @@ canvas {
           justify-content: center;
 }
 
+@-webkit-keyframes appearFromRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(50vw);
+            transform: translateX(50vw);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes appearFromRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(50vw);
+            transform: translateX(50vw);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes appearPseudoElements {
+  from {
+    opacity: 0;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  to {
+  }
+}
+
+@keyframes appearPseudoElements {
+  from {
+    opacity: 0;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  to {
+  }
+}
+
 .kontakt {
   font-size: 4vmin;
   text-align: center;
   position: relative;
   padding: 30px;
+  -webkit-animation: appearFromRight 1.5s .1s both;
+          animation: appearFromRight 1.5s .1s both;
 }
 
 .kontakt a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
   pointer-events: all;
   cursor: pointer;
   font-weight: 700;
@@ -662,10 +811,8 @@ canvas {
   height: 100%;
   width: 100%;
   border: 2px solid aliceblue;
-  -webkit-transition: opacity .6s, -webkit-transform .6s, -webkit-filter .6s;
-  transition: opacity .6s, -webkit-transform .6s, -webkit-filter .6s;
-  transition: transform .6s, opacity .6s, filter .6s;
-  transition: transform .6s, opacity .6s, filter .6s, -webkit-transform .6s, -webkit-filter .6s;
+  -webkit-animation: appearPseudoElements .5s 1.5s both;
+          animation: appearPseudoElements .5s 1.5s both;
 }
 
 .kontakt::before {

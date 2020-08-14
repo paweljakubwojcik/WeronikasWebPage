@@ -17,13 +17,38 @@
     justify-content: center;
 }
 
+@keyframes appearFromRight{
+    from{
+        opacity:0;
+        transform: translateX(50vw);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+@keyframes appearPseudoElements{
+    from{
+        opacity:0;
+        transform: translate(0,0);
+    }
+    to{
+
+    }
+    
+}
+
+
 .kontakt
 {
     font-size: 4vmin;
     text-align: center;
     position: relative;
     padding: 30px;
+
+    animation: appearFromRight 1.5s .1s both;
     a{
+        @include flexCenter();
         pointer-events: all;
         cursor: pointer;
         font-weight: 700;
@@ -36,7 +61,8 @@
         height: 100%;
         width: 100%;
         border: 2px solid $defaultFontColor;
-        transition: transform .6s, opacity .6s, filter .6s;
+        //transition: transform .6s, opacity .6s, filter .6s;
+        animation: appearPseudoElements .5s 1.5s both;
     }
     &::before{
         transform: translate(10px,10px);

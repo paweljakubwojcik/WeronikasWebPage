@@ -2,3 +2,73 @@
 {
     background-image: url('background-2.jpg');
 }
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform: translateY(50vh);
+    }
+    tp{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.bio
+{
+    position: absolute;
+    pointer-events: none;
+    top:0;
+    left:50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 20px;
+    h2{
+        animation: appear 1s both;
+    }
+    p{
+        margin: 16px;
+        &:nth-of-type(1)
+        {
+            animation: appear 2s .1s both;
+        }
+        &:nth-of-type(2)
+        {
+            animation: appear 2s 1s both;
+        }
+    }
+    a{
+        text-decoration:underline;
+    }
+
+}
+.bioWrap
+{
+    padding:30px;
+    position: relative;
+    &::after , &::before{
+        content: "";
+        position: absolute;
+        top:0;
+        left:0;
+        height: 100%;
+        width: 100%;
+        border: 2px solid $defaultFontColor;
+        //transition: transform .6s, opacity .6s, filter .6s;
+        animation: appearPseudoElements .5s 3s both;
+    }
+    &::before{
+        transform: translate(10px,-10px);
+        filter: blur(1px);
+    }
+    &::after{
+    transform: translate(-10px,10px);
+    }
+}
+
+
