@@ -515,10 +515,10 @@ canvas {
   opacity: 1;
   -webkit-transform: translate(0, 100vh);
           transform: translate(0, 100vh);
-  -webkit-transition: opacity .5s, -webkit-transform 1s;
-  transition: opacity .5s, -webkit-transform 1s;
-  transition: opacity .5s, transform 1s;
-  transition: opacity .5s, transform 1s, -webkit-transform 1s;
+  -webkit-transition: -webkit-transform .7s;
+  transition: -webkit-transform .7s;
+  transition: transform .7s;
+  transition: transform .7s, -webkit-transform .7s;
 }
 
 .wizContainer {

@@ -80,7 +80,7 @@ function initChange() {
                 scene.remove(sphere);
 
             scene.add(skySpheres[index]);
-            menuBottom.hide();
+            menuBottomExpander.hide();
 
             // title.innerHTML = this.innerHTML;
         });
@@ -89,7 +89,7 @@ function initChange() {
 
 export default function VR() {
     initChange();
-    menuBottom = new menuBottomExpander();
+    menuBottomExpander.init();
     console.log('VR module has been initialized');
     document.querySelector('.projectsView').appendChild(renderer.domElement);
 
