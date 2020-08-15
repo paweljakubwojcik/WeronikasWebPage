@@ -18,15 +18,15 @@ class Transition extends Highway.Transition {
     //zmiana napisu w .tittle
     t1.to(tittle, .5,
       {
-          filter:'blur(8px)',
+        filter: 'blur(8px)',
         onComplete: () => {
-          tittle.innerHTML=name;
+          tittle.innerHTML = name;
         }
       }
     ).to(tittle, .5,
       {
-        filter:'blur(0px)',
-        onComplete: ()=>{
+        filter: 'blur(0px)',
+        onComplete: () => {
           tittle.removeAttribute('style');
         }
       }
@@ -46,7 +46,7 @@ class Transition extends Highway.Transition {
     );
   }
 
-  out({  done }) {
+  out({ done }) {
     done();
   }
 }
