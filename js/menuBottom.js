@@ -1,9 +1,10 @@
 
 let menuButton;
 let menuBottom;
-class menuBottomExpander {
 
-    constructor() {
+const menuBottomExpander = {
+
+    init() {
 
         menuButton = document.querySelector('.menuButton');
         menuBottom = document.querySelector(".menuBottom");
@@ -14,12 +15,14 @@ class menuBottomExpander {
             menuBottom.classList.toggle('showed');
             menuButton.classList.toggle('menuButtonClicked');
         });
-    }
+    },
 
     hide() {
+        if(menuBottom)
         menuBottom.classList.remove('showed');
-        menuButton.classList.toggle('menuButtonClicked');
+        if(menuButton)
+        menuButton.classList.remove('menuButtonClicked');
     }
 }
 
-export default menuBottomExpander;
+export default menuBottomExpander; 

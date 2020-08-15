@@ -1,5 +1,8 @@
+import menuBottomExpander from './menuBottom';
+
 
 export default function menu() {
+    
     //wysuwane menu główne
     let burger = document.querySelector(".burger");
     burger.addEventListener('click', function () {
@@ -13,8 +16,7 @@ export default function menu() {
         option.addEventListener('click', function () {
             document.querySelector('.menu').classList.toggle('showed');
             burger.classList.toggle('clickedBurger');
-            //document.title="Weronika Wójcik | "+this.firstChild.innerHTML;
-            // document.querySelector('.tittle').innerHTML=this.firstChild.innerHTML;
+            menuBottomExpander.hide();
         })
     }
 }

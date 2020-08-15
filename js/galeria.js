@@ -1,5 +1,6 @@
 import getPosition from './utils';
 import makeTilt from './tilt';
+import Tween from 'gsap';
 
 let images, modal, fullSizeImage, text;
 
@@ -11,14 +12,22 @@ export default function imageExpander() {
 
     makeTilt('.obrazek img');
 
-    for (const image of images) {
+    let delay = .3;
 
+    for (const image of images) {
+        delay+=0.05;
         image.addEventListener('click', () => {
             let path = image.getAttribute('data-source');
             modal.classList.add('open');
             fullSizeImage.src = image.src;
             text.innerHTML = image.getAttribute('data-text');
         })
+
+        Tween.from(image,.5,{
+            x: window.innerWidth,
+            opacity:.3
+        }).delay(delay)
+
     }
 
     modal.addEventListener('click', (e) => {

@@ -22,6 +22,8 @@ let vr, menuBottom;
 
 //inicjalizacja odpowiednich modułów podczas refresha oraz przy pierwszym wejściu na witryne
 window.addEventListener('load', () => {
+    //initialize the menu button functionality
+    menu();
     let location = document.URL.split('/').reverse()[0];
     loadComponents(location);
 })
@@ -49,5 +51,3 @@ function loadComponents(location) {
     }
 }
 
-//initialize the menu button functionality
-menu();

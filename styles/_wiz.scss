@@ -7,19 +7,7 @@ canvas
     position:static;
    // cursor: all-scroll;
 }
-.menuButtonContainer
-{
-    position: absolute;
-    min-width: 100%;
-   
-    justify-content: center;
-    top:0;
-    transform: translateY(-70px);
-    &:hover{
-        cursor: pointer;
-        
-    }
-}
+
 .menuButton
 {
     position: absolute;
@@ -27,17 +15,18 @@ canvas
     min-width: 100%;
     justify-content: center;
     top:0;
-    transform: translateY(-70px);
+    transform: translateY(-80px);
     transition: background-color .5s, transform 1s;
     &:hover{
         cursor: pointer;
         background-color: $hoverColor;
+
     }
     span{
         position: relative;
         display: block;
         width: 70px;
-        height:70px;
+        height:80px;
         span{
             position: absolute;
             display: block;
@@ -63,13 +52,16 @@ canvas
 {
     transform: translateY(0);
     span{
+        span{
+            transform: translateY(10px);
+        }
         :nth-child(1)
         {
-            transform: rotateZ(45deg);
+            transform: rotateZ(45deg) translate(6px,6px);
         }
         :nth-child(2)
         {
-            transform: rotateZ(-45deg);
+            transform: rotateZ(-45deg) translate(-6px,6px);
         }
     }
 }
@@ -93,7 +85,7 @@ canvas
 
     opacity: 1;
     transform : translate(0,100vh);
-    transition: opacity .5s, transform 1s;
+    transition: transform .7s;
 }
 
 .wizContainer
@@ -116,10 +108,12 @@ canvas
     margin: 30px;
     justify-self: center;
     transition: transform .1s;
+
+    box-shadow: 0px 20px 20px #48484878;
     
    img{
        box-sizing: border-box;
-    border: 2px solid $defaultFontColor;
+    border: 3px solid $defaultFontColor;
        width: 100%;
        height: 100%;
    }
