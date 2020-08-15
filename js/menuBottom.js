@@ -18,7 +18,9 @@ const menuBottomExpander = {
     },
 
     hide() {
+        if(menuBottom)
         menuBottom.classList.remove('showed');
+        if(menuButton)
         menuButton.classList.remove('menuButtonClicked');
     }
 }
