@@ -63,14 +63,14 @@ a{
 .upbar
 {
     position: absolute;
-    z-index:2;
+    z-index:4;
     width: 80%;
     height: 70px;
     @include flexCenter();
     justify-content: left;
     flex-wrap: wrap;
     font-family: "Playfair Display";
-    font-size: 25px;
+    font-size: 32px;
     letter-spacing: 0.03em;
     &:hover{
         cursor:default;  
@@ -260,7 +260,15 @@ a{
     font-size: 10px;
     text-align: center;
     background-color: black;
-    z-index: 1;
+    z-index: 5;
+    
 }
 
+
+@media (max-width:800px)
+{
+    .upbar{
+        font-size: 24px;
+    }
+}
 

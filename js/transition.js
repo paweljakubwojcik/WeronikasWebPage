@@ -3,34 +3,51 @@ import Highway from '/node_modules/@dogstudio/highway/build/highway.js';
 // GSAP Library
 import Tween from 'gsap';
 
-// Fade
+// przejscie
 class Transition extends Highway.Transition {
   in({ from, to, done }) {
-    // Reset Scroll
-    window.scrollTo(0, 0);
 
-    // Remove Old View
-    from.remove();
+    to.style.position = 'absolute';
+    to.style.top = '0';
+    to.style.zIndex = '3';
+    let name = to.getAttribute('data-router-view').toUpperCase();
 
-    // Animation
-    Tween.fromTo(to, 0.5,
-      { opacity: 0 },
+    let tittle = document.querySelector('.tittle');
+    let t1 = Tween.timeline();
+
+    //zmiana napisu w .tittle
+    t1.to(tittle, .5,
       {
-        opacity: 1,
-        onComplete: done
+          filter:'blur(8px)',
+        onComplete: () => {
+          tittle.innerHTML=name;
+        }
+      }
+    ).to(tittle, .5,
+      {
+        filter:'blur(0px)',
+        onComplete: ()=>{
+          tittle.removeAttribute('style');
+        }
+      }
+    );
+
+    //wysuwanie się podstrony
+    Tween.fromTo(to, .7,
+      { x: window.innerWidth },
+      {
+        x: 0,
+        onComplete: () => {
+          to.removeAttribute('style');
+          from.remove();
+          done();
+        }
       }
     );
   }
 
-  out({ from, done }) {
-    // Animation
-    Tween.fromTo(from, 0.5,
-      { opacity: 1 },
-      {
-        opacity: 0,
-        onComplete: done
-      }
-    );
+  out({  done }) {
+    done();
   }
 }
 
