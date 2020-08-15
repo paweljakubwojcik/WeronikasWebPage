@@ -4,17 +4,15 @@
   "description": "stronka",
   "main": "app.js",
   "scripts": {
-   "serve": "parcel index.html",
-   "serve-on-remote": "parcel index.html --public-url ./",
-   "build": "parcel build index.html --public-url ./"
+    "serve": "parcel index.html",
+    "serve-on-remote": "parcel index.html --public-url ./",
+    "build": "parcel build index.html --public-url ./"
   },
   "author": "Paweł Wójcik",
   "license": "ISC",
   "dependencies": {
     "@dogstudio/highway": "^2.2.1",
     "gsap": "^3.4.2",
-    "projects": "^1.6.1",
-    "simple-scrollbar": "^0.4.0",
     "three": "^0.119.1"
   }
 }
