@@ -35,7 +35,7 @@ body
      color: $defaultFontColor;
      box-sizing: border-box;
      
-     text-shadow: 1px 1px 6px #44444477;
+     text-shadow: 0 0 2px #000000d9;
      
 }
 a{
@@ -57,7 +57,7 @@ a{
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    filter: brightness(.6);
+    filter: brightness(.8);
 }
 
 .upbar

@@ -23,7 +23,7 @@ body {
   color: aliceblue;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  text-shadow: 1px 1px 6px #44444477;
+  text-shadow: 0 0 2px #000000d9;
 }
 
 a {
@@ -46,8 +46,8 @@ a:hover {
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
-  -webkit-filter: brightness(0.6);
-          filter: brightness(0.6);
+  -webkit-filter: brightness(0.8);
+          filter: brightness(0.8);
 }
 
 .upbar {
