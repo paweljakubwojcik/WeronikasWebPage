@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "parcel index.html",
     "serve-on-remote": "parcel index.html --public-url ./",
-    "build": "parcel build index.html --public-url ./"
+    "build": "parcel build index.html --public-url ./ --out-dir build"
   },
   "author": "Paweł Wójcik",
   "license": "ISC",
