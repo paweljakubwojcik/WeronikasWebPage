@@ -13,6 +13,7 @@
   "dependencies": {
     "@dogstudio/highway": "^2.2.1",
     "gsap": "^3.4.2",
+    "parcel": "^1.12.4",
     "three": "^0.119.1"
   }
 }
