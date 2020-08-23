@@ -24,18 +24,19 @@
 $backgroundColor:  #44444477;
 $hoverColor:  #77777777;
 $defaultFontColor: aliceblue;
+$lightWhite:#dddddd30;
 
-*{
-    //scrollbar-width: none;
-}
+
 
 body 
 {
+     width:100vw;
      margin: 0; 
      color: $defaultFontColor;
      box-sizing: border-box;
      
      text-shadow: 0 0 2px #000000d9;
+     overflow-x: hidden;
      
 }
 a{
@@ -65,8 +66,8 @@ a{
 
 .upbar
 {
+    margin-top:10px;
     position: relative;
-    z-index:4;
     width: 80%;
     height: 70px;
     @include flexCenter();
@@ -99,16 +100,17 @@ a{
 }
 .burger
 {
+    background-color:$lightWhite;
     width:70px;
     height: 70px;
-    margin-left: auto;
+    top:10px;
     position: fixed;
-    top: 10px;
     right: 10px;
     z-index: 10;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    transition: background-color 1s;
 
     &::after,&::before{
         content:'';
@@ -128,7 +130,7 @@ a{
         cursor: pointer;
        &::after{
            opacity:1;
-           transform: translate(5px,5px);
+           transform: translate(2px,2px);
            filter: blur(1px);
        }
        &::before{
@@ -145,7 +147,7 @@ a{
     }
     :nth-child(1)
     {
-        height: 2px;
+        height: 3px;
     }
     :nth-child(2)
     {
@@ -153,11 +155,12 @@ a{
     }
     :nth-child(3)
     {
-        height: 2px;
+        height: 3px;
     }
 }
 .clickedBurger
 {
+    background-color:#00000000;
     :nth-child(1){
         transform: rotateZ(135deg) translateY(-10px) translateX(5px);
     }
@@ -171,6 +174,7 @@ a{
 .menu
 {
     position:fixed;
+    top:0;
     z-index: 9;
     background-color: #111111d1;
     width: 100%;
@@ -256,15 +260,12 @@ a{
 
 .footer
 {
-    position:fixed;
-    bottom:0;
+   position: fixed;
+   bottom:0;
     width: 100%;
-    height: 10px;
     font-size: 10px;
     text-align: center;
     background-color: black;
-    z-index: 5;
-    
 }
 
 
