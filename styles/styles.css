@@ -15,11 +15,13 @@
 }
 
 body {
+  width: 100vw;
   margin: 0;
   color: aliceblue;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   text-shadow: 0 0 2px #000000d9;
+  overflow-x: hidden;
 }
 
 a {
@@ -50,8 +52,8 @@ a:hover {
 }
 
 .upbar {
+  margin-top: 10px;
   position: relative;
-  z-index: 4;
   width: 80%;
   height: 70px;
   display: -webkit-box;
@@ -102,11 +104,11 @@ a:hover {
 }
 
 .burger {
+  background-color: #dddddd30;
   width: 70px;
   height: 70px;
-  margin-left: auto;
-  position: fixed;
   top: 10px;
+  position: fixed;
   right: 10px;
   z-index: 10;
   display: -webkit-box;
@@ -119,6 +121,8 @@ a:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-transition: background-color 1s;
+  transition: background-color 1s;
 }
 
 .burger::after, .burger::before {
@@ -140,8 +144,8 @@ a:hover {
 
 .burger:hover::after {
   opacity: 1;
-  -webkit-transform: translate(5px, 5px);
-          transform: translate(5px, 5px);
+  -webkit-transform: translate(2px, 2px);
+          transform: translate(2px, 2px);
   -webkit-filter: blur(1px);
           filter: blur(1px);
 }
@@ -164,7 +168,7 @@ a:hover {
 }
 
 .burger :nth-child(1) {
-  height: 2px;
+  height: 3px;
 }
 
 .burger :nth-child(2) {
@@ -172,7 +176,11 @@ a:hover {
 }
 
 .burger :nth-child(3) {
-  height: 2px;
+  height: 3px;
+}
+
+.clickedBurger {
+  background-color: #00000000;
 }
 
 .clickedBurger :nth-child(1) {
@@ -192,6 +200,7 @@ a:hover {
 
 .menu {
   position: fixed;
+  top: 0;
   z-index: 9;
   background-color: #111111d1;
   width: 100%;
@@ -590,22 +599,86 @@ canvas {
 }
 
 .Galeria {
-  top: 0;
-  padding: 70px 20px 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 100%;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.folder {
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background-color: #dddddd30;
+  -webkit-box-shadow: 0px 2px 10px rgba(84, 84, 84, 0.367);
+          box-shadow: 0px 2px 10px rgba(84, 84, 84, 0.367);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.folder p {
+  z-index: 2;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  left: 5px;
+  cursor: pointer;
+}
+
+.folder.collapsed {
+  z-index: 2;
+}
+
+.folder.collapsed:hover {
+  opacity: .5;
+}
+
+.folder.collapsed .obrazek {
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.folder.collapsed .obrazek:nth-of-type(1) {
+  position: relative;
+}
+
+.folder.collapsed .obrazek:nth-of-type(2) {
+  top: 3px;
+  left: 3px;
+}
+
+.folder.collapsed .obrazek:nth-of-type(3) {
+  top: 6px;
+  left: 6px;
+}
+
+.folder.collapsed p {
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  top: 50%;
+  left: 50%;
 }
 
 .obrazek {
   margin: 30px;
-  max-width: 200px;
-  -ms-grid-column-align: center;
-      justify-self: center;
+  width: 15vw;
+  min-width: 150px;
 }
 
 .obrazek img {
@@ -704,6 +777,38 @@ canvas {
 .open {
   opacity: 1;
   pointer-events: all;
+}
+
+@media (max-width: 800px) {
+  .obrazek {
+    width: 25vw;
+  }
+}
+
+@-webkit-keyframes folderUnwrap {
+  0% {
+    -webkit-transform: scaleX(0.1) scaleY(0.1);
+            transform: scaleX(0.1) scaleY(0.1);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scaleX(1) scaleY(1);
+            transform: scaleX(1) scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes folderUnwrap {
+  0% {
+    -webkit-transform: scaleX(0.1) scaleY(0.1);
+            transform: scaleX(0.1) scaleY(0.1);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scaleX(1) scaleY(1);
+            transform: scaleX(1) scaleY(1);
+    opacity: 1;
+  }
 }
 
 .kontaktBackground {
@@ -835,11 +940,9 @@ canvas {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 10px;
   font-size: 10px;
   text-align: center;
   background-color: black;
-  z-index: 5;
 }
 
 @media (max-width: 800px) {

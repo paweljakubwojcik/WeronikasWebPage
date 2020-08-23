@@ -6,37 +6,37 @@ exports.data = [
                 name: `1`,
                 alt: `to jest pierwszy obraz lazienki`,
                 src: `Pictures/lazienka1/1.jpg`,
-                preview: `Pictures/lazienka1/previews/1-preview.jpg`
+                preview: `/Pictures/lazienka1/previews/1-preview.jpg`
             },
             {
                 name: `2`,
                 alt: `to jest drugi obraz lazienki`,
                 src: `Pictures/lazienka1/2.jpg`,
-                preview: `Pictures/lazienka1/previews/2-preview.jpg`
+                preview: `/Pictures/lazienka1/previews/2-preview.jpg`
             },
             {
                 name: `3`,
                 alt: `to jest trzzeci obraz lazienki`,
                 src: `Pictures/lazienka1/3.jpg`,
-                preview: `Pictures/lazienka1/previews/3-preview.jpg`
+                preview: `/Pictures/lazienka1/previews/3-preview.jpg`
             },
             {
                 name: `4`,
                 alt: `to jest czwarty obraz lazienki`,
                 src: `Pictures/lazienka1/4.jpg`,
-                preview: `Pictures/lazienka1/previews/4-preview.jpg`
+                preview: `/Pictures/lazienka1/previews/4-preview.jpg`
             },
             {
                 name: `5`,
                 alt: `to jest piąty obraz lazienki`,
                 src: `Pictures/lazienka1/5.jpg`,
-                preview: `Pictures/lazienka1/previews/5-preview.jpg`
+                preview: `/Pictures/lazienka1/previews/5-preview.jpg`
             },
             {
                 name: `6`,
                 alt: `to jest szósty obraz lazienki`,
                 src: `Pictures/lazienka1/6.jpg`,
-                preview: `Pictures/lazienka1/previews/6-preview.jpg`,
+                preview: `/Pictures/lazienka1/previews/6-preview.jpg`,
             }
         ]
     }, {
