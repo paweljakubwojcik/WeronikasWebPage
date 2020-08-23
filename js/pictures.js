@@ -1,52 +1,95 @@
-const fs = require('fs')
-const path = require('path')
-
-class Picture {
-    /**
-     * 
-     * @param {string} name 
-     */
-    constructor(name) {
-        {
-            this.name = `${name.replace('.jpg', '')}`;
-            this.alt = `to jest ${name}`;
-            this.src = `Pictures/lazienka1/${name}`;
-            this.preview = `Pictures/lazienka1/previews/${name}`;
-        }
+exports.data = [
+    {
+        name: 'lazienka1',
+        pictures: [
+            {
+                name: `1`,
+                alt: `to jest pierwszy obraz lazienki`,
+                src: `Pictures/lazienka1/1.jpg`,
+                preview: `Pictures/lazienka1/previews/1-preview.jpg`
+            },
+            {
+                name: `2`,
+                alt: `to jest drugi obraz lazienki`,
+                src: `Pictures/lazienka1/2.jpg`,
+                preview: `Pictures/lazienka1/previews/2-preview.jpg`
+            },
+            {
+                name: `3`,
+                alt: `to jest trzzeci obraz lazienki`,
+                src: `Pictures/lazienka1/3.jpg`,
+                preview: `Pictures/lazienka1/previews/3-preview.jpg`
+            },
+            {
+                name: `4`,
+                alt: `to jest czwarty obraz lazienki`,
+                src: `Pictures/lazienka1/4.jpg`,
+                preview: `Pictures/lazienka1/previews/4-preview.jpg`
+            },
+            {
+                name: `5`,
+                alt: `to jest piąty obraz lazienki`,
+                src: `Pictures/lazienka1/5.jpg`,
+                preview: `Pictures/lazienka1/previews/5-preview.jpg`
+            },
+            {
+                name: `6`,
+                alt: `to jest szósty obraz lazienki`,
+                src: `Pictures/lazienka1/6.jpg`,
+                preview: `Pictures/lazienka1/previews/6-preview.jpg`,
+            }
+        ]
+    }, {
+        name: 'Przedszkole',
+        pictures: [
+            {
+                name: `1`,
+                alt: `to jest pierwszy obraz przedszkola`,
+                src: `Pictures/Przedszkole/1.jpg`,
+                preview: `Pictures/Przedszkole/previews/1-preview.jpg`
+            },
+            {
+                name: `2`,
+                alt: `to jest drugi obraz przedszkola`,
+                src: `Pictures/Przedszkole/2.jpg`,
+                preview: `Pictures/Przedszkole/previews/2-preview.jpg`
+            },
+            {
+                name: `3`,
+                alt: `to jest trzzeci obraz przedszkola`,
+                src: `Pictures/Przedszkole/3.jpg`,
+                preview: `Pictures/Przedszkole/previews/3-preview.jpg`
+            }
+        ]
+    },
+    {
+        name: 'Przemiana Salonu Optycznego',
+        pictures: [
+            {
+                name: `1`,
+                alt: `to jest pierwszy obraz salonu optycznego`,
+                src: `Pictures/SalonOptyczny/1.jpg`,
+                preview: `Pictures/SalonOptyczny/previews/1-preview.jpg`
+            },
+            {
+                name: `2`,
+                alt: `to jest drugi obraz salonu optycznego`,
+                src: `Pictures/SalonOptyczny/2.jpg`,
+                preview: `Pictures/SalonOptyczny/previews/2-preview.jpg`
+            },
+            {
+                name: `3`,
+                alt: `to jest trzzeci obraz salonu optycznego`,
+                src: `Pictures/SalonOptyczny/3.jpg`,
+                preview: `Pictures/SalonOptyczny/previews/3-preview.jpg`
+            },
+            {
+                name: `4`,
+                alt: `to jest trzzeci obraz salonu optycznego`,
+                src: `Pictures/SalonOptyczny/4.jpg`,
+                preview: `Pictures/SalonOptyczny/previews/4-preview.jpg`
+            }
+        ]
     }
-}
-
-class Folder {
-    constructor(name, parentPath) {
-
-        this.path = parentPath ? path.join(parentPath, name) : path.join(picturesDir, name);
-        this.name = `${name}`;
-
-        let childrens = fs.readdirSync(this.path)
-
-        childrens.forEach(name => {
-            let extension = path.extname(name);
-            if (extension === '.jpg')
-                this.pictures.push(new Picture(name))
-            else if (name.toLowerCase() === 'previews')
-                ;
-            else if (extension === '')
-                this.folders.push(new Folder(name, this.path))
-        })
-    }
-    pictures = [];
-    folders = []; //just in case ktoś stwierdzi że należy pogrupować te zdjęcia bardziej xd
-}
-
-
-let parentDir = path.dirname(__dirname)
-let picturesDir = path.join(parentDir, 'pictures')
-let folderNames = fs.readdirSync(picturesDir);
-
-let folders = folderNames.map((folder) => new Folder(folder))
-exports.pictures = folders;
-
-
-
-
+]
 

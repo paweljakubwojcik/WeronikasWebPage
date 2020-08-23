@@ -7,9 +7,6 @@ import menu from './menu';
 
 import imageExpander from './galeria';
 
-import pictures from './pictures';
-
-console.log(pictures)
 
 //lista podstron
 //na pozniej
@@ -50,8 +47,8 @@ function loadComponents(location) {
             break;
 
         case 'galeria.html':
-           imageExpander();
-           break;
+            imageExpander();
+            break;
     }
 }
 
