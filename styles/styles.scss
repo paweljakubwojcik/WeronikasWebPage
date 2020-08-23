@@ -28,12 +28,17 @@ $lightWhite:#dddddd30;
 
 
 
-body 
+body
 {
      width:100vw;
+     min-height: 100vh;
      margin: 0; 
      color: $defaultFontColor;
      box-sizing: border-box;
+
+     display:flex;
+     flex-direction: column;
+    justify-content: space-between;
      
      text-shadow: 0 0 2px #000000d9;
      overflow-x: hidden;
@@ -61,22 +66,28 @@ a{
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    filter: brightness(.8);
+    filter: brightness(.95);
 }
 
 .upbar
 {
-    margin-top:10px;
+    
     position: relative;
     z-index:4;
-    width: 80%;
-    height: 70px;
+    width: 40%;
+    min-width:250px;
+    height: fit-content;
     @include flexCenter();
     justify-content: left;
     flex-wrap: wrap;
     font-family: "Playfair Display";
     font-size: 32px;
     letter-spacing: 0.03em;
+    box-shadow: 18px 3px 20px #000F0E26;
+    padding-top:20px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+
     &:hover{
         cursor:default;  
     }
@@ -261,9 +272,9 @@ a{
 
 .footer
 {
-   position: fixed;
+   position: relative;
    z-index:4;
-   bottom:0;
+//    bottom:0;
     width: 100%;
     font-size: 10px;
     text-align: center;
