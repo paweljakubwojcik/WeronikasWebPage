@@ -4,16 +4,8 @@
     background-color:#d0a3a3;
     
 }
-.backgroundElement{
-    position: absolute;
-    display:block;
-    width:100vw;
-    height: 100vh;
-    top:0;
-    left:100vw;
+.backgroundElement.GALERIA{
     transform:translate(-50%,-45%);
-   // background-color:#000000aa;
-    box-shadow: 0px 2px 10px rgba(84, 84, 84, 0.367);;
 }
 
 .Galeria{
@@ -31,6 +23,7 @@
 
 .folder
 {
+    //opacity:0;
     box-sizing: border-box;
     position: relative;
     width: fit-content;

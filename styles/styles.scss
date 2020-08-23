@@ -55,6 +55,7 @@ a{
             color: #e7e7e7fb;
     }
 }
+
 .background
 {
     display: block;
@@ -67,6 +68,25 @@ a{
     background-attachment: fixed;
     background-position: center;
     filter: brightness(.95);
+}
+.backgroundElement{
+    position: fixed;
+    z-index:2;
+    display:block;
+    width:100vw;
+    height: 100vh;
+    top:0;
+    left:100vw;
+    transform:translate(-50%,-45%);
+    transition: all 1.5s;
+   // background-color:#000000aa;
+    box-shadow: 0px 2px 10px rgba(84, 84, 84, 0.367);
+}
+
+.nygus{
+    height: 100%;
+    display:flex;
+    align-items: center;
 }
 
 .upbar

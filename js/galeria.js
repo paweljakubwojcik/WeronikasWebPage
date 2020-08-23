@@ -30,12 +30,6 @@ export default {
                 fullSizeImage.setAttribute('data-path', path)
                 text.innerHTML = image.getAttribute('data-text');
             })
-
-            Tween.from(image, 1, {
-                x: window.innerWidth,
-                opacity: .3
-            }).delay(delay)
-
         }
 
         modal.addEventListener('click', (e) => {
@@ -58,7 +52,7 @@ export default {
 function insertPictures(data) {
     data.forEach(folder => {
         let galeria = document.querySelector('.Galeria')
-        
+
         let folderElement = document.createElement('div')
         folderElement.classList.add('folder')
         folderElement.classList.add('collapsed')
@@ -92,6 +86,15 @@ function insertPictures(data) {
  */
 function initFolders() {
     folders.forEach(folder => {
+
+        // Tween.fromTo(folder,.4,{
+        //     opacity:0,
+        //     filter: 'blur(100px)'
+        // },{
+        //     opacity:1,
+        //     filter: 'blur(0px)'
+        // }).delay(.7)
+
         //this is definetly NOT way to do that
         folder.addEventListener('animationend', () => {
             folder.style.animation = '';

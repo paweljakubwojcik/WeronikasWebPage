@@ -3,6 +3,9 @@
     //background-image: url('background-4.jpg');
     background-color:#72ae8a;
 }
+.backgroundElement.KONTAKT{
+    transform:translate(-50%,50%);
+}
 
 .formWrapper
 {
@@ -46,8 +49,8 @@
     text-align: center;
     position: relative;
     padding: 30px;
-
-    animation: appearFromRight 1.5s .1s both;
+    opacity:0;
+    animation: appearFromRight 1.5s .7s both;
     a{
         @include flexCenter();
         pointer-events: all;

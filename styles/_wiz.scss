@@ -4,8 +4,13 @@ canvas
     display: block;
     position:fixed;
     top:0;
-    z-index:0;
+    z-index:3;
    // cursor: all-scroll;
+}
+
+.backgroundElement.WIZUALIZACJE{
+    opacity:0;
+    transform:translate(-50%,50%);
 }
 
 .menuButton

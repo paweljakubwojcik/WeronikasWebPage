@@ -62,6 +62,32 @@ a:hover {
           filter: brightness(0.95);
 }
 
+.backgroundElement {
+  position: fixed;
+  z-index: 2;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 100vw;
+  -webkit-transform: translate(-50%, -45%);
+          transform: translate(-50%, -45%);
+  -webkit-transition: all 1.5s;
+  transition: all 1.5s;
+  -webkit-box-shadow: 0px 2px 10px rgba(84, 84, 84, 0.367);
+          box-shadow: 0px 2px 10px rgba(84, 84, 84, 0.367);
+}
+
+.nygus {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .upbar {
   position: relative;
   z-index: 4;
@@ -337,6 +363,11 @@ a:hover {
   background-color: #e3cf83;
 }
 
+.backgroundElement.HOME {
+  -webkit-transform: translate(-150%, 50%);
+          transform: translate(-150%, 50%);
+}
+
 @-webkit-keyframes appear {
   from {
     opacity: 0;
@@ -440,7 +471,13 @@ canvas {
   display: block;
   position: fixed;
   top: 0;
-  z-index: 0;
+  z-index: 3;
+}
+
+.backgroundElement.WIZUALIZACJE {
+  opacity: 0;
+  -webkit-transform: translate(-50%, 50%);
+          transform: translate(-50%, 50%);
 }
 
 .menuButton {
@@ -618,17 +655,9 @@ canvas {
   background-color: #d0a3a3;
 }
 
-.backgroundElement {
-  position: absolute;
-  display: block;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 100vw;
+.backgroundElement.GALERIA {
   -webkit-transform: translate(-50%, -45%);
           transform: translate(-50%, -45%);
-  -webkit-box-shadow: 0px 2px 10px rgba(84, 84, 84, 0.367);
-          box-shadow: 0px 2px 10px rgba(84, 84, 84, 0.367);
 }
 
 .Galeria {
@@ -875,6 +904,11 @@ canvas {
   background-color: #72ae8a;
 }
 
+.backgroundElement.KONTAKT {
+  -webkit-transform: translate(-50%, 50%);
+          transform: translate(-50%, 50%);
+}
+
 .formWrapper {
   position: absolute;
   pointer-events: none;
@@ -945,8 +979,9 @@ canvas {
   text-align: center;
   position: relative;
   padding: 30px;
-  -webkit-animation: appearFromRight 1.5s .1s both;
-          animation: appearFromRight 1.5s .1s both;
+  opacity: 0;
+  -webkit-animation: appearFromRight 1.5s .7s both;
+          animation: appearFromRight 1.5s .7s both;
 }
 
 .kontakt a {
