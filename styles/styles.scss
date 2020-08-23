@@ -26,7 +26,7 @@ $hoverColor:  #77777777;
 $defaultFontColor: aliceblue;
 
 *{
-    scrollbar-width: none;
+    //scrollbar-width: none;
 }
 
 body 
@@ -52,6 +52,9 @@ a{
 .background
 {
     display: block;
+    position:fixed;
+    z-index:-1;
+    top:0;
     width: 100vw;
     height: 100vh;
     background-size: cover;
@@ -62,7 +65,7 @@ a{
 
 .upbar
 {
-    position: absolute;
+    position: relative;
     z-index:4;
     width: 80%;
     height: 70px;
@@ -99,7 +102,7 @@ a{
     width:70px;
     height: 70px;
     margin-left: auto;
-    position: absolute;
+    position: fixed;
     top: 10px;
     right: 10px;
     z-index: 10;
@@ -167,7 +170,7 @@ a{
 }
 .menu
 {
-    position:absolute;
+    position:fixed;
     z-index: 9;
     background-color: #111111d1;
     width: 100%;
