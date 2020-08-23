@@ -92,6 +92,5 @@ export default function VR() {
     menuBottomExpander.init();
     console.log('VR module has been initialized');
     document.querySelector('.projectsView').appendChild(renderer.domElement);
-
 };
 

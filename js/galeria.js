@@ -1,45 +1,48 @@
 import getPosition from './utils';
 import makeTilt from './tilt';
 import Tween from 'gsap';
+import data from './pictures'
 
 let images, modal, fullSizeImage, text;
 
-export default function imageExpander() {
-    images = document.querySelectorAll('.obrazek img');
-    modal = document.querySelector('.modal');
-    fullSizeImage = document.querySelector('.modal img');
-    text = document.querySelector('.modal p');
+export default {
+    init() {
+        images = document.querySelectorAll('.obrazek img');
+        modal = document.querySelector('.modal');
+        fullSizeImage = document.querySelector('.modal img');
+        text = document.querySelector('.modal p');
 
-    makeTilt('.obrazek img');
+        makeTilt('.obrazek img');
 
-    let delay = .3;
+        let delay = .3;
 
-    for (const image of images) {
-        delay+=0.05;
-        image.addEventListener('click', () => {
-            let path = image.getAttribute('data-source');
-            modal.classList.add('open');
-            fullSizeImage.src = image.src;
-            text.innerHTML = image.getAttribute('data-text');
-        })
+        for (const image of images) {
+            delay += 0.05;
+            image.addEventListener('click', () => {
+                let path = image.getAttribute('data-source');
+                modal.classList.add('open');
+                fullSizeImage.src = image.src;
+                text.innerHTML = image.getAttribute('data-text');
+            })
 
-        Tween.from(image,.5,{
-            x: window.innerWidth,
-            opacity:.3
-        }).delay(delay)
+            Tween.from(image, .5, {
+                x: window.innerWidth,
+                opacity: .3
+            }).delay(delay)
 
-    }
-
-    modal.addEventListener('click', (e) => {
-        if (e.target.classList.contains('modal'))
-            modal.classList.remove('open');
-        else if (e.target.localName == 'img') {
-            if (getPosition(fullSizeImage).left - e.x < 0)
-                nextImage();
-            else
-                previousImage();
         }
-    })
+
+        modal.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal'))
+                modal.classList.remove('open');
+            else if (e.target.localName == 'img') {
+                if (getPosition(fullSizeImage).left - e.x < 0)
+                    nextImage();
+                else
+                    previousImage();
+            }
+        })
+    }
 }
 
 function nextImage() {

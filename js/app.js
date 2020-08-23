@@ -5,7 +5,7 @@ import VR from './VR';
 import makeTilt from './tilt';
 import menu from './menu';
 
-import imageExpander from './galeria';
+import galeria from './galeria';
 
 
 //lista podstron
@@ -47,7 +47,7 @@ function loadComponents(location) {
             break;
 
         case 'galeria.html':
-            imageExpander();
+            galeria.init();
             break;
     }
 }
