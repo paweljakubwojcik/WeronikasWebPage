@@ -15,4 +15,4 @@ A portfolio type site for my sister
 ### Packages/modules it uses
 - highway - for smooth page transitions
 - gsap - some animations & smooth page transitions
-- three.js - 3600 degrees view in wizualizacje.html
+- three.js - 360 degrees view in wizualizacje.html
