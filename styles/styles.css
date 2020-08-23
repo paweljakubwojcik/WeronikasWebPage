@@ -617,6 +617,7 @@ canvas {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  margin: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -632,12 +633,16 @@ canvas {
 }
 
 .folder p {
+  font-weight: 900;
   z-index: 2;
   padding: 0;
   margin: 0;
   position: absolute;
-  left: 5px;
-  cursor: pointer;
+  padding-left: 5px;
+  width: 50%;
+  background: -webkit-gradient(linear, left top, right top, from(#843f3f), to(#00000000));
+  background: linear-gradient(90deg, #843f3f, #00000000);
+  pointer-events: none;
 }
 
 .folder.collapsed {
@@ -666,6 +671,16 @@ canvas {
 .folder.collapsed .obrazek:nth-of-type(3) {
   top: 6px;
   left: 6px;
+}
+
+.folder.collapsed .obrazek:nth-of-type(4) {
+  top: 9px;
+  left: 9px;
+}
+
+.folder.collapsed .obrazek:nth-of-type(5) {
+  top: 12px;
+  left: 12px;
 }
 
 .folder.collapsed p {

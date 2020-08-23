@@ -58,7 +58,7 @@ export default {
 function insertPictures(data) {
     data.forEach(folder => {
         let galeria = document.querySelector('.Galeria')
-
+        
         let folderElement = document.createElement('div')
         folderElement.classList.add('folder')
         folderElement.classList.add('collapsed')
