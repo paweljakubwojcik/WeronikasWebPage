@@ -28,7 +28,12 @@ class Transition extends Highway.Transition {
       {
         filter: 'blur(8px)',
         onComplete: () => {
-          tittle.innerHTML = name;
+          if (name === 'HOME')
+            tittle.innerHTML = 'Interior Designer';
+          else if (name === 'WIZUALIZACJE')
+            tittle.innerHTML = 'Wnętrza 360';
+          else
+            tittle.innerHTML = name;
         }
       }
     ).to(tittle, .5,
@@ -40,10 +45,7 @@ class Transition extends Highway.Transition {
       }
     );
 
-    let element = document.querySelector('.backgroundElement')
-    element.classList.remove('HOME','WIZUALIZACJE','KONTAKT','GALERIA')
-    element.classList.add(name)
-
+    
     Tween.fromTo(from, .7,
       { x: 0 },
       {
@@ -68,7 +70,7 @@ class Transition extends Highway.Transition {
   }
 
   out({ done }) {
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0)
     done();
   }
 }

@@ -50,5 +50,14 @@ function loadComponents(location) {
             galeria.init();
             break;
     }
+
+    let name = location.replace('.html', '').toUpperCase();
+    let element = document.querySelector('.backgroundElement')
+    element.classList.remove('HOME', 'WIZUALIZACJE', 'KONTAKT', 'GALERIA')
+    if (name == 'INDEX')
+        element.classList.add('HOME')
+    else
+        element.classList.add(name)
+
 }
 
