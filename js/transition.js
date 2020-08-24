@@ -21,10 +21,13 @@ class Transition extends Highway.Transition {
     let name = to.getAttribute('data-router-view').toUpperCase();
     let tittle = document.querySelector('.tittle');
 
+    let delay = .3;
+    let duration = window.innerWidth/1000;
+
     let t1 = Tween.timeline();
 
     //zmiana napisu w .tittle
-    t1.to(tittle, .5,
+    t1.to(tittle, .8,
       {
         filter: 'blur(8px)',
         onComplete: () => {
@@ -36,7 +39,7 @@ class Transition extends Highway.Transition {
             tittle.innerHTML = name;
         }
       }
-    ).to(tittle, .5,
+    ).to(tittle, .8,
       {
         filter: 'blur(0px)',
         onComplete: () => {
@@ -46,7 +49,7 @@ class Transition extends Highway.Transition {
     );
 
     
-    Tween.fromTo(from, .7,
+    Tween.fromTo(from, duration,
       { x: 0 },
       {
         x: -window.innerWidth,
@@ -54,10 +57,10 @@ class Transition extends Highway.Transition {
           from.remove();
         }
       }
-    );
+    ).delay(delay);
 
     //wysuwanie się podstrony
-    Tween.fromTo(to, .7,
+    Tween.fromTo(to, duration,
       { x: window.innerWidth },
       {
         x: 0,
@@ -66,7 +69,7 @@ class Transition extends Highway.Transition {
           done();
         }
       }
-    );
+    ).delay(delay);
   }
 
   out({ done }) {

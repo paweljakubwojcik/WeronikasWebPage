@@ -54,7 +54,7 @@ function loadComponents(location) {
     let name = location.replace('.html', '').toUpperCase();
     let element = document.querySelector('.backgroundElement')
     element.classList.remove('HOME', 'WIZUALIZACJE', 'KONTAKT', 'GALERIA')
-    if (name == 'INDEX')
+    if (name === 'INDEX'||name==='')
         element.classList.add('HOME')
     else
         element.classList.add(name)

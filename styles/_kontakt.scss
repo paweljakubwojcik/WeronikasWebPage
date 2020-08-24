@@ -21,16 +21,7 @@
     justify-content: center;
 }
 
-@keyframes appearFromRight{
-    from{
-        opacity:0;
-        transform: translateX(50vw);
-    }
-    to{
-        opacity:1;
-        transform:translateX(0);
-    }
-}
+
 @keyframes appearPseudoElements{
     from{
         opacity:0;
@@ -50,7 +41,7 @@
     position: relative;
     padding: 30px;
     opacity:0;
-    animation: appearFromRight 1.5s .7s both;
+    animation: appearFromRight 1.4s both;
     a{
         @include flexCenter();
         pointer-events: all;
@@ -66,7 +57,7 @@
         width: 100%;
         border: 2px solid $defaultFontColor;
         //transition: transform .6s, opacity .6s, filter .6s;
-        animation: appearPseudoElements .5s 1.5s both;
+        animation: appearPseudoElements .5s 1.1s both;
     }
     &::before{
         transform: translate(10px,10px);
