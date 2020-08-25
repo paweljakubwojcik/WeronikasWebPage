@@ -1,6 +1,6 @@
 .homeBackground
 {
-    background-color:#e3cf83;;
+    background-color:#EED889;
 }
 .backgroundElement.HOME{
     transform:translate(-150%,50%);
@@ -19,59 +19,84 @@
 
 .bio
 {
-    position: absolute;
-    pointer-events: none;
-    top:0;
-    left:50%;
-    transform: translateX(-50%);
-    width: 70%;
-    height: 100%;
+    position: relative;
+    z-index:4;
+
+
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
-    font-size: 20px;
-    h2{
-        animation: appear 1s both;
+    width:100%;
+
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: none;
+    font-size: 16px;
+    line-height: 168.9%;
+    letter-spacing: 0.09em;
+    color:black;
+    margin:0 10%;
+}
+
+.about{
+    width:100%;
+    margin:5% 0;
+    display: flex;
+    flex-direction: row;
+    &:nth-of-type(2n){
+        flex-direction: row-reverse;
+    }
+    flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+
+    img{
+        min-width:280px;
+        width: 20%;
+
+        box-shadow:0 5px 30px #4e4e4e95;
     }
     p{
-        margin: 16px;
-        &:nth-of-type(1)
-        {
-            animation: appear 2s .1s both;
-        }
-        &:nth-of-type(2)
-        {
-            animation: appear 2s 1s both;
-        }
+        text-align: justify;
+        width: 500px;
+        margin:20px;
     }
     a{
-        text-decoration:underline;
+        display: block;
+        width: $optionWidth;
+        @include flexCenter();
+        height: 10vh;
+                pointer-events: all;
+                &::after , &::before{
+                    content: "";
+                    position: absolute;
+                    width: $optionWidth;
+                    height: 10vh;
+                    border: 2px solid $defaultFontColor;
+                    transition: transform .6s, opacity .6s, filter .6s;
+                }
+                &::before{
+                    opacity:0;
+                    border: 2px solid $defaultFontColor;
+                }
+                &:hover, &:focus{
+                    &::after{
+                        cursor: pointer;
+                        transform: translate(-10px,-10px);
+                        filter: blur(1px);
+                        }
+                    &::before{
+                        cursor: pointer;
+                        transform: translate(10px,10px);
+                        opacity:1;
+                        filter: blur(1px);
+                    }
+                }  
     }
+    
+}
 
-}
-.bioWrap
-{
-    padding:30px;
-    position: relative;
-    &::after , &::before{
-        content: "";
-        position: absolute;
-        top:0;
-        left:0;
-        height: 100%;
-        width: 100%;
-        border: 2px solid $defaultFontColor;
-        //transition: transform .6s, opacity .6s, filter .6s;
-        animation: appearPseudoElements .5s 3s both;
-    }
-    &::before{
-        transform: translate(10px,-10px);
-        filter: blur(1px);
-    }
-    &::after{
-    transform: translate(-10px,10px);
-    }
-}
 
 

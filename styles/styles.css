@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap");
 @font-face {
   font-family: "CustomFont";
   src: url("https://fonts.gstatic.com/s/montserrat/v14/JTURjIg1_i6t8kCHKm45_bZF3gnD_g.woff2") format("woff2");
@@ -15,6 +16,7 @@
 }
 
 body {
+  font-family: 'Montserrat', sans-serif;
   width: 100vw;
   min-height: 100vh;
   margin: 0;
@@ -83,9 +85,7 @@ a:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  padding-top: 60px;
 }
 
 .upbar {
@@ -111,7 +111,6 @@ a:hover {
           justify-content: left;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  font-family: "Playfair Display";
   font-size: 32px;
   letter-spacing: 0.03em;
   -webkit-box-shadow: 18px 3px 20px #000F0E26;
@@ -136,7 +135,7 @@ a:hover {
 }
 
 .tittle {
-  font-weight: 400;
+  font-weight: 600;
   font-size: 15px;
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
@@ -150,6 +149,8 @@ a:hover {
 
 .burger {
   background-color: #dddddd30;
+  border-style: none;
+  padding: 0;
   width: 70px;
   height: 70px;
   top: 10px;
@@ -185,11 +186,11 @@ a:hover {
   transition: all .5s;
 }
 
-.burger:hover {
+.burger:hover, .burger:focus {
   cursor: pointer;
 }
 
-.burger:hover::after {
+.burger:hover::after, .burger:focus::after {
   opacity: 1;
   -webkit-transform: translate(2px, 2px);
           transform: translate(2px, 2px);
@@ -197,7 +198,7 @@ a:hover {
           filter: blur(1px);
 }
 
-.burger:hover::before {
+.burger:hover::before, .burger:focus::before {
   opacity: 1;
   -webkit-transform: translate(-5px, -5px);
           transform: translate(-5px, -5px);
@@ -254,7 +255,6 @@ a:hover {
   background-color: #111111d1;
   width: 100%;
   height: 100%;
-  font-family: "Playfair Display";
   font-size: 16px;
   letter-spacing: 0.3em;
   display: -webkit-box;
@@ -346,7 +346,7 @@ a:hover {
   border: 2px solid aliceblue;
 }
 
-.menu ul li a:hover::after {
+.menu ul li a:hover::after, .menu ul li a:focus::after {
   cursor: pointer;
   -webkit-transform: translate(-10px, -10px);
           transform: translate(-10px, -10px);
@@ -354,7 +354,7 @@ a:hover {
           filter: blur(1px);
 }
 
-.menu ul li a:hover::before {
+.menu ul li a:hover::before, .menu ul li a:focus::before {
   cursor: pointer;
   -webkit-transform: translate(10px, 10px);
           transform: translate(10px, 10px);
@@ -364,7 +364,7 @@ a:hover {
 }
 
 .homeBackground {
-  background-color: #e3cf83;
+  background-color: #EED889;
 }
 
 .backgroundElement.HOME {
@@ -399,14 +399,8 @@ a:hover {
 }
 
 .bio {
-  position: absolute;
-  pointer-events: none;
-  top: 0;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  width: 70%;
-  height: 100%;
+  position: relative;
+  z-index: 4;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -416,59 +410,108 @@ a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 20px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  text-shadow: none;
+  font-size: 16px;
+  line-height: 168.9%;
+  letter-spacing: 0.09em;
+  color: black;
 }
 
-.bio h2 {
-  -webkit-animation: appear 1s both;
-          animation: appear 1s both;
+.about {
+  width: 100%;
+  margin: 50px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.bio p {
-  margin: 16px;
+.about:nth-of-type(2n) {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
 }
 
-.bio p:nth-of-type(1) {
-  -webkit-animation: appear 2s .1s both;
-          animation: appear 2s .1s both;
+.about img {
+  min-width: 280px;
+  width: 20%;
+  -webkit-box-shadow: 0 5px 30px #4e4e4e95;
+          box-shadow: 0 5px 30px #4e4e4e95;
 }
 
-.bio p:nth-of-type(2) {
-  -webkit-animation: appear 2s 1s both;
-          animation: appear 2s 1s both;
+.about p {
+  text-align: justify;
+  width: 500px;
+  margin: 20px;
 }
 
-.bio a {
-  text-decoration: underline;
+.about a {
+  display: block;
+  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  pointer-events: all;
 }
 
-.bioWrap {
-  padding: 30px;
-  position: relative;
-}
-
-.bioWrap::after, .bioWrap::before {
+.about a::after, .about a::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
+  width: 300px;
+  height: 10vh;
   border: 2px solid aliceblue;
-  -webkit-animation: appearPseudoElements .5s 3s both;
-          animation: appearPseudoElements .5s 3s both;
+  -webkit-transition: opacity .6s, -webkit-transform .6s, -webkit-filter .6s;
+  transition: opacity .6s, -webkit-transform .6s, -webkit-filter .6s;
+  transition: transform .6s, opacity .6s, filter .6s;
+  transition: transform .6s, opacity .6s, filter .6s, -webkit-transform .6s, -webkit-filter .6s;
 }
 
-.bioWrap::before {
-  -webkit-transform: translate(10px, -10px);
-          transform: translate(10px, -10px);
+.about a::before {
+  opacity: 0;
+  border: 2px solid aliceblue;
+}
+
+.about a:hover::after, .about a:focus::after {
+  cursor: pointer;
+  -webkit-transform: translate(-10px, -10px);
+          transform: translate(-10px, -10px);
   -webkit-filter: blur(1px);
           filter: blur(1px);
 }
 
-.bioWrap::after {
-  -webkit-transform: translate(-10px, 10px);
-          transform: translate(-10px, 10px);
+.about a:hover::before, .about a:focus::before {
+  cursor: pointer;
+  -webkit-transform: translate(10px, 10px);
+          transform: translate(10px, 10px);
+  opacity: 1;
+  -webkit-filter: blur(1px);
+          filter: blur(1px);
 }
 
 canvas {
