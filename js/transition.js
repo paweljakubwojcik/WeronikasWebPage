@@ -9,21 +9,19 @@ class Transition extends Highway.Transition {
 
     to.style.position = 'absolute';
     to.style.top = '0';
-    to.style.zIndex = '1';
-    to.style.height = '100vh';
-    to.style.width = '100vw';
-    to.style.paddingTop = '100px';
+    //to.style.zIndex = '1';
+    // to.style.height = '100vh';
+    // to.style.paddingTop = '100px';
     from.style.position = 'absolute';
     from.style.top = '0';
-    from.style.zIndex = '1';
-    from.style.height = '100vh';
-    from.style.width = '100vw';
-    from.style.paddingTop = '100px';
+    //from.style.zIndex = '1';
+    // from.style.height = '100vh';
+    // from.style.paddingTop = '100px';
 
     let name = to.getAttribute('data-router-view').toUpperCase();
     let tittle = document.querySelector('.tittle');
 
-    let delay = .3;
+    let delay = 0;
     let duration = window.innerWidth/1000;
 
     let t1 = Tween.timeline();

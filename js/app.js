@@ -4,6 +4,7 @@ import VR from './VR';
 
 import makeTilt from './tilt';
 import menu from './menu';
+import initScroll from './scroll'
 
 import galeria from './galeria';
 
@@ -39,6 +40,8 @@ H.on('NAVIGATE_IN', ({ to, trigger, location }) => {
  * @param {String} location - nazwa pliku do którego odnoszą się funkcjonalnosci
  */
 function loadComponents(location) {
+
+    //initScroll();
 
     switch (location) {
         case 'wizualizacje.html':

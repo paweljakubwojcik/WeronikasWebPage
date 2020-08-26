@@ -14,5 +14,8 @@
     "@dogstudio/highway": "^2.2.1",
     "gsap": "^3.4.2",
     "three": "^0.119.1"
+  },
+  "devDependencies": {
+    "cssnano": "^4.1.10"
   }
 }
