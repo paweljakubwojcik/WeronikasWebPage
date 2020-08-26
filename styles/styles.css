@@ -66,6 +66,7 @@ a:hover {
 
 .backgroundElement {
   position: fixed;
+  pointer-events: none;
   z-index: 2;
   display: block;
   width: 100vw;
@@ -439,11 +440,14 @@ a:hover {
   width: 100%;
   font-family: 'Montserrat', sans-serif;
   text-shadow: none;
-  font-size: 16px;
+  font-size: 1em;
   line-height: 168.9%;
   letter-spacing: 0.09em;
   color: black;
   margin: 0 10%;
+  padding: 0 4% 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .about {
@@ -483,8 +487,7 @@ a:hover {
 
 .about p {
   text-align: justify;
-  width: 500px;
-  margin: 20px;
+  max-width: 500px;
 }
 
 .about a {
@@ -741,8 +744,6 @@ canvas {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-animation: appearFromRight 1.4s  both;
-          animation: appearFromRight 1.4s  both;
 }
 
 .folder {
@@ -762,14 +763,11 @@ canvas {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  background-color: #dddddd30;
-  -webkit-box-shadow: 0px 2px 10px rgba(84, 84, 84, 0.367);
-          box-shadow: 0px 2px 10px rgba(84, 84, 84, 0.367);
   border: 2px solid aliceblue;
   -webkit-transform-origin: left;
           transform-origin: left;
-  -webkit-transition: all 1s;
-  transition: all 1s;
+  -webkit-transition: all .4s;
+  transition: all .4s;
 }
 
 .folder p {
@@ -789,7 +787,8 @@ canvas {
 }
 
 .folder.collapsed:hover {
-  opacity: .5;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .folder.collapsed .obrazek {
@@ -1094,12 +1093,10 @@ canvas {
 
 @-webkit-keyframes appearFromRight {
   from {
-    opacity: 0;
-    -webkit-transform: translateX(50vw);
-            transform: translateX(50vw);
+    -webkit-transform: translateX(30vw);
+            transform: translateX(30vw);
   }
   to {
-    opacity: 1;
     -webkit-transform: translateX(0);
             transform: translateX(0);
   }
@@ -1107,12 +1104,10 @@ canvas {
 
 @keyframes appearFromRight {
   from {
-    opacity: 0;
-    -webkit-transform: translateX(50vw);
-            transform: translateX(50vw);
+    -webkit-transform: translateX(30vw);
+            transform: translateX(30vw);
   }
   to {
-    opacity: 1;
     -webkit-transform: translateX(0);
             transform: translateX(0);
   }

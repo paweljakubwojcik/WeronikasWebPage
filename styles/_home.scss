@@ -32,11 +32,13 @@
 
     font-family: 'Montserrat', sans-serif;
     text-shadow: none;
-    font-size: 16px;
+    font-size: 1em;
     line-height: 168.9%;
     letter-spacing: 0.09em;
     color:black;
     margin:0 10%;
+    padding: 0 4% 0;
+    box-sizing: border-box;
 }
 
 .about{
@@ -60,8 +62,7 @@
     }
     p{
         text-align: justify;
-        width: 500px;
-        margin:20px;
+        max-width: 500px;
     }
     a{
         display: block;

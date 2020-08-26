@@ -59,6 +59,7 @@ class Transition extends Highway.Transition {
       }
     ).delay(delay);
 
+    
     //wysuwanie się podstrony
     Tween.fromTo(to, duration,
       { x: window.innerWidth },

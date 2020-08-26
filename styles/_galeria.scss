@@ -19,8 +19,6 @@
 
     display:flex;
     flex-wrap: wrap;
-
-    animation: appearFromRight 1.4s  both;
 }
 
 .folder
@@ -37,13 +35,13 @@
     display:flex;
     flex-wrap: wrap;
 
-    background-color: $lightWhite;
-    box-shadow: 0px 2px 10px rgba(84, 84, 84, 0.367);
+   // background-color: $lightWhite;
+    //box-shadow: 0px 2px 10px rgba(84, 84, 84, 0.367);
     border: 2px solid $defaultFontColor;
 
     transform-origin: left;
 
-    transition: all 1s;
+    transition: all .4s;
 
     p{
         font-weight: 900;
@@ -62,7 +60,7 @@
     z-index: 2;
     border:none;
     &:hover{
-        opacity:.5;
+        transform:scale(1.05);
     }
     .obrazek{
         pointer-events: none;

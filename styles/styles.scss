@@ -76,6 +76,7 @@ a{
 }
 .backgroundElement{
     position: fixed;
+    pointer-events: none;
     z-index:2;
     display:block;
     width:100vw;
@@ -340,11 +341,11 @@ $optionWidth: 300px;
 
 @keyframes appearFromRight{
     from{
-        opacity:0;
-        transform: translateX(50vw);
+        //opacity:0;
+        transform: translateX(30vw);
     }
     to{
-        opacity:1;
+        //opacity:1;
         transform:translateX(0);
     }
 }
