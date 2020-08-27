@@ -421,7 +421,7 @@ a:hover {
   }
 }
 
-.bio {
+.pageContent {
   position: relative;
   z-index: 4;
   display: -webkit-box;
@@ -1018,54 +1018,23 @@ canvas {
   }
 }
 
-.kontakt {
-  font-size: 4vmin;
-  text-align: center;
-  position: relative;
-  padding: 30px;
-  opacity: 0;
-  -webkit-animation: appearFromRight 1.4s both;
-          animation: appearFromRight 1.4s both;
+.kontaktContent {
+  color: aliceblue;
+  width: 70%;
 }
 
-.kontakt a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
-  pointer-events: all;
-  cursor: pointer;
-  font-weight: 700;
+.kontaktContent .about {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
-.kontakt::after, .kontakt::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  border: 2px solid aliceblue;
-  -webkit-animation: appearPseudoElements .5s 1.1s both;
-          animation: appearPseudoElements .5s 1.1s both;
-}
-
-.kontakt::before {
-  -webkit-transform: translate(10px, 10px);
-          transform: translate(10px, 10px);
-  -webkit-filter: blur(1px);
-          filter: blur(1px);
-}
-
-.kontakt::after {
-  -webkit-transform: translate(-10px, -10px);
-          transform: translate(-10px, -10px);
+.kontaktContent .about p {
+  margin: auto;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 
 .showed {
