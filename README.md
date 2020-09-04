@@ -1,7 +1,7 @@
 # WeronikasWebPage
-A portfolio type site for my sister 
-#### Live link: 
-https://paweljakubwojcik.github.io/WeronikasWebPage/galeria.html
+A portfolio type site for my sister. 
+#### Link
+https://paweljakubwojcik.github.io/WeronikasWebPage/
 
 ## What i've learned
 - Modules in javascript
