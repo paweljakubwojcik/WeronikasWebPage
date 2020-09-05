@@ -5,3 +5,43 @@
 .backgroundElement.CV{
     transform:translate(-150%,50%);
 }
+
+.cvContent{
+    font-size:0.8em;
+    width:90%;
+    max-width: 1400px;
+    .about{
+        margin:5% 0;
+    }
+    h1{
+        font-size:1.5rem;
+    }
+    header,h1{
+        width: 100%;
+        text-align: center;
+        letter-spacing: 0.5em;
+        border-bottom:1px solid black;
+    }
+    .side{
+        width:70%;
+    }
+    i{
+        font-size:4rem;
+        margin:5%;
+    }
+    article{
+        width: 100%;
+    }
+    p{
+        max-width: none;
+
+    }
+    ul{
+        padding:0;
+        li{
+            &::marker{
+                content: "-";
+            }
+        }
+    }
+}

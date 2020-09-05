@@ -3,7 +3,7 @@
     background-image: url('../projects/Projekt-2.jpg');
 }
 .backgroundElement.HOME{
-    transform:translate(0,0);
+    transform:translate(-100%,0);
 }
 
 @keyframes appear{
@@ -57,11 +57,11 @@
 
 .about{
     width:100%;
-    margin:5% 0;
+    margin:2% 0;
     display: flex;
     flex-direction: row;
     &:nth-of-type(2n){
-        flex-direction: row-reverse;
+        //flex-direction: row-reverse;
     }
     flex-wrap: wrap;
     flex-wrap: wrap;
