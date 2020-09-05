@@ -1,9 +1,9 @@
 .homeBackground
 {
-    background-color:#EED889;
+    background-image: url('../projects/Projekt-2.jpg');
 }
 .backgroundElement.HOME{
-    transform:translate(-150%,50%);
+    transform:translate(0,0);
 }
 
 @keyframes appear{
@@ -11,7 +11,7 @@
         opacity:0;
         transform: translateY(50vh);
     }
-    tp{
+    to{
         opacity:1;
         transform:translateY(0);
     }
@@ -41,6 +41,20 @@
     box-sizing: border-box;
 }
 
+.upbar.homebar
+{
+    width:100%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: all .5s;
+    .tittle{
+        &::before{
+            content: "";
+        }
+    }
+}
+
 .about{
     width:100%;
     margin:5% 0;
@@ -68,6 +82,7 @@
         display: block;
         width: $optionWidth;
         @include flexCenter();
+        margin: 20px;    
         height: 10vh;
                 pointer-events: all;
                 &::after , &::before{

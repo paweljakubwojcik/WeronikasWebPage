@@ -41,9 +41,19 @@ H.on('NAVIGATE_IN', ({ to, trigger, location }) => {
  */
 function loadComponents(location) {
 
-    //initScroll();
+    let upbar = document.querySelector('.upbar');
+    let burger = document.querySelector('.burger');
+    upbar.classList.add('casualbar');
+    upbar.classList.remove('homebar');
+    
+    burger.classList.remove('hidden');
 
     switch (location) {
+        case '':
+            upbar.classList.add('homebar');
+            upbar.classList.remove('casualbar');
+            burger.classList.add('hidden');
+            break;
         case 'wizualizacje.html':
             VR();
             makeTilt('.wizka');
@@ -56,7 +66,7 @@ function loadComponents(location) {
 
     let name = location.replace('.html', '').toUpperCase();
     let element = document.querySelector('.backgroundElement')
-    element.classList.remove('HOME', 'WIZUALIZACJE', 'KONTAKT', 'GALERIA')
+    element.classList.remove('HOME', 'WIZUALIZACJE', 'KONTAKT', 'GALERIA', 'CV')
     if (name === 'INDEX'||name==='')
         element.classList.add('HOME')
     else
