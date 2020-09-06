@@ -108,7 +108,7 @@ function initFolders() {
         folder.addEventListener('click', function (e) {
             if (e.target == this) {
                 folder.classList.toggle('collapsed')
-                folder.style.animation = 'folderUnwrap .3s';
+                //folder.style.animation = 'folderUnwrap .3s';
             }
         })
     })
