@@ -65,6 +65,12 @@
         padding-top: 100px;
     }
 }
+@media (max-width:480px)
+{
+    .homeContent{
+        padding-top:75px;
+    }
+}
 
 .about{
     width:100%;
