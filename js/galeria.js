@@ -14,7 +14,7 @@ export default {
         images = document.querySelectorAll('.obrazek img');
         modal = document.querySelector('.modal');
         fullSizeImage = document.querySelector('.modal img');
-        text = document.querySelector('.modal p');
+       // text = document.querySelector('.modal p');
         folders = document.querySelectorAll('.folder')
 
         makeTilt('.obrazek img');
@@ -28,7 +28,7 @@ export default {
                 modal.classList.add('open');
                 fullSizeImage.src = path;
                 fullSizeImage.setAttribute('data-path', path)
-                text.innerHTML = image.getAttribute('data-text');
+                //text.innerHTML = image.getAttribute('data-text');
             })
         }
 
@@ -133,6 +133,6 @@ function nextImage(isForward) {
         nextImage = nextImage.firstElementChild;
         fullSizeImage.src = nextImage.getAttribute('data-full-size');
         fullSizeImage.setAttribute('data-path', nextImage.getAttribute('data-full-size'))
-        text.innerHTML = nextImage.getAttribute('data-text');
+       // text.innerHTML = nextImage.getAttribute('data-text');
     }
 }

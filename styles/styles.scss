@@ -316,6 +316,37 @@ $optionWidth: 300px;
     }
 }
 
+.ElementWithBorder{
+    position: relative;
+    width: min-content;
+    width: -moz-min-content;
+    &::after,&::before{
+        content: "";
+        position: absolute;
+        top: -2px;
+        left:-2px;
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 2px solid $defaultFontColor;
+        z-index: 0;
+    }
+    &::after{
+        transform: translate(-10px,-10px);
+        filter: blur(1px);
+        }
+    &::before{
+        transform: translate(10px,10px);
+        opacity:1;
+        filter: blur(1px);
+    }
+   &:nth-child(2)
+   {
+       position: relative;
+       z-index:3;
+   }
+}
+
 //import home
 @import './home';
 

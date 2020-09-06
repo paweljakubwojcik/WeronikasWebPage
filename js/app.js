@@ -4,7 +4,6 @@ import VR from './VR';
 
 import makeTilt from './tilt';
 import menu from './menu';
-import initScroll from './scroll'
 
 import galeria from './galeria';
 
