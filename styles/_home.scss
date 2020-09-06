@@ -1,6 +1,7 @@
 .homeBackground
 {
     background-image: url('../projects/Projekt-2.jpg');
+    filter: blur(10px);
 }
 .backgroundElement.HOME{
     transform:translate(-100%,0);
@@ -29,6 +30,7 @@
     flex-direction: column;
 
     width:100%;
+    min-height: 70vh;
 
     font-family: 'Montserrat', sans-serif;
     text-shadow: none;
@@ -45,13 +47,22 @@
 {
     width:100%;
     height: 100vh;
+    
+    font-size:3rem;
     flex-direction: column;
     justify-content: flex-start;
     transition: all .5s;
     .tittle{
+        margin-top:15px;
         &::before{
             content: "";
         }
+    }
+}
+@media (min-width:740px)
+{
+    .upbar.homebar{
+        padding-top: 100px;
     }
 }
 

@@ -125,7 +125,7 @@ a{
     justify-content: left;
     
     flex-wrap: wrap;
-    font-size: 32px;
+    font-size: 2rem;
     letter-spacing: 0.03em;
     box-shadow: 18px 3px 20px #000F0E26;
     padding-top:20px;
@@ -209,6 +209,8 @@ a{
         background-color: $defaultFontColor;
         margin: 4px auto 4px;
         transition: transform .5s;
+        border: 1px solid #0003;
+        box-sizing: border-box;
     }
     :nth-child(1)
     {
