@@ -7,6 +7,7 @@ import menuBottomExpander from './menuBottom';
 //import pictures
 import * as image1 from '/projects/Projekt-2.jpg';
 import * as image2 from '/projects/Projekt-1.jpg';
+import * as image3 from '/projects/Projekt-3.jpg';
 
 
 var menuBottom;
@@ -19,7 +20,7 @@ var renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 
 let skySpheres = [];//lista miejsc
-let skySphereSrc = [image1.default, image2.default];
+let skySphereSrc = [image1.default, image2.default, image3.default];
 for (const src of skySphereSrc) {
     skySpheres.push(createSkysphere(src));
 }
