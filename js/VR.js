@@ -10,7 +10,6 @@ import * as image2 from '/projects/Projekt-1.jpg';
 import * as image3 from '/projects/Projekt-3.jpg';
 
 
-var menuBottom;
 var scene = new THREE.Scene();
 var aspectRatio = window.innerWidth / window.innerHeight;
 var camera = new THREE.PerspectiveCamera(80, aspectRatio, 0.1, 300000);
@@ -33,7 +32,7 @@ controls.minDistance = 500;
 controls.maxDistance = 100000;
 
 window.addEventListener('resize', resize, false);
-render();
+
 
 
 
@@ -64,17 +63,31 @@ function render() {
 
 function initChange() {
     ///////////// zmienianie miejsca
-    let options = document.querySelectorAll(".wizka");
+
+    let wizki = document.querySelector(".wizContainer");
     console.log('inicjalizacja funckcjonalnosci wizek');
 
-    for (var i = 0; i < options.length; i++) {
+    skySphereSrc.forEach((sphere, i) => {
 
-        if (skySphereSrc[i]) {
-            options[i].children[0].src = skySphereSrc[i];
-            options[i].classList.add(i.toString());
-            options[i].children[1].firstElementChild.firstElementChild.innerText = `Projekt ${i+1}`;
-        }
-        options[i].addEventListener('click', function () {
+        let wizka = document.createElement('div');
+        wizka.classList.add('wizka');
+        wizki.appendChild(wizka);
+
+        let image = document.createElement('img');
+        image.src = sphere;
+        wizka.appendChild(image);
+
+        wizka.classList.add(i.toString());
+
+        let blankiet = document.createElement('div');
+        blankiet.classList.add('blankiet');
+        wizka.appendChild(blankiet);
+
+        let text = document.createElement('p');
+        text.innerHTML = `Projekt ${i + 1}`;
+        blankiet.appendChild(text);
+
+        wizka.addEventListener('click', function () {
 
             let index = this.classList[1];
             for (const sphere of skySpheres)
@@ -82,13 +95,12 @@ function initChange() {
 
             scene.add(skySpheres[index]);
             menuBottomExpander.hide();
-
-            // title.innerHTML = this.innerHTML;
         });
-    }
+    })
 }
 
 export default function VR() {
+    render();
     initChange();
     menuBottomExpander.init();
     console.log('VR module has been initialized');
