@@ -38,6 +38,7 @@
         font-size:4.5rem;
         margin:5%;
         color: #fff8e4;
+        padding:20px;
         text-shadow: 1px 1px 1px black;
     }
     article{
@@ -50,7 +51,8 @@
     ul{
         padding:0;
         li{
-            &::marker{
+            list-style-type: none;
+            &::before{
                 content: "-";
             }
         }
