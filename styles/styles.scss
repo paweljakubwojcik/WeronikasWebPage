@@ -48,6 +48,12 @@ body
      overflow-x: hidden;
      
 }
+h1,h2,h3{
+    font-size:inherit;
+    font-weight: inherit;
+    margin:0;
+    padding: 0;;
+}
 a{
     pointer-events: all;
     font-weight: 900;
@@ -114,6 +120,7 @@ a{
     z-index:4;
     width: 40%;
     height: unset;
+    font-size: 2rem;
     
     
     min-width:270px;
@@ -122,7 +129,7 @@ a{
     justify-content: left;
     
     flex-wrap: wrap;
-    font-size: 2rem;
+    
     letter-spacing: 0.03em;
     box-shadow: 18px 3px 20px #000F0E26;
     padding-top:20px;
@@ -136,6 +143,7 @@ a{
 }
 .logo
 {
+    
     margin-left:25px;
     font-weight: 700; 
     min-width: fit-content;
@@ -145,7 +153,7 @@ a{
 .tittle
 {
     font-weight: 600;
-    font-size: 1rem;
+    font-size: .9rem;
     min-width: fit-content;
     margin-left: 20px;
     &::before{
