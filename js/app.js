@@ -18,13 +18,11 @@ const H = new Highway.Core({
     }
 });
 
-let vr, menuBottom;
-
 
 //inicjalizacja odpowiednich modułów podczas refresha oraz przy pierwszym wejściu na witryne
 window.addEventListener('load', () => {
     //initialize the menu button functionality
-    menu();
+    menu.init();
     let location = document.URL.split('/').reverse()[0];
     loadComponents(location);
 })
@@ -54,7 +52,7 @@ function loadComponents(location) {
             burger.classList.add('hidden');
             break;
         case 'wizualizacje.html':
-            VR();
+            VR.init();
             makeTilt('.wizka');
             break;
 
@@ -65,7 +63,7 @@ function loadComponents(location) {
 
     let name = location.replace('.html', '').toUpperCase();
     let element = document.querySelector('.backgroundElement')
-    element.classList.remove('HOME', 'WIZUALIZACJE', 'KONTAKT', 'GALERIA', 'CV')
+    element.classList.remove('HOME', 'WIZUALIZACJE', 'KONTAKT', 'GALERIA', 'CV');
     if (name === 'INDEX'||name==='')
         element.classList.add('HOME')
     else

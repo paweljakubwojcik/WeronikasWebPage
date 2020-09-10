@@ -31,7 +31,7 @@ var controls = new OrbitControls(camera, renderer.domElement); //poruszanie się
 controls.minDistance = 500;
 controls.maxDistance = 100000;
 
-window.addEventListener('resize', resize, false);
+window.addEventListener('resize', resize);
 
 
 
@@ -65,7 +65,6 @@ function initChange() {
     ///////////// zmienianie miejsca
 
     let wizki = document.querySelector(".wizContainer");
-    console.log('inicjalizacja funckcjonalnosci wizek');
 
     skySphereSrc.forEach((sphere, i) => {
 
@@ -99,11 +98,13 @@ function initChange() {
     })
 }
 
-export default function VR() {
-    render();
-    initChange();
-    menuBottomExpander.init();
-    console.log('VR module has been initialized');
-    document.querySelector('.projectsView').appendChild(renderer.domElement);
+export default {
+    init() {
+        render();
+        initChange();
+        menuBottomExpander.init();
+        console.log('VR module has been initialized');
+        document.querySelector('.projectsView').appendChild(renderer.domElement);
+    }
 };
 

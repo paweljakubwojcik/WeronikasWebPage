@@ -1,8 +1,9 @@
 
-let menuButton;
-let menuBottom;
+let menuButton, menuBottom;
 
-const menuBottomExpander = {
+export default {
+
+
 
     init() {
 
@@ -18,11 +19,9 @@ const menuBottomExpander = {
     },
 
     hide() {
-        if(menuBottom)
-        menuBottom.classList.remove('showed');
-        if(menuButton)
-        menuButton.classList.remove('menuButtonClicked');
+        if (menuBottom)
+            menuBottom.classList.remove('showed');
+        if (menuButton)
+            menuButton.classList.remove('menuButtonClicked');
     }
 }
-
-export default menuBottomExpander; 
