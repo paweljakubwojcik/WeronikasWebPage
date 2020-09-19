@@ -195,7 +195,7 @@ a{
         transition: all .5s;
     }
 
-    &:hover
+    &:hover,:focus
     {
         cursor: pointer;
        &::after{
@@ -366,6 +366,8 @@ $optionWidth: 300px;
 
 //import cv
 @import './CV';
+
+@import './loader';
 
 //class for all elements that are showable
 .menu.showed

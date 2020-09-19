@@ -1,5 +1,5 @@
 import { getPosition, convertImage } from './utils';
-import makeTilt from './tilt';
+import { makeTiltOne } from './tilt';
 import Tween from 'gsap';
 
 
@@ -8,7 +8,7 @@ let images, modal, fullSizeImage, text, folders;
 
 export default {
     init() {
-
+        initModal()
         fetch('https://cms-for-w-w.herokuapp.com/folders')
             .then(response => response.json())
             .then(data => {
@@ -24,28 +24,32 @@ export default {
 
 
 //inicjalizuje zachowania obrazków
-function initPictures() {
+function initPicture(image) {
     images = document.querySelectorAll('.obrazek img');
     modal = document.querySelector('.modal');
     fullSizeImage = document.querySelector('.modal img');
     // text = document.querySelector('.modal p');
 
 
-    makeTilt('.obrazek img');
+    makeTiltOne(image);
 
     let delay = .3;
 
-    for (const image of images) {
-        delay += 0.05;
-        image.addEventListener('click', () => {
-            let id = image.getAttribute('data-id');
-            modal.classList.add('open');
-            fullSizeImage.src = image.src;
-            fullSizeImage.setAttribute('data-id', id)
-            //text.innerHTML = image.getAttribute('data-text');
-        })
-    }
 
+    delay += 0.05;
+    image.addEventListener('click', () => {
+        let id = image.getAttribute('data-id');
+        modal.classList.add('open');
+        fullSizeImage.src = image.src;
+        fullSizeImage.setAttribute('data-id', id)
+        //text.innerHTML = image.getAttribute('data-text');
+
+    })
+}
+
+function initModal() {
+    modal = document.querySelector('.modal');
+    fullSizeImage = document.querySelector('.modal img');
     modal.addEventListener('click', (e) => {
         if (e.target.classList.contains('modal'))
             modal.classList.remove('open');
@@ -56,7 +60,6 @@ function initPictures() {
                 nextImage(false);
         }
     })
-
 }
 
 
@@ -95,9 +98,10 @@ function insertPictures(data) {
 
                     obrazekElement.appendChild(img)
                     folderElement.appendChild(obrazekElement)
+                    initPicture(img)
                     //na koniec
                     if (index === folder.items.length)
-                        initPictures();
+                        ;
                 })
                 .catch(err => console.log(err));
 
@@ -158,7 +162,7 @@ function nextImage(isForward) {
     });
     //find the next or previous image
     let nextImage = forward ? theImage[0].parentElement.nextElementSibling : theImage[0].parentElement.previousElementSibling;
-    if (nextImage) {
+    if (nextImage.localName === 'div') {
         //replace current image with found one
         nextImage = nextImage.firstElementChild;
         fullSizeImage.src = nextImage.src;

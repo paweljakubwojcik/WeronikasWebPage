@@ -2,7 +2,7 @@ import Highway from '/node_modules/@dogstudio/highway/build/highway.module.js';
 import Transition from './transition';
 import VR from './VR';
 
-import makeTilt from './tilt';
+
 import menu from './menu';
 
 import galeria from './galeria';
@@ -53,7 +53,6 @@ function loadComponents(location) {
             break;
         case 'wizualizacje.html':
             VR.init();
-            makeTilt('.wizka');
             break;
 
         case 'galeria.html':

@@ -1,0 +1,69 @@
+.loader {
+    display: block;
+    width: 100vmin;
+    height: 100vmin;
+    position: fixed;
+    z-index: 100;
+  }
+  
+  .loader > span {
+    position: absolute;
+    left: 57%;
+    top: 55%;
+    display: block;
+    width: 10%;
+    height: 10%;
+    transform-origin: bottom left;
+    animation: rotation 4s infinite;
+    animation-timing-function: cubic-bezier(0.36, 0.69, 0.65, 0.3);
+    transform-origin: -75% -75%;
+    &::after {
+      transform: scale(0);
+      content: "";
+      display: block;
+      background-color: #fff;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      animation: grow 2s alternate infinite;
+    }
+  }
+  .loader > span:nth-of-type(1) {
+  }
+  .loader > span:nth-of-type(2) {
+    animation-delay: 0.6s;
+    &::after {
+      animation-delay: 0.6s;
+    }
+  }
+  .loader > span:nth-of-type(3) {
+    animation-delay: 1.2s;
+    &::after {
+      animation-delay: 1.2s;
+    }
+  }
+  .loader > span:nth-of-type(4) {
+    animation-delay: 1.8s;
+    &::after {
+      animation-delay: 1.8s;
+    }
+  }
+  
+  @keyframes rotation {
+    0% {
+      transform: rotate(45deg);
+    }
+    100% {
+      transform: rotate(400deg);
+    }
+  }
+  
+  @keyframes grow {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(0.7);
+    }
+  }
+  

@@ -7,6 +7,7 @@ export default {
         //wysuwane menu główne
         let burger = document.querySelector(".burger");
         burger.addEventListener('click', function () {
+            this.blur();
             this.classList.toggle('clickedBurger');
             document.querySelector('.menu').classList.toggle('showed');
         });

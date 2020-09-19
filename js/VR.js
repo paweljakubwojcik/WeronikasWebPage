@@ -3,6 +3,7 @@ import * as THREE from '/node_modules/three/build/three.module.js';
 import { OrbitControls } from '/node_modules/three/examples/jsm/controls/OrbitControls.js';
 //manuBottom
 import menuBottomExpander from './menuBottom';
+import makeTilt from './tilt';
 
 import { convertImage } from './utils'
 
@@ -21,18 +22,11 @@ var renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 
 let skySpheres = [];//lista miejsc
-let skySphereSrc = [image1.default, image2.default, image3.default];
+let skySphereSrc = [];
 // for (const src of skySphereSrc) {
 //     skySpheres.push(createSkysphere(src));
 // }
 
-fetch('https://cms-for-w-w.herokuapp.com/pics')
-    .then(response => response.json())
-    .then(data => {
-        skySphereSrc = data.map((image) => convertImage(image.img.data))
-        skySpheres = skySphereSrc.map((image) => createSkysphere(image))
-        scene.add(skySpheres[0]);
-    }).catch(err => console.log(err));
 
 
 //actualna sfera
@@ -41,6 +35,7 @@ controls.minDistance = 500;
 controls.maxDistance = 100000;
 
 window.addEventListener('resize', resize);
+// controls.addEventListener('change', render)
 
 
 
@@ -64,8 +59,11 @@ function resize() {
     camera.updateProjectionMatrix();
 }
 
+
+
+
 function render() {
-    requestAnimationFrame(render);
+    requestAnimationFrame(render)
     renderer.render(scene, camera);
 }
 
@@ -93,22 +91,44 @@ function initChange() {
         text.innerHTML = `Projekt ${i + 1}`;
         blankiet.appendChild(text);
 
+        //wizka.setAttribute('meta-id', i)
+
         wizka.addEventListener('click', function () {
 
             skySpheres.forEach(sphere => { scene.remove(sphere); })
-            scene.add(createSkysphere(sphere));
+            scene.add(skySpheres[i]);
+            render()
             menuBottomExpander.hide();
         });
+
+
     })
+    makeTilt('.wizka');
 }
 
 export default {
     init() {
-        render();
-        initChange();
+        if (skySpheres.length === 0) {
+            fetch('https://cms-for-w-w.herokuapp.com/pics')
+                .then(response => response.json())
+                .then(data => {
+                    skySphereSrc = data.map((image) => convertImage(image.img.data))
+                    skySpheres = skySphereSrc.map((image) => createSkysphere(image))
+                    scene.add(skySpheres[0]);
+                    document.querySelector('.loader').remove();
+                    initChange();
+                    render();
+                    console.log('VR module has been initialized');
+                }).catch(err => console.log(err));
+        } else {
+            document.querySelector('.loader').remove();
+            initChange();
+            render();
+        }
         menuBottomExpander.init();
-        console.log('VR module has been initialized');
+
         document.querySelector('.projectsView').appendChild(renderer.domElement);
+
     }
 };
 

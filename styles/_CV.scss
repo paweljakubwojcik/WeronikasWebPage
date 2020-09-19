@@ -37,7 +37,7 @@
     i{
         font-size:4.5rem;
         margin:5%;
-        color: #fff8e4;
+        color: #fff;
         padding:20px;
         text-shadow: 1px 1px 1px black;
     }
@@ -56,5 +56,12 @@
                 content: "-";
             }
         }
+    }
+}
+
+@media (max-width:460px)
+{
+    .cvContent .side{
+        width: 100%;
     }
 }
