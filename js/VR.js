@@ -4,6 +4,8 @@ import { OrbitControls } from '/node_modules/three/examples/jsm/controls/OrbitCo
 //manuBottom
 import menuBottomExpander from './menuBottom';
 
+import { convertImage } from './utils'
+
 //import pictures
 import * as image1 from '/projects/Projekt-2.jpg';
 import * as image2 from '/projects/Projekt-1.jpg';
@@ -20,13 +22,20 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
 let skySpheres = [];//lista miejsc
 let skySphereSrc = [image1.default, image2.default, image3.default];
-for (const src of skySphereSrc) {
-    skySpheres.push(createSkysphere(src));
-}
+// for (const src of skySphereSrc) {
+//     skySpheres.push(createSkysphere(src));
+// }
+
+fetch('https://cms-for-w-w.herokuapp.com/pics')
+    .then(response => response.json())
+    .then(data => {
+        skySphereSrc = data.map((image) => convertImage(image.img.data))
+        skySpheres = skySphereSrc.map((image) => createSkysphere(image))
+        scene.add(skySpheres[0]);
+    }).catch(err => console.log(err));
+
 
 //actualna sfera
-scene.add(skySpheres[0]);
-
 var controls = new OrbitControls(camera, renderer.domElement); //poruszanie się za pomocą myszki
 controls.minDistance = 500;
 controls.maxDistance = 100000;
@@ -76,8 +85,6 @@ function initChange() {
         image.src = sphere;
         wizka.appendChild(image);
 
-        wizka.classList.add(i.toString());
-
         let blankiet = document.createElement('div');
         blankiet.classList.add('blankiet');
         wizka.appendChild(blankiet);
@@ -88,11 +95,8 @@ function initChange() {
 
         wizka.addEventListener('click', function () {
 
-            let index = this.classList[1];
-            for (const sphere of skySpheres)
-                scene.remove(sphere);
-
-            scene.add(skySpheres[index]);
+            skySpheres.forEach(sphere => { scene.remove(sphere); })
+            scene.add(createSkysphere(sphere));
             menuBottomExpander.hide();
         });
     })
