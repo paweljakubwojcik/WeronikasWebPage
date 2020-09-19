@@ -7,12 +7,6 @@ import makeTilt from './tilt';
 
 import { convertImage } from './utils'
 
-//import pictures
-import * as image1 from '/projects/Projekt-2.jpg';
-import * as image2 from '/projects/Projekt-1.jpg';
-import * as image3 from '/projects/Projekt-3.jpg';
-
-
 var scene = new THREE.Scene();
 var aspectRatio = window.innerWidth / window.innerHeight;
 var camera = new THREE.PerspectiveCamera(80, aspectRatio, 0.1, 300000);
