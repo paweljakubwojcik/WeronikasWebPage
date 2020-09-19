@@ -1,4 +1,4 @@
-import getPosition from './utils';
+import { getPosition, convertImage } from './utils';
 import makeTilt from './tilt';
 import Tween from 'gsap';
 
@@ -164,18 +164,9 @@ function nextImage(isForward) {
         fullSizeImage.src = nextImage.src;
         fullSizeImage.setAttribute('data-id', nextImage.getAttribute('data-id'))
         // text.innerHTML = nextImage.getAttribute('data-text');
+    } else {
+        //zamknij modal
+        let modal = document.querySelector('.modal')
+        modal.classList.remove('open');
     }
-}
-
-function convertImage(BufferData) {
-
-    let TYPED_ARRAY = new Uint8Array(BufferData);
-
-    const STRING_CHAR = TYPED_ARRAY.reduce((data, byte) => {
-        return data + String.fromCharCode(byte);
-    }, '');
-
-    let base64String = btoa(STRING_CHAR);
-
-    return 'data:image/jpg;base64,' + base64String;
 }
