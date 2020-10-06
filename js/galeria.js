@@ -3,20 +3,27 @@ import { makeTiltOne } from './tilt';
 import Tween from 'gsap';
 
 
-
+const cmsBaseURL = 'https://cms-strapi-weronika-wojcik.herokuapp.com'
 let images, modal, fullSizeImage, text, folders;
 
 export default {
     init() {
         initModal()
-        fetch('https://cms-for-w-w.herokuapp.com/folders')
+        // fetch('https://cms-for-w-w.herokuapp.com/folders')
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         //insertPictures(data)
+
+
+
+
+        //     })
+        //     .catch(err => console.log(err));
+        fetch(`${cmsBaseURL}/folders`)
             .then(response => response.json())
             .then(data => {
                 insertPictures(data)
-
-
                 initFolders();
-
             })
             .catch(err => console.log(err));
     }
@@ -25,7 +32,6 @@ export default {
 
 //inicjalizuje zachowania obrazków
 function initPicture(image) {
-    images = document.querySelectorAll('.obrazek img');
     modal = document.querySelector('.modal');
     fullSizeImage = document.querySelector('.modal img');
     // text = document.querySelector('.modal p');
@@ -40,7 +46,7 @@ function initPicture(image) {
     image.addEventListener('click', () => {
         let id = image.getAttribute('data-id');
         modal.classList.add('open');
-        fullSizeImage.src = image.src;
+        fullSizeImage.src = image.getAttribute('data-full-size');
         fullSizeImage.setAttribute('data-id', id)
         //text.innerHTML = image.getAttribute('data-text');
 
@@ -74,38 +80,27 @@ function insertPictures(data) {
         folderElement.classList.add('collapsed')
 
         let p = document.createElement('p')
-        p.innerHTML = folder.title;
+        p.innerHTML = folder.Name;
         folderElement.appendChild(p)
 
         let index = 0;
 
-        folder.items.forEach(picture => {
+        folder.Pics.forEach(pic => {
 
-            fetch(`https://cms-for-w-w.herokuapp.com/folders/${picture}`)
-                .then(response => response.json())
-                .then(pic => {
-
-                    index++;
-                    let obrazekElement = document.createElement('div')
-                    obrazekElement.classList.add('obrazek')
+            let obrazekElement = document.createElement('div')
+            obrazekElement.classList.add('obrazek')
 
 
-                    let img = document.createElement('img')
-                    img.setAttribute('src', convertImage(pic.img.data))
-                    img.setAttribute('data-alt', 'obrazek')
-                    img.setAttribute('data-text', pic.title)
-                    img.setAttribute('data-id', pic._id)
+            let img = document.createElement('img')
+            img.setAttribute('src', `${cmsBaseURL}${pic.formats.small.url}`)
+            img.setAttribute('data-alt', 'obrazek')
+            img.setAttribute('data-text', pic.name)
+            img.setAttribute('data-id', pic._id)
+            img.setAttribute('data-full-size', `${cmsBaseURL}${pic.url}`)
 
-                    obrazekElement.appendChild(img)
-                    folderElement.appendChild(obrazekElement)
-                    initPicture(img)
-                    //na koniec
-                    if (index === folder.items.length)
-                        ;
-                })
-                .catch(err => console.log(err));
-
-
+            obrazekElement.appendChild(img)
+            folderElement.appendChild(obrazekElement)
+            initPicture(img)
         })
 
         galeria.appendChild(folderElement)
@@ -153,19 +148,22 @@ function initFolders() {
  * @param {boolean} isForward - default is true
  */
 function nextImage(isForward) {
+    let images = document.querySelectorAll('.obrazek img');
     let forward = isForward;
     let fullSizeImage = document.querySelector('.modal img')
+    console.log(fullSizeImage.getAttribute('data-id'))
 
     //find image which is being displayed
-    let theImage = Array.from(images).filter((element) => {
+    let theImage = Array.from(images).find((element) => {
         return element.getAttribute('data-id') === fullSizeImage.getAttribute('data-id');
     });
+    console.log(images)
     //find the next or previous image
-    let nextImage = forward ? theImage[0].parentElement.nextElementSibling : theImage[0].parentElement.previousElementSibling;
-    if (nextImage.localName === 'div') {
+    let nextImage = forward ? theImage.parentElement.nextElementSibling : theImage.parentElement.previousElementSibling;
+    if (nextImage && nextImage.localName === 'div') {
         //replace current image with found one
         nextImage = nextImage.firstElementChild;
-        fullSizeImage.src = nextImage.src;
+        fullSizeImage.src = nextImage.getAttribute('data-full-size');
         fullSizeImage.setAttribute('data-id', nextImage.getAttribute('data-id'))
         // text.innerHTML = nextImage.getAttribute('data-text');
     } else {
