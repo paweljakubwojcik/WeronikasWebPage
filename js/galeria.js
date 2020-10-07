@@ -5,29 +5,31 @@ import { cmsBaseURL } from './config'
 
 
 let images, modal, fullSizeImage, text, folders;
+let quantity = 0;
+const imagesPerPage = 12;
 
 export default {
     init() {
         initModal()
-        // fetch('https://cms-for-w-w.herokuapp.com/folders')
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         //insertPictures(data)
 
-
-
-
-        //     })
-        //     .catch(err => console.log(err));
-        fetch(`${cmsBaseURL}/folders`)
-            .then(response => response.json())
-            .then(data => {
-                insertPictures(data)
-                initFolders();
-            })
-            .catch(err => console.log(err));
+        fetchPictures()
+        window.addEventListener('scroll', () => {
+            if (window.scrollY + window.innerHeight - document.querySelector('.wrapper').clientHeight > -1)
+                fetchPictures()
+        })
     }
 }
+
+function fetchPictures() {
+    fetch(`${cmsBaseURL}/folders?_start=${quantity}&_limit=${imagesPerPage}`)
+        .then(response => response.json())
+        .then(data => {
+            insertPictures(data)
+            quantity = document.querySelectorAll('.folder').length
+        })
+        .catch(err => console.log(err));
+}
+
 
 
 //inicjalizuje zachowania obrazków
@@ -104,6 +106,8 @@ function insertPictures(data) {
         })
 
         galeria.appendChild(folderElement)
+
+        initFolders(folderElement);
     })
 }
 
@@ -112,35 +116,35 @@ function insertPictures(data) {
 /**
  * inicjalizuje zachowanie folderów
  */
-function initFolders() {
-    folders = document.querySelectorAll('.folder')
-    folders.forEach(folder => {
-
-        // Tween.fromTo(folder,.4,{
-        //     opacity:0,
-        //     filter: 'blur(100px)'
-        // },{
-        //     opacity:1,
-        //     filter: 'blur(0px)'
-        // }).delay(.7)
-
-        //this is definetly NOT way to do that
-        folder.addEventListener('animationend', () => {
-            folder.style.animation = '';
-        })
-        folder.addEventListener('animationcancel', () => {
-            folder.style.animation = '';
-            folder.style.animation = 'folderUnwrap .3s';
-        })
+function initFolders(folder) {
 
 
-        folder.addEventListener('click', function (e) {
-            if (e.target == this) {
-                folder.classList.toggle('collapsed')
-                //folder.style.animation = 'folderUnwrap .3s';
-            }
-        })
+
+    // Tween.fromTo(folder,.4,{
+    //     opacity:0,
+    //     filter: 'blur(100px)'
+    // },{
+    //     opacity:1,
+    //     filter: 'blur(0px)'
+    // }).delay(.7)
+
+    //this is definetly NOT way to do that
+    folder.addEventListener('animationend', () => {
+        folder.style.animation = '';
     })
+    folder.addEventListener('animationcancel', () => {
+        folder.style.animation = '';
+        folder.style.animation = 'folderUnwrap .3s';
+    })
+
+
+    folder.addEventListener('click', function (e) {
+        if (e.target == this) {
+            folder.classList.toggle('collapsed')
+            //folder.style.animation = 'folderUnwrap .3s';
+        }
+    })
+
 }
 
 /**
