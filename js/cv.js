@@ -33,11 +33,11 @@ export default {
                     section.querySelector('.content').innerHTML = element.contents
                     section.querySelector('.period').innerHTML =
                         `${element.start}  -  ${element.end ? element.end : 'obecnie'}`
-                    section.style.display = 'flex'
+
                     experience.appendChild(section)
 
                 });
-
+                template.style.display = 'none'
 
             })
             .catch(err => console.log(err));
@@ -52,11 +52,11 @@ export default {
                     section.querySelector('.content').innerHTML = element.Contents
                     section.querySelector('.period').innerHTML =
                         `${element.start}  -  ${element.end ? element.end : 'obecnie'}`
-                    section.style.display = 'flex'
+
                     education.appendChild(section)
 
                 });
-
+                template.style.display = 'none'
 
             })
             .catch(err => console.log(err));
