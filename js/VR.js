@@ -103,12 +103,13 @@ function initChange() {
 export default {
     init() {
         const cmsBaseURL = 'https://cms-strapi-weronika-wojcik.herokuapp.com'
+        console.log(cmsBaseURL + '/360-pics')
         if (skySpheres.length === 0) {
             fetch(cmsBaseURL + '/360-pics')
                 .then(response => response.json())
                 .then(data => {
-                    skySphereSrc = data.map((image) => cmsBaseURL + image.img.url)
-                    skySpheres = skySphereSrc.map((image) => createSkysphere(image))
+                    skySphereSrc = data.map((image) => cmsBaseURL + image.img.formats.small.url)
+                    skySpheres = data.map((image) => createSkysphere(cmsBaseURL + image.img.url))
                     scene.add(skySpheres[0]);
                     document.querySelector('.loader').remove();
                     initChange();
