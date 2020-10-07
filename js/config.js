@@ -1,0 +1,1 @@
+export const cmsBaseURL = 'https://cms-strapi-weronika-wojcik.herokuapp.com'

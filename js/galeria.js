@@ -1,9 +1,9 @@
 import { getPosition, convertImage } from './utils';
 import { makeTiltOne } from './tilt';
 import Tween from 'gsap';
+import { cmsBaseURL } from './config'
 
 
-const cmsBaseURL = 'https://cms-strapi-weronika-wojcik.herokuapp.com'
 let images, modal, fullSizeImage, text, folders;
 
 export default {

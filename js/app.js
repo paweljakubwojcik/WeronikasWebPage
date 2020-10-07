@@ -1,6 +1,7 @@
 import Highway from '/node_modules/@dogstudio/highway/build/highway.module.js';
 import Transition from './transition';
 import VR from './VR';
+import CV from './cv'
 
 
 import menu from './menu';
@@ -42,7 +43,7 @@ function loadComponents(location) {
     let burger = document.querySelector('.burger');
     upbar.classList.add('casualbar');
     upbar.classList.remove('homebar');
-    
+
     burger.classList.remove('hidden');
 
     switch (location) {
@@ -58,12 +59,15 @@ function loadComponents(location) {
         case 'galeria.html':
             galeria.init();
             break;
+        case 'CV.html':
+            CV.init();
+            break;
     }
 
     let name = location.replace('.html', '').toUpperCase();
     let element = document.querySelector('.backgroundElement')
     element.classList.remove('HOME', 'WIZUALIZACJE', 'KONTAKT', 'GALERIA', 'CV');
-    if (name === 'INDEX'||name==='')
+    if (name === 'INDEX' || name === '')
         element.classList.add('HOME')
     else
         element.classList.add(name)
