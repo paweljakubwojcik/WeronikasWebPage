@@ -11,23 +11,23 @@ const imagesPerPage = 12;
 export default {
     init() {
         initModal()
-
         fetchPictures()
-        window.addEventListener('scroll', () => {
-            if (window.scrollY + window.innerHeight - document.querySelector('.wrapper').clientHeight > -1)
-                fetchPictures()
-        })
     }
 }
 
 function fetchPictures() {
-    fetch(`${cmsBaseURL}/folders?_start=${quantity}&_limit=${imagesPerPage}`)
-        .then(response => response.json())
-        .then(data => {
-            insertPictures(data)
-            quantity = document.querySelectorAll('.folder').length
-        })
-        .catch(err => console.log(err));
+    if (window.scrollY + window.innerHeight - document.querySelector('.wrapper').clientHeight > -2) {
+
+        window.removeEventListener('scroll', fetchPictures)
+        fetch(`${cmsBaseURL}/folders?_start=${quantity}&_limit=${imagesPerPage}`)
+            .then(response => response.json())
+            .then(data => {
+                insertPictures(data)
+                quantity = document.querySelectorAll('.folder').length
+                window.addEventListener('scroll', fetchPictures)
+            })
+            .catch(err => console.log(err));
+    }
 }
 
 
