@@ -18,13 +18,30 @@ export default {
 function fetchPictures() {
     if (window.scrollY + window.innerHeight - document.querySelector('.wrapper').clientHeight > -2) {
 
+        let galeria = document.querySelector('.Galeria')
+        let loaderContainer = document.createElement('div')
+        loaderContainer.classList.add('loader--container')
+
+        let loader = document.createElement('div')
+        loader.classList.add('loader')
+        loader.classList.add('loader--galeria')
+        loaderContainer.appendChild(loader)
+
+        for (let i = 0; i < 4; i++) {
+            loader.appendChild(document.createElement('span'))
+        };
+        galeria.appendChild(loaderContainer)
+
         window.removeEventListener('scroll', fetchPictures)
+
         fetch(`${cmsBaseURL}/folders?_start=${quantity}&_limit=${imagesPerPage}`)
             .then(response => response.json())
             .then(data => {
                 insertPictures(data)
                 quantity = document.querySelectorAll('.folder').length
-                window.addEventListener('scroll', fetchPictures)
+                if (data.length !== 0)
+                    window.addEventListener('scroll', fetchPictures)
+                loaderContainer.remove()
             })
             .catch(err => console.log(err));
     }
