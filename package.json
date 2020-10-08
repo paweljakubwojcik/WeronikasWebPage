@@ -4,8 +4,8 @@
   "description": "stronka",
   "main": "app.js",
   "scripts": {
-    "serve": "parcel index.html",
-    "serve-on-remote": "parcel index.html --public-url ./",
+    "dev": "parcel index.html",
+    "dev-on-remote": "parcel index.html --public-url ./",
     "build": "parcel build index.html --public-url ./ --out-dir docs"
   },
   "author": "Paweł Wójcik",
@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "cssnano": "^4.1.10",
+    "parcel": "^1.12.4",
     "sass": "^1.26.10"
   }
 }
