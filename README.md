@@ -22,8 +22,14 @@ builds project:
 ```bash
 npm run build
 ```
-    default output directory is ./docs 
-    note: before each build it is neccesary to empty ./docs folder
+default output directory of build is `./docs` 
+to change it you can edit `./package.json` file
+```json
+"scripts": {
+    "build": "parcel build index.html --public-url ./ --out-dir <your output folder>"
+  },
+```
+**note:** before each build it is neccesary to empty the output folder
 
 ## What i've learned
 - Modules in javascript
