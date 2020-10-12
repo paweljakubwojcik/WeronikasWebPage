@@ -10,13 +10,14 @@ const imagesPerPage = 12;
 
 export default {
     init() {
+        quantity = document.querySelectorAll('.folder').length;
         initModal()
         fetchPictures()
     }
 }
 
 function fetchPictures() {
-    if (window.scrollY + window.innerHeight - document.querySelector('.wrapper').clientHeight > -2) {
+    if (window.scrollY + window.innerHeight - document.querySelector('.wrapper').clientHeight > -2 || quantity === 0) {
 
         let galeria = document.querySelector('.Galeria')
         let loaderContainer = document.createElement('div')
