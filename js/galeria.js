@@ -13,6 +13,9 @@ export default {
         quantity = document.querySelectorAll('.folder').length;
         initModal()
         fetchPictures()
+    },
+    clean() {
+        window.removeEventListener('scroll', fetchPictures)
     }
 }
 

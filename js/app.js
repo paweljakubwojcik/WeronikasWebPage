@@ -46,7 +46,9 @@ function loadComponents(location) {
 
     burger.classList.remove('hidden');
 
+    galeria.clean()
     switch (location) {
+
         case '':
             upbar.classList.add('homebar');
             upbar.classList.remove('casualbar');
