@@ -32,7 +32,6 @@ function fetchPictures() {
             loader.appendChild(document.createElement('span'))
         };
         galeria.appendChild(loaderContainer)
-
         window.removeEventListener('scroll', fetchPictures)
 
         fetch(`${cmsBaseURL}/folders?_start=${quantity}&_limit=${imagesPerPage}`)
@@ -76,6 +75,8 @@ function initPicture(image) {
 function initModal() {
     modal = document.querySelector('.modal');
     fullSizeImage = document.querySelector('.modal img');
+    let arrowRight = document.querySelector('.arrow--right')
+    let arrowLeft = document.querySelector('.arrow--left')
     modal.addEventListener('click', (e) => {
         if (e.target.classList.contains('modal'))
             modal.classList.remove('open');
@@ -85,6 +86,22 @@ function initModal() {
             else
                 nextImage(false);
         }
+    })
+    fullSizeImage.addEventListener('mousemove', (e) => {
+        if (getPosition(fullSizeImage).left - e.x < 0) {
+            arrowRight.style.opacity = '1'
+            arrowLeft.style.opacity = '0'
+        }
+        else {
+            arrowRight.style.opacity = '0'
+            arrowLeft.style.opacity = '1'
+        }
+    })
+    fullSizeImage.addEventListener('mouseleave', (e) => {
+
+        arrowRight.style.opacity = '0'
+        arrowLeft.style.opacity = '0'
+
     })
 }
 
@@ -102,6 +119,10 @@ function insertPictures(data) {
         let p = document.createElement('p')
         p.innerHTML = folder.Name;
         folderElement.appendChild(p)
+
+        let x = document.createElement('span')
+        x.classList.add('iks')
+        p.appendChild(x)
 
         let index = 0;
 
@@ -157,8 +178,14 @@ function initFolders(folder) {
 
 
     folder.addEventListener('click', function (e) {
-        if (e.target == this) {
-            folder.classList.toggle('collapsed')
+        if (e.target === this) {
+            folder.classList.remove('collapsed')
+            //folder.style.animation = 'folderUnwrap .3s';
+        }
+    })
+    folder.querySelector('.iks').addEventListener('click', function (e) {
+        if (e.target === this) {
+            folder.classList.add('collapsed')
             //folder.style.animation = 'folderUnwrap .3s';
         }
     })

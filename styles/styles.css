@@ -37,6 +37,13 @@ body {
   overflow-x: hidden;
 }
 
+h1, h2, h3 {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  padding: 0;
+}
+
 a {
   pointer-events: all;
   font-weight: 900;
@@ -113,12 +120,13 @@ a:hover {
 
 .upbar {
   position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   z-index: 4;
   width: 40%;
-  min-width: 250px;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  height: unset;
+  font-size: 2rem;
+  min-width: 270px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -134,13 +142,14 @@ a:hover {
           justify-content: left;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  font-size: 32px;
   letter-spacing: 0.03em;
   -webkit-box-shadow: 18px 3px 20px #000F0E26;
           box-shadow: 18px 3px 20px #000F0E26;
   padding-top: 20px;
   padding-right: 30px;
   padding-bottom: 20px;
+  -webkit-transition: all .5s;
+  transition: all .5s;
 }
 
 .upbar:hover {
@@ -159,7 +168,7 @@ a:hover {
 
 .tittle {
   font-weight: 600;
-  font-size: 15px;
+  font-size: .9rem;
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
@@ -209,11 +218,11 @@ a:hover {
   transition: all .5s;
 }
 
-.burger:hover, .burger:focus {
+.burger:hover, .burger :focus {
   cursor: pointer;
 }
 
-.burger:hover::after, .burger:focus::after {
+.burger:hover::after, .burger :focus::after {
   opacity: 1;
   -webkit-transform: translate(2px, 2px);
           transform: translate(2px, 2px);
@@ -221,7 +230,7 @@ a:hover {
           filter: blur(1px);
 }
 
-.burger:hover::before, .burger:focus::before {
+.burger:hover::before, .burger :focus::before {
   opacity: 1;
   -webkit-transform: translate(-5px, -5px);
           transform: translate(-5px, -5px);
@@ -236,6 +245,9 @@ a:hover {
   transition: -webkit-transform .5s;
   transition: transform .5s;
   transition: transform .5s, -webkit-transform .5s;
+  border: 1px solid #0003;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .burger :nth-child(1) {
@@ -269,6 +281,10 @@ a:hover {
 .clickedBurger :nth-child(3) {
   -webkit-transform: rotateZ(-135deg) translateY(10px) translateX(5px);
           transform: rotateZ(-135deg) translateY(10px) translateX(5px);
+}
+
+.burger.hidden {
+  visibility: hidden;
 }
 
 .menu {
@@ -386,13 +402,54 @@ a:hover {
           filter: blur(1px);
 }
 
+.ElementWithBorder {
+  position: relative;
+  width: -webkit-min-content;
+  width: min-content;
+  width: -moz-min-content;
+}
+
+.ElementWithBorder::after, .ElementWithBorder::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 2px solid aliceblue;
+  z-index: 0;
+}
+
+.ElementWithBorder::after {
+  -webkit-transform: translate(-4%, -4%);
+          transform: translate(-4%, -4%);
+  -webkit-filter: blur(1px);
+          filter: blur(1px);
+}
+
+.ElementWithBorder::before {
+  -webkit-transform: translate(4%, 4%);
+          transform: translate(4%, 4%);
+  opacity: 1;
+  -webkit-filter: blur(1px);
+          filter: blur(1px);
+}
+
+.ElementWithBorder:nth-child(2) {
+  position: relative;
+  z-index: 3;
+}
+
 .homeBackground {
-  background-color: #EED889;
+  background-image: url("../assets/Projekt-2.jpg");
+  -webkit-filter: blur(10px);
+          filter: blur(10px);
 }
 
 .backgroundElement.HOME {
-  -webkit-transform: translate(-150%, 50%);
-          transform: translate(-150%, 50%);
+  -webkit-transform: translate(-100%, 0);
+          transform: translate(-100%, 0);
 }
 
 @-webkit-keyframes appear {
@@ -401,7 +458,7 @@ a:hover {
     -webkit-transform: translateY(50vh);
             transform: translateY(50vh);
   }
-  tp {
+  to {
     opacity: 1;
     -webkit-transform: translateY(0);
             transform: translateY(0);
@@ -414,7 +471,7 @@ a:hover {
     -webkit-transform: translateY(50vh);
             transform: translateY(50vh);
   }
-  tp {
+  to {
     opacity: 1;
     -webkit-transform: translateY(0);
             transform: translateY(0);
@@ -438,6 +495,7 @@ a:hover {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
+  min-height: 70vh;
   font-family: 'Montserrat', sans-serif;
   text-shadow: none;
   font-size: 1em;
@@ -450,9 +508,44 @@ a:hover {
           box-sizing: border-box;
 }
 
+.upbar.homebar {
+  width: 100%;
+  height: 100vh;
+  font-size: 3rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.upbar.homebar .tittle {
+  margin-top: 15px;
+}
+
+.upbar.homebar .tittle::before {
+  content: "";
+}
+
+@media (min-width: 740px) {
+  .upbar.homebar {
+    padding-top: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .homeContent {
+    padding-top: 75px;
+  }
+}
+
 .about {
   width: 100%;
-  margin: 5% 0;
+  margin: 2% 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -469,13 +562,6 @@ a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.about:nth-of-type(2n) {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
 }
 
 .about img {
@@ -503,6 +589,7 @@ a:hover {
       -ms-flex-pack: center;
           justify-content: center;
   text-align: center;
+  margin: 20px;
   height: 10vh;
   pointer-events: all;
 }
@@ -643,12 +730,12 @@ canvas {
   bottom: 0;
   height: 100%;
   width: 100%;
-  padding-top: 70px;
+  padding-top: 80px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   font-family: "Playfair Display";
-  font-size: 15px;
+  font-size: 1rem;
   letter-spacing: 0.3em;
   opacity: 1;
   -webkit-transform: translate(0, 100vh);
@@ -670,9 +757,27 @@ canvas {
   scrollbar-width: none;
 }
 
+.wizContainer::-webkit-scrollbar {
+  height: 80%;
+  width: 10px;
+}
+
+.wizContainer::-webkit-scrollbar-track {
+  background: #00000044;
+}
+
+.wizContainer::-webkit-scrollbar-thumb {
+  background: #00000011;
+}
+
+.wizContainer::-webkit-scrollbar-thumb:hover {
+  background: #000000AA;
+}
+
 .wizka {
   position: relative;
   max-width: 350px;
+  max-height: 300px;
   margin: 30px;
   -ms-grid-column-align: center;
       justify-self: center;
@@ -766,24 +871,74 @@ canvas {
   border: 2px solid aliceblue;
   -webkit-transform-origin: left;
           transform-origin: left;
-  -webkit-transition: all .4s;
-  transition: all .4s;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
 }
 
 .folder p {
   font-weight: 900;
+  font-size: 1.1em;
   z-index: 2;
   padding: 0;
   margin: 0;
-  position: absolute;
+  position: relative;
   padding-left: 5px;
-  width: 50%;
+  width: 100%;
   pointer-events: none;
+}
+
+.folder .iks {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  display: block;
+  height: 200%;
+  width: 40px;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.folder .iks::after, .folder .iks::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: aliceblue;
+  width: 100%;
+  height: 2px;
+  top: 50%;
+  left: 0;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.folder .iks::after {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.folder .iks::before {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.folder .iks:hover::after {
+  -webkit-transform: rotate(225deg);
+          transform: rotate(225deg);
+}
+
+.folder .iks:hover::before {
+  -webkit-transform: rotate(-225deg);
+          transform: rotate(-225deg);
 }
 
 .folder.collapsed {
   z-index: 2;
   border: none;
+  cursor: pointer;
 }
 
 .folder.collapsed:hover {
@@ -821,12 +976,23 @@ canvas {
   left: 12px;
 }
 
+.folder.collapsed .obrazek img {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 .folder.collapsed p {
+  position: absolute;
   border: 2px solid aliceblue;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   top: 50%;
   left: 50%;
+  width: 50%;
+}
+
+.folder.collapsed p .iks {
+  display: none;
 }
 
 .obrazek {
@@ -840,8 +1006,8 @@ canvas {
   border: 3px solid aliceblue;
   -webkit-box-shadow: 0px 20px 20px #48484878;
           box-shadow: 0px 20px 20px #48484878;
-  -webkit-transition: all .1s;
-  transition: all .1s;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
 }
 
 .obrazek img:hover {
@@ -873,8 +1039,8 @@ canvas {
   opacity: 0;
   pointer-events: none;
   z-index: 11;
-  -webkit-transition: opacity .5s;
-  transition: opacity .5s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .modal img {
@@ -928,6 +1094,50 @@ canvas {
           filter: blur(1px);
 }
 
+.imgContainer .arrow {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  opacity: 0;
+  z-index: 100;
+  pointer-events: none;
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+}
+
+.imgContainer .arrow::after, .imgContainer .arrow::before {
+  opacity: 0.5;
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: aliceblue;
+  width: 20%;
+  height: 3px;
+  border-radius: 6px;
+  top: 50%;
+  left: -10%;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+.imgContainer .arrow::after {
+  -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
+}
+
+.imgContainer .arrow::before {
+  -webkit-transform: rotateZ(-45deg);
+          transform: rotateZ(-45deg);
+}
+
+.imgContainer .arrow--right {
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
 .open {
   opacity: 1;
   pointer-events: all;
@@ -947,32 +1157,6 @@ canvas {
   }
 }
 
-@-webkit-keyframes folderUnwrap {
-  0% {
-    -webkit-transform: scaleX(0.1) scaleY(0.1);
-            transform: scaleX(0.1) scaleY(0.1);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: scaleX(1) scaleY(1);
-            transform: scaleX(1) scaleY(1);
-    opacity: 1;
-  }
-}
-
-@keyframes folderUnwrap {
-  0% {
-    -webkit-transform: scaleX(0.1) scaleY(0.1);
-            transform: scaleX(0.1) scaleY(0.1);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: scaleX(1) scaleY(1);
-            transform: scaleX(1) scaleY(1);
-    opacity: 1;
-  }
-}
-
 .kontaktBackground {
   background-color: #72ae8a;
 }
@@ -980,22 +1164,6 @@ canvas {
 .backgroundElement.KONTAKT {
   -webkit-transform: translate(-50%, 50%);
           transform: translate(-50%, 50%);
-}
-
-.formWrapper {
-  pointer-events: none;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
 @-webkit-keyframes appearPseudoElements {
@@ -1021,6 +1189,7 @@ canvas {
 .kontaktContent {
   color: aliceblue;
   width: 70%;
+  font-size: 1.25rem;
 }
 
 .kontaktContent .about {
@@ -1028,16 +1197,255 @@ canvas {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin: 2%;
+}
+
+.kontaktContent .about a {
+  width: auto;
+  min-width: 200px;
+  -webkit-transition: text-shadow .5s;
+  transition: text-shadow .5s;
+}
+
+.kontaktContent .about a::before, .kontaktContent .about a::after {
+  content: unset;
+  border: none;
+}
+
+.kontaktContent .about a:hover {
+  text-shadow: 10px 10px 2px aliceblue, -10px -10px 1px aliceblue;
+}
+
+.kontaktContent .about i {
+  font-size: 3rem;
 }
 
 .kontaktContent .about p {
   margin: auto;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
+  max-width: 100vw;
 }
 
-.showed {
+@media (max-width: 600px) {
+  .kontaktContent {
+    font-size: 0.75rem;
+  }
+}
+
+.cvBackground {
+  background-color: #e1d386;
+}
+
+.backgroundElement.CV {
+  -webkit-transform: translate(-150%, 50%);
+          transform: translate(-150%, 50%);
+}
+
+.cvContent {
+  font-size: 0.8em;
+  width: 90%;
+  max-width: 1400px;
+}
+
+.cvContent .about {
+  margin: 5% 0;
+}
+
+.cvContent .about:nth-of-type(2n) p {
+  text-align: right;
+}
+
+.cvContent .about:nth-of-type(2n) ul {
+  text-align: right;
+}
+
+.cvContent h2 {
+  font-size: 1.2rem;
+}
+
+.cvContent header, .cvContent h3, .cvContent h2 {
+  width: 100%;
+  text-align: center;
+  letter-spacing: 0.2em;
+  border-bottom: 1px solid black;
+}
+
+.cvContent .side {
+  width: 70%;
+}
+
+.cvContent i {
+  font-size: 4.5rem;
+  margin: 5%;
+  color: #fff;
+  padding: 20px;
+  text-shadow: 1px 1px 1px black;
+}
+
+.cvContent article {
+  width: 100%;
+}
+
+.cvContent p {
+  max-width: none;
+}
+
+.cvContent ul {
+  padding: 0;
+}
+
+.cvContent ul li {
+  list-style-type: none;
+}
+
+.cvContent ul li::before {
+  content: "-";
+}
+
+@media (max-width: 460px) {
+  .cvContent .side {
+    width: 100%;
+  }
+}
+
+.loader {
+  display: block;
+  width: 100vmin;
+  height: 100vmin;
+  position: fixed;
+  z-index: 100;
+}
+
+.loader--galeria {
+  position: relative;
+  width: 30vmin;
+  height: 30vmin;
+}
+
+.loader--container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.loader > span {
+  position: absolute;
+  left: 57%;
+  top: 55%;
+  display: block;
+  width: 10%;
+  height: 10%;
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+  -webkit-animation: rotation 4s infinite;
+          animation: rotation 4s infinite;
+  -webkit-animation-timing-function: cubic-bezier(0.36, 0.69, 0.65, 0.3);
+          animation-timing-function: cubic-bezier(0.36, 0.69, 0.65, 0.3);
+  -webkit-transform-origin: -75% -75%;
+          transform-origin: -75% -75%;
+}
+
+.loader > span::after {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  content: "";
+  display: block;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -webkit-animation: grow 2s alternate infinite;
+          animation: grow 2s alternate infinite;
+}
+
+.loader > span:nth-of-type(2) {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+
+.loader > span:nth-of-type(2)::after {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+
+.loader > span:nth-of-type(3) {
+  -webkit-animation-delay: 1.2s;
+          animation-delay: 1.2s;
+}
+
+.loader > span:nth-of-type(3)::after {
+  -webkit-animation-delay: 1.2s;
+          animation-delay: 1.2s;
+}
+
+.loader > span:nth-of-type(4) {
+  -webkit-animation-delay: 1.8s;
+          animation-delay: 1.8s;
+}
+
+.loader > span:nth-of-type(4)::after {
+  -webkit-animation-delay: 1.8s;
+          animation-delay: 1.8s;
+}
+
+@-webkit-keyframes rotation {
+  0% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  100% {
+    -webkit-transform: rotate(400deg);
+            transform: rotate(400deg);
+  }
+}
+
+@keyframes rotation {
+  0% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  100% {
+    -webkit-transform: rotate(400deg);
+            transform: rotate(400deg);
+  }
+}
+
+@-webkit-keyframes grow {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+}
+
+@keyframes grow {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+}
+
+.menu.showed {
+  opacity: 1;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+  pointer-events: all;
+}
+
+.menuBottom.showed {
   opacity: 1;
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0);
@@ -1049,14 +1457,14 @@ canvas {
   z-index: 4;
   bottom: 0;
   width: 100%;
-  font-size: 10px;
+  font-size: 0.625rem;
   text-align: center;
   background-color: black;
 }
 
 @media (max-width: 800px) {
   .upbar {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
 }
 
