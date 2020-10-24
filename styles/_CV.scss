@@ -1,67 +1,102 @@
-.cvBackground
-{
+.cvBackground {
     background-color: #e1d386;
 }
-.backgroundElement.CV{
-    transform:translate(-150%,50%);
+.backgroundElement.CV {
+    transform: translate(-150%, 50%);
 }
 
-.cvContent{
-    font-size:0.8em;
-    width:90%;
+.cvContent {
+    font-size: 0.8em;
+    width: 90%;
     max-width: 1400px;
-    .about{
-        &:nth-of-type(2n){
-            //flex-direction: row-reverse;
-            p{
-                text-align: right;
-            }
-            ul{
-                text-align: right;
-            }
-        }
-        margin:5% 0;
+    .about {
+        margin: 2% 4%;
+        flex: 1;
+        width: 30%;
+        min-width: 400px;
+        max-width: 800px;
     }
-    h2{
-        font-size:1.2rem;
+    h2 {
+        font-size: 1.2rem;
     }
-    header,h3,h2{
+    header,
+    h3,
+    h2 {
+        font-size: 1.3em;
         width: 100%;
         text-align: center;
         letter-spacing: 0.2em;
-        border-bottom:1px solid black;
+        border-bottom: 1px solid black;
+        position: relative;
+        i {
+            position: absolute;
+            opacity: 0.3;
+            top: -0.5em;
+            left: 50%;
+            z-index: -1;
+            transform: translateX(-50%);
+        }
     }
-    .side{
-        width:70%;
-    }
-    i{
-        font-size:4.5rem;
-        margin:5%;
+    i {
+        font-size: 8em;
         color: #fff;
-        padding:20px;
-        text-shadow: 1px 1px 1px black;
     }
-    article{
+    article {
         width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
-    p{
+    p {
         max-width: none;
-
     }
-    ul{
-        padding:0;
-        li{
+    ul {
+        padding: 0;
+        li {
             list-style-type: none;
-            &::before{
+            &::before {
                 content: "-";
             }
         }
     }
 }
 
-@media (max-width:460px)
-{
-    .cvContent .side{
+.hero {
+    flex-direction: row-reverse;
+}
+
+@media (max-width: 460px) {
+    .cvContent .side {
         width: 100%;
+    }
+}
+
+.sectionHeader {
+    margin: 3% 0;
+}
+
+.asset {
+    font-size: 1.3em;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 0.2em;
+    position: relative;
+}
+
+.dots {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.3;
+    display: flex;
+    z-index: -1;
+    span {
+        display: block;
+        border-radius: 50%;
+        background-color: #fff;
+        width: 2em;
+        height: 2em;
+        margin: 2%;
     }
 }

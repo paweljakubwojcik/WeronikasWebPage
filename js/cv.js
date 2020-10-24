@@ -61,13 +61,21 @@ export default {
 
             })
             .catch(err => console.log(err));
-        fetch(`${cmsBaseURL}/assets?_sort=start:DESC`)
+
+        fetch(`${cmsBaseURL}/assets?_sort=Kropeczki:DESC`)
             .then(response => response.json())
             .then(data => {
                 let template = assets.querySelector('.about')
                 data.forEach(element => {
                     let section = template.cloneNode(true)
-                    section.querySelector('header').innerHTML = element.asset
+                    let asset = section.querySelector('.asset')
+                    asset.innerHTML = element.asset
+                    let kropeczki = document.createElement('div')
+                    kropeczki.classList.add('dots')
+                    asset.appendChild(kropeczki)
+                    for (let i = 0; i < element.Kropeczki; i++) {
+                        kropeczki.appendChild(document.createElement('span'))
+                    }
 
                     assets.appendChild(section)
 
