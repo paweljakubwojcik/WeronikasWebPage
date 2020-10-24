@@ -10,7 +10,7 @@
     <link rel="icon" href='favicon.ico' type="image/x-icon">
     <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
     <link rel="stylesheet" href="styles/styles.scss">
-    
+
 </head>
 
 <body>
@@ -39,20 +39,21 @@
         <section class='nygus' data-router-view="kontakt">
 
             <div class="pageContent kontaktContent">
-                <section class='about'>
-                   
-                   <a href='mailto:w.wojcik.5721@gmail.com'><i class="fas fa-envelope"></i></a>
-                   <p>w.wojcik.5721@gmail.com</p>
-                </section>
-                <section class='about'>
-                    <a href="https://www.facebook.com/messages/t/weronika.wojcik.3363"><i class="fab fa-facebook-messenger"></i></a>
-                    <p>www.facebook.com/weronika.wojcik.3363/</p>
-                 </section>
-                 <section class='about'>
-                    
-                    <a href="tel:797 795 636"><i class="fas fa-phone-square"></i></a>
-                    <p>797 795 636</p>
-                 </section>
+                <form action="" class='contact__form'>
+                    <div class="contact__inputContainer">
+                        <input name="name" id="name" type="text" class="contact__input contact__name">
+                        <label for="name">Twoje imię</label>
+                    </div>
+                    <div class="contact__inputContainer">
+                        <input name="email" id="email" type="email" class="contact__input contact__email">
+                        <label for="email">Twój email</label>
+                    </div>
+                    <div class="contact__inputContainer contact__messageContainer">
+                        <textarea name="message" id="message" class="contact__input contact__message" wrap="soft"></textarea>
+                        <label for="massage">Wiadomość</label>
+                    </div>
+                    <button type="submit" class="contact__button">Wyślij</button>
+                </form>
             </div>
             <div class="background kontaktBackground"></div>
 

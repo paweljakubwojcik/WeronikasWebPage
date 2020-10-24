@@ -67,8 +67,6 @@ a:hover {
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
-  -webkit-filter: brightness(0.95);
-          filter: brightness(0.95);
 }
 
 .backgroundElement {
@@ -1166,66 +1164,120 @@ canvas {
           transform: translate(-50%, 50%);
 }
 
-@-webkit-keyframes appearPseudoElements {
-  from {
-    opacity: 0;
-    -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
-  }
-  to {
-  }
-}
-
-@keyframes appearPseudoElements {
-  from {
-    opacity: 0;
-    -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
-  }
-  to {
-  }
-}
-
 .kontaktContent {
   color: aliceblue;
   width: 70%;
   font-size: 1.25rem;
 }
 
-.kontaktContent .about {
-  -webkit-box-orient: horizontal;
+.contact__form {
+  width: 100%;
+  max-width: 800px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  margin: 2%;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
-.kontaktContent .about a {
-  width: auto;
-  min-width: 200px;
-  -webkit-transition: text-shadow .5s;
-  transition: text-shadow .5s;
+.contact__inputContainer {
+  max-width: 400px;
+  position: relative;
+  margin: 2% 0;
+  width: 100%;
 }
 
-.kontaktContent .about a::before, .kontaktContent .about a::after {
-  content: unset;
+.contact__inputContainer label {
+  position: absolute;
+  top: -0.5em;
+  left: 1em;
+  padding: 0.3em;
+  font-size: 0.6em;
+  background-color: #72ae8a;
+  padding: 0;
+  z-index: 10;
+  line-height: 1em;
+}
+
+.contact__messageContainer {
+  max-width: unset;
+}
+
+.contact__input {
+  background-color: transparent;
+  font-family: inherit;
+  color: inherit;
   border: none;
+  padding: 0.8em;
+  outline: none;
+  resize: none;
+  border: 1px solid #ffffffaa;
+  -webkit-transition: border-color 0.3s;
+  transition: border-color 0.3s;
+  width: 100%;
 }
 
-.kontaktContent .about a:hover {
-  text-shadow: 10px 10px 2px aliceblue, -10px -10px 1px aliceblue;
+.contact__input:focus {
+  border-color: #ffffff;
 }
 
-.kontaktContent .about i {
-  font-size: 3rem;
+.contact__message {
+  width: 100%;
+  height: 30vh;
 }
 
-.kontaktContent .about p {
-  margin: auto;
-  max-width: 100vw;
+.contact__button {
+  background-color: transparent;
+  font-family: inherit;
+  border: none;
+  outline: none;
+  color: inherit;
+  padding: 1em;
+  position: relative;
+  pointer-events: all;
+}
+
+.contact__button::after, .contact__button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid aliceblue;
+  -webkit-transition: opacity 0.6s, -webkit-transform 0.6s, -webkit-filter 0.6s;
+  transition: opacity 0.6s, -webkit-transform 0.6s, -webkit-filter 0.6s;
+  transition: transform 0.6s, opacity 0.6s, filter 0.6s;
+  transition: transform 0.6s, opacity 0.6s, filter 0.6s, -webkit-transform 0.6s, -webkit-filter 0.6s;
+}
+
+.contact__button::before {
+  opacity: 0;
+  border: 2px solid aliceblue;
+}
+
+.contact__button:hover::after, .contact__button:focus::after {
+  cursor: pointer;
+  -webkit-transform: translate(-0.5em, -0.5em);
+          transform: translate(-0.5em, -0.5em);
+  -webkit-filter: blur(1px);
+          filter: blur(1px);
+}
+
+.contact__button:hover::before, .contact__button:focus::before {
+  cursor: pointer;
+  -webkit-transform: translate(0.5em, 0.5em);
+          transform: translate(0.5em, 0.5em);
+  opacity: 1;
+  -webkit-filter: blur(1px);
+          filter: blur(1px);
 }
 
 @media (max-width: 600px) {
