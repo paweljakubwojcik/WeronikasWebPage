@@ -2,6 +2,7 @@ import Highway from '/node_modules/@dogstudio/highway/build/highway.module.js';
 import Transition from './transition';
 import VR from './VR';
 import CV from './cv'
+import email from './email'
 
 
 import menu from './menu';
@@ -63,6 +64,9 @@ function loadComponents(location) {
             break;
         case 'CV.html':
             CV.init();
+            break;
+        case 'kontakt.html':
+            email.init();
             break;
     }
 

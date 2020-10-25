@@ -1168,6 +1168,7 @@ canvas {
   color: aliceblue;
   width: 70%;
   font-size: 1.25rem;
+  height: 100%;
 }
 
 .contact__form {
@@ -1185,6 +1186,8 @@ canvas {
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  -webkit-animation: blur-in 1s ease;
+          animation: blur-in 1s ease;
 }
 
 .contact__inputContainer {
@@ -1286,6 +1289,22 @@ canvas {
   }
 }
 
+@-webkit-keyframes blur-in {
+  from {
+    -webkit-filter: blur(200px);
+            filter: blur(200px);
+    opacity: 0;
+  }
+}
+
+@keyframes blur-in {
+  from {
+    -webkit-filter: blur(200px);
+            filter: blur(200px);
+    opacity: 0;
+  }
+}
+
 .cvBackground {
   background-color: #e1d386;
 }
@@ -1381,6 +1400,9 @@ canvas {
 @media (max-width: 460px) {
   .cvContent .side {
     width: 100%;
+  }
+  .cvContent .about {
+    min-width: 280px;
   }
 }
 
