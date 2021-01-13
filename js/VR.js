@@ -108,8 +108,8 @@ export default {
             fetch(cmsBaseURL + '/360-pics')
                 .then(response => response.json())
                 .then(data => {
-                    skySphereSrc = data.map((image) => cmsBaseURL + image.img.formats.small.url)
-                    skySpheres = data.map((image) => createSkysphere(cmsBaseURL + image.img.url))
+                    skySphereSrc = data.map((image) => image.img.formats.small.url)
+                    skySpheres = data.map((image) => createSkysphere(image.img.url))
                     scene.add(skySpheres[0]);
                     document.querySelector('.loader').remove();
                     initChange();

@@ -20,7 +20,7 @@ export default {
         fetch(`${cmsBaseURL}/hero-image`)
             .then(response => response.json())
             .then(data => {
-                document.querySelector('.hero-image').src = cmsBaseURL + data.image.url
+                document.querySelector('.hero-image').src = data.image.url
             })
             .catch(err => console.log(err));
 

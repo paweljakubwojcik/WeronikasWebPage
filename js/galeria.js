@@ -37,7 +37,7 @@ function fetchPictures() {
         galeria.appendChild(loaderContainer)
         window.removeEventListener('scroll', fetchPictures)
 
-        fetch(`${cmsBaseURL}/folders?_start=${quantity}&_limit=${imagesPerPage}`)
+        fetch(`${cmsBaseURL}/projects?_start=${quantity}&_limit=${imagesPerPage}`)
             .then(response => response.json())
             .then(data => {
                 insertPictures(data)
@@ -120,7 +120,7 @@ function insertPictures(data) {
         folderElement.classList.add('collapsed')
 
         let p = document.createElement('p')
-        p.innerHTML = folder.Name;
+        p.innerHTML = folder.name;
         folderElement.appendChild(p)
 
         let x = document.createElement('span')
@@ -129,18 +129,18 @@ function insertPictures(data) {
 
         let index = 0;
 
-        folder.Pics.forEach(pic => {
+        folder.img.forEach(pic => {
 
             let obrazekElement = document.createElement('div')
             obrazekElement.classList.add('obrazek')
 
 
             let img = document.createElement('img')
-            img.setAttribute('src', `${cmsBaseURL}${pic.formats.small.url}`)
+            img.setAttribute('src', `${pic.formats.small.url}`)
             img.setAttribute('data-alt', 'obrazek')
             img.setAttribute('data-text', pic.name)
             img.setAttribute('data-id', pic._id)
-            img.setAttribute('data-full-size', `${cmsBaseURL}${pic.url}`)
+            img.setAttribute('data-full-size', `${pic.url}`)
 
             obrazekElement.appendChild(img)
             folderElement.appendChild(obrazekElement)
