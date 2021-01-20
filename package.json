@@ -13,7 +13,7 @@
   "dependencies": {
     "@dogstudio/highway": "^2.2.1",
     "@fortawesome/fontawesome-free": "^5.15.1",
-    "gsap": "^3.5.1",
+    "gsap": "^3.6.0",
     "three": "^0.119.1"
   },
   "devDependencies": {
